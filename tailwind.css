@@ -1,0 +1,400 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --brand-color-main: rgba(2, 60, 18, 1);
+  --brand-color-accent: rgba(212, 175, 55, 1);
+  --brand-color-accent-hover-light: rgba(212, 175, 55, 0.06);
+  --brand-color-main-hover-light: rgba(2, 60, 18, 0.06);
+  --button-button-default-font-family: "DM Sans", Helvetica;
+  --button-button-default-font-size: 14px;
+  --button-button-default-font-style: normal;
+  --button-button-default-font-weight: 700;
+  --button-button-default-letter-spacing: 0px;
+  --button-button-default-line-height: 100%;
+  --ecommerce-product-current-price-font-family: "DM Sans", Helvetica;
+  --ecommerce-product-current-price-font-size: 16px;
+  --ecommerce-product-current-price-font-style: normal;
+  --ecommerce-product-current-price-font-weight: 700;
+  --ecommerce-product-current-price-letter-spacing: 0px;
+  --ecommerce-product-current-price-line-height: 16px;
+  --ecommerce-product-old-price-font-family: "Archivo", Helvetica;
+  --ecommerce-product-old-price-font-size: 12px;
+  --ecommerce-product-old-price-font-style: normal;
+  --ecommerce-product-old-price-font-weight: 400;
+  --ecommerce-product-old-price-letter-spacing: 0px;
+  --ecommerce-product-old-price-line-height: normal;
+  --emailbrand-color-main: rgba(212, 175, 55, 1);
+  --emailfont-font-color-body: rgba(87, 87, 87, 1);
+  --emailfont-font-color-head: rgba(0, 0, 0, 1);
+  --emailfont-font-color-inv: rgba(255, 255, 255, 1);
+  --emailui-color-ui-01: rgba(255, 255, 255, 1);
+  --emailui-color-ui-04: rgba(223, 223, 223, 1);
+  --emailui-color-ui-05: rgba(132, 132, 143, 1);
+  --font-font-color-body: rgba(87, 87, 87, 1);
+  --font-font-color-head: rgba(0, 0, 0, 1);
+  --font-font-color-inv: rgba(255, 255, 255, 1);
+  --form-form-label-font-family: "Archivo", Helvetica;
+  --form-form-label-font-size: 12px;
+  --form-form-label-font-style: normal;
+  --form-form-label-font-weight: 700;
+  --form-form-label-letter-spacing: 0px;
+  --form-form-label-line-height: 16px;
+  --form-form-notes-font-family: "Archivo", Helvetica;
+  --form-form-notes-font-size: 12px;
+  --form-form-notes-font-style: normal;
+  --form-form-notes-font-weight: 400;
+  --form-form-notes-letter-spacing: 0px;
+  --form-form-notes-line-height: 18px;
+  --form-form-placeholder-font-family: "Archivo", Helvetica;
+  --form-form-placeholder-font-size: 14px;
+  --form-form-placeholder-font-style: normal;
+  --form-form-placeholder-font-weight: 400;
+  --form-form-placeholder-letter-spacing: 0px;
+  --form-form-placeholder-line-height: 16px;
+  --green-ins-color-green: rgba(36, 190, 141, 1);
+  --heading-heading-4-font-family: "DM Sans", Helvetica;
+  --heading-heading-4-font-size: 32px;
+  --heading-heading-4-font-style: normal;
+  --heading-heading-4-font-weight: 700;
+  --heading-heading-4-letter-spacing: 0.32px;
+  --heading-heading-4-line-height: 130%;
+  --heading-heading-5-font-family: "DM Sans", Helvetica;
+  --heading-heading-5-font-size: 24px;
+  --heading-heading-5-font-style: normal;
+  --heading-heading-5-font-weight: 700;
+  --heading-heading-5-letter-spacing: 0.24px;
+  --heading-heading-5-line-height: 130%;
+  --heading-heading-5-small-font-family: "DM Sans", Helvetica;
+  --heading-heading-5-small-font-size: 18px;
+  --heading-heading-5-small-font-style: normal;
+  --heading-heading-5-small-font-weight: 700;
+  --heading-heading-5-small-letter-spacing: 0.18px;
+  --heading-heading-5-small-line-height: 130%;
+  --paragraph-body-bold-font-family: "Archivo", Helvetica;
+  --paragraph-body-bold-font-size: 16px;
+  --paragraph-body-bold-font-style: normal;
+  --paragraph-body-bold-font-weight: 700;
+  --paragraph-body-bold-letter-spacing: 0px;
+  --paragraph-body-bold-line-height: 24px;
+  --paragraph-body-font-family: "Archivo", Helvetica;
+  --paragraph-body-font-size: 16px;
+  --paragraph-body-font-style: normal;
+  --paragraph-body-font-weight: 400;
+  --paragraph-body-letter-spacing: 0px;
+  --paragraph-body-line-height: 150%;
+  --paragraph-body-small-bold-font-family: "Archivo", Helvetica;
+  --paragraph-body-small-bold-font-size: 14px;
+  --paragraph-body-small-bold-font-style: normal;
+  --paragraph-body-small-bold-font-weight: 600;
+  --paragraph-body-small-bold-letter-spacing: 0px;
+  --paragraph-body-small-bold-line-height: 150%;
+  --paragraph-body-small-font-family: "Archivo", Helvetica;
+  --paragraph-body-small-font-size: 14px;
+  --paragraph-body-small-font-style: normal;
+  --paragraph-body-small-font-weight: 400;
+  --paragraph-body-small-letter-spacing: 0px;
+  --paragraph-body-small-line-height: 150%;
+  --paragraph-body-x-small-bold-font-family: "Archivo", Helvetica;
+  --paragraph-body-x-small-bold-font-size: 12px;
+  --paragraph-body-x-small-bold-font-style: normal;
+  --paragraph-body-x-small-bold-font-weight: 600;
+  --paragraph-body-x-small-bold-letter-spacing: 0px;
+  --paragraph-body-x-small-bold-line-height: 150%;
+  --paragraph-body-x-small-font-family: "Archivo", Helvetica;
+  --paragraph-body-x-small-font-size: 12px;
+  --paragraph-body-x-small-font-style: normal;
+  --paragraph-body-x-small-font-weight: 400;
+  --paragraph-body-x-small-letter-spacing: 0px;
+  --paragraph-body-x-small-line-height: 150%;
+  --paragraph-button-button-large-font-family: "Roboto", Helvetica;
+  --paragraph-button-button-large-font-size: 16px;
+  --paragraph-button-button-large-font-style: normal;
+  --paragraph-button-button-large-font-weight: 700;
+  --paragraph-button-button-large-letter-spacing: 0px;
+  --paragraph-button-button-large-line-height: 24px;
+  --paragraph-form-form-label-font-family: "Roboto", Helvetica;
+  --paragraph-form-form-label-font-size: 14px;
+  --paragraph-form-form-label-font-style: normal;
+  --paragraph-form-form-label-font-weight: 700;
+  --paragraph-form-form-label-letter-spacing: 0px;
+  --paragraph-form-form-label-line-height: 18px;
+  --paragraph-form-form-placeholder-font-family: "Work Sans", Helvetica;
+  --paragraph-form-form-placeholder-font-size: 14px;
+  --paragraph-form-form-placeholder-font-style: normal;
+  --paragraph-form-form-placeholder-font-weight: 400;
+  --paragraph-form-form-placeholder-letter-spacing: 0px;
+  --paragraph-form-form-placeholder-line-height: 16px;
+  --paragraph-UI-ui-tooltip-font-family: "Work Sans", Helvetica;
+  --paragraph-UI-ui-tooltip-font-size: 12px;
+  --paragraph-UI-ui-tooltip-font-style: normal;
+  --paragraph-UI-ui-tooltip-font-weight: 600;
+  --paragraph-UI-ui-tooltip-letter-spacing: 0px;
+  --paragraph-UI-ui-tooltip-line-height: 13px;
+  --primary-02: rgba(24, 24, 24, 1);
+  --shadow-shadow-level-1: 0px 4px 16px 0px rgba(0, 0, 0, 0.1);
+  --support-notifications-error: rgba(242, 75, 75, 1);
+  --support-notifications-warning-hover: rgba(204, 135, 0, 1);
+  --support-notifications-warning-hover-light: rgba(251, 172, 19, 0.1);
+  --text-02: rgba(75, 72, 86, 1);
+  --ui-color-ui-01: rgba(255, 255, 255, 1);
+  --ui-color-ui-02: rgba(249, 250, 251, 1);
+  --ui-color-ui-03: rgba(243, 244, 244, 1);
+  --ui-color-ui-04: rgba(223, 223, 223, 1);
+  --ui-color-ui-05: rgba(132, 132, 143, 1);
+  --ui-color-ui-08: rgba(0, 0, 0, 1);
+  --white-ins-color-white: rgba(255, 255, 255, 1);
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font Face Declarations */
+@font-face {
+  font-family: 'ThmanyahSerifDisplay';
+  src: url('/src/assets/fonts/thmanyahserifdisplay-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ThmanyahSerifText';
+  src: url('/src/assets/fonts/thmanyahseriftext-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TuskerGrotesk';
+  src: url('/fonts/TuskerGrotesk-6600Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 46 65% 11%;
+    --primary: 46 65% 52%;
+    --primary-foreground: 46 65% 98%;
+    --secondary: 46 65% 96%;
+    --secondary-foreground: 46 65% 11%;
+    --accent: 46 65% 96%;
+    --accent-foreground: 46 65% 11%;
+    --muted: 46 10% 96%;
+    --muted-foreground: 46 10% 46%;
+    --border: 46 20% 90%;
+    --input: 46 20% 90%;
+    --ring: 46 65% 52%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h2,
+  h3 {
+    font-family: 'TuskerGrotesk', sans-serif;
+  }
+
+  /* Global RTL Font Enforcement */
+  html[dir="rtl"] body {
+    font-family: 'ThmanyahSerifText', Arial, sans-serif;
+  }
+  
+  html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] h4, html[dir="rtl"] h5, html[dir="rtl"] h6,
+  html[dir="rtl"] .font-semibold, html[dir="rtl"] .font-bold {
+    font-family: 'ThmanyahSerifDisplay', Arial, sans-serif;
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 35s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 35s linear infinite;
+}
+
+.animate-scroll-left-slow {
+  animation: scroll-left 60s linear infinite;
+}
+
+.animate-scroll-right-slow {
+  animation: scroll-right 60s linear infinite;
+}
+.font-inter-important {
+  font-family: 'Inter', sans-serif !important;
+}
