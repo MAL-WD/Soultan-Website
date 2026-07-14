@@ -24,11 +24,11 @@ export const IntroductionSection = () => {
       className="relative w-full bg-neutral-100 pt-[80px] md:pt-[120px] pb-[60px] md:pb-[100px] px-6 sm:px-12 md:px-24 lg:px-32 overflow-hidden flex items-center justify-center"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* Gold Bullet Accent */}
+      {/* Gold Bullet Accent - moved lower, hidden on mobile */}
       <img
         src={ellipseImage}
         alt=""
-        className="absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none w-[350px] h-auto object-contain"
+        className="hidden md:block absolute top-2/3 left-0 -translate-y-1/2 pointer-events-none w-[280px] h-auto object-contain opacity-60"
         style={{ zIndex: 0 }}
       />
       {/* No top fade here, handled differently if needed */}
@@ -75,7 +75,7 @@ export const IntroductionSection = () => {
             letterSpacing={isRTL ? 0 : -2}
             duration={0.5}
             fontWeight={700}
-            fontFamily={isRTL ? 'ThmanyahSerifDisplay, ThmanyahSerifText, Arial, sans-serif' : 'Instrument Serif'}
+            fontFamily={isRTL ? 'ThmanyahSerifDisplay, ThmanyahSerifText, Arial, sans-serif' : 'Inter, Helvetica, sans-serif'}
             transitionStartIndex={isRTL ? 0 : 40}
             paragraphAlign="center"
             isRTL={isRTL}

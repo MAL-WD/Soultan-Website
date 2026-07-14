@@ -96,7 +96,7 @@ export const EmailSection = () => {
         className="
           w-full max-w-[1020px] mx-4 relative overflow-hidden
           rounded-[32px] border border-white/5
-          min-h-[480px] flex flex-col items-center justify-center
+          min-h-[380px] sm:min-h-[480px] flex flex-col items-center justify-center
           shadow-[0px_40px_100px_rgba(0,0,0,0.30)]
         "
         style={{
@@ -115,7 +115,7 @@ export const EmailSection = () => {
 
         {/* ── Left envelope ── */}
         <motion.div
-          className="absolute bottom-[-140px] left-[-60px] w-[340px] sm:w-[400px] md:w-[460px] pointer-events-none"
+          className="absolute bottom-[-80px] sm:bottom-[-140px] left-[-80px] sm:left-[-60px] w-[200px] sm:w-[340px] md:w-[420px] pointer-events-none"
           variants={envLeftEntry}
           initial="hidden"
           whileInView="visible"
@@ -128,7 +128,7 @@ export const EmailSection = () => {
 
         {/* ── Right envelope ── */}
         <motion.div
-          className="absolute bottom-[-140px] right-[-60px] w-[340px] sm:w-[400px] md:w-[460px] pointer-events-none"
+          className="absolute bottom-[-80px] sm:bottom-[-140px] right-[-80px] sm:right-[-60px] w-[200px] sm:w-[340px] md:w-[420px] pointer-events-none"
           variants={envRightEntry}
           initial="hidden"
           whileInView="visible"
@@ -141,7 +141,7 @@ export const EmailSection = () => {
 
         {/* ── CONTENT ── */}
         <motion.div
-          className="relative z-10 flex flex-col items-center text-center px-6 pt-14 pb-28 md:pt-16 md:pb-32 gap-5"
+          className="relative z-10 flex flex-col items-center text-center px-6 pt-10 pb-20 sm:pt-14 sm:pb-28 md:pt-16 md:pb-32 gap-5"
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

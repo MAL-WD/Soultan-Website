@@ -7,9 +7,11 @@ const SmoothScroll = ({ children }) => {
   const lenisRef = useRef(null);
   const location = useLocation();
   const isAdminPath = location.pathname.startsWith('/admin');
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   useEffect(() => {
-    if (isAdminPath) return; // skip smooth scroll for admin panel
+    // Skip smooth scroll for admin panel and mobile devices (causes lag)
+    if (isAdminPath || isMobile) return;
 
     const lenis = new Lenis({
       lerp: 0.05,
@@ -29,7 +31,7 @@ const SmoothScroll = ({ children }) => {
     return () => {
       lenis.destroy();
     };
-  }, [isAdminPath]);
+  }, [isAdminPath, isMobile]);
 
   return <div>{children}</div>;
 };

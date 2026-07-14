@@ -79,7 +79,7 @@ const StepItem = ({ step, index, isRTL, t }) => {
 
       {/* Step Content */}
       <motion.div 
-        style={{ opacity: contentOpacity, y: contentY, filter: contentBlur }}
+        style={{ opacity: contentOpacity, y: contentY }}
         className="flex-1 flex flex-col gap-6 group"
       >
         <div className="flex flex-col gap-4">
@@ -127,11 +127,11 @@ export const UserFlowSection = () => {
 
   return (
     <section className="relative w-full bg-neutral-100 py-32 overflow-hidden" dir={isRTL ? "rtl" : "ltr"}>
-      {/* Gold Bullet Accent */}
+      {/* Gold Bullet Accent - hidden on mobile */}
       <img
         src={ellipseImage}
         alt=""
-        className="absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none w-[350px] h-auto object-contain"
+        className="hidden md:block absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none w-[350px] h-auto object-contain"
         style={{ zIndex: 0 }}
       />
       <div className="container mx-auto px-6 sm:px-12 lg:px-24 relative z-10">

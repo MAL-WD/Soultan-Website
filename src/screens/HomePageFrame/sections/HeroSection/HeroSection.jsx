@@ -56,10 +56,12 @@ export const HeroSection = () => {
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
+    const isMobile = window.innerWidth < 768;
+
     // Glassmorphism card fades in and rises
     tl.fromTo(cardRef.current,
-      { opacity: 0, y: 60, scale: 0.97, filter: "blur(12px)" },
-      { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 1.1 },
+      { opacity: 0, y: isMobile ? 30 : 60, scale: isMobile ? 1 : 0.97, filter: isMobile ? "none" : "blur(12px)" },
+      { opacity: 1, y: 0, scale: 1, filter: "none", duration: 1.1 },
     )
     // Avatars / social proof
     .fromTo(avatarsRef.current,
@@ -98,21 +100,23 @@ export const HeroSection = () => {
       { opacity: 1, y: 0, duration: 0.9, ease: "power2.out", delay: 1.4 }
     );
 
-    // Subtle continuous float on card
-    gsap.to(cardRef.current, {
-      y: "-=8",
-      duration: 3.5,
-      ease: "sine.inOut",
-      yoyo: true,
-      repeat: -1,
-      delay: 2,
-    });
+    // Subtle continuous float on card (disabled on mobile for performance)
+    if (!isMobile) {
+      gsap.to(cardRef.current, {
+        y: "-=8",
+        duration: 3.5,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: 2,
+      });
+    }
   }, { scope: containerRef });
 
   return (
     <section 
       ref={containerRef}
-      className="relative w-full min-h-screen flex items-center justify-center bg-[#02110c] bg-cover bg-center px-4 pt-[80px] overflow-hidden"
+      className="relative w-full min-h-screen flex items-center justify-center bg-[#02110c] bg-cover bg-center px-4 pt-[80px] pb-[140px] sm:pb-[80px] overflow-hidden"
       style={{ backgroundImage: "url('/container.png')" }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -143,15 +147,15 @@ export const HeroSection = () => {
                   <div className="flex flex-col items-center justify-center gap-1">
                     <h1 
                       ref={title1Ref}
-                      className={`mb-8 text-[#e0e0e0] text-5xl sm:text-6xl lg:text-7xl tracking-[-3.60px] leading-64 break-words text-center ${isRtl ? 'font-black' : 'font-semibold'}`}
+                      className={`mb-2 text-[#e0e0e0] text-5xl sm:text-6xl lg:text-7xl tracking-[-3.60px] leading-snug break-words text-center ${isRtl ? 'font-black' : 'font-semibold'}`}
                       style={{ fontFamily: isRtl ? undefined : "'Inter', sans-serif", opacity: 0 }}
                     >
                       {t('heroTitle1')}
                     </h1>
                     <h1 
                       ref={title2Ref}
-                      className={`italic text-[#f2c161] text-5xl sm:text-6xl lg:text-7xl tracking-[-3.60px] leading-tight text-center ${isRtl ? 'font-black' : 'font-normal'}`}
-                      style={{ fontFamily: isRtl ? undefined : "'Instrument Serif', serif", opacity: 0 }}
+                      className={`italic text-[#f2c161] text-5xl sm:text-6xl lg:text-7xl tracking-[-3.60px] leading-snug text-center ${isRTL ? 'font-black' : 'font-normal'}`}
+                      style={{ fontFamily: isRTL ? undefined : "'Instrument Serif', serif", opacity: 0 }}
                     >
                       {t('heroTitle2')}
                     </h1>

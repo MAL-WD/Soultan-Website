@@ -71,7 +71,7 @@ const TestimonialCard = ({ author, role, quote, stars, avatar, t }) => (
   </Card>
 );
 
-const DraggableMarquee = ({ items, speed = 60, reverse = false, t }) => {
+const DraggableMarquee = ({ items, speed = 60, reverse = false, t, isMobile = false }) => {
   const y = useMotionValue(0);
   const [isDragging, setIsDragging] = useState(false);
   const containerHeight = useRef(0);
@@ -124,14 +124,14 @@ const DraggableMarquee = ({ items, speed = 60, reverse = false, t }) => {
   };
 
   return (
-    <div className="flex flex-col h-[500px] sm:h-[650px] md:h-[800px] overflow-hidden relative marquee-mask touch-none">
+    <div className="flex flex-col h-[360px] sm:h-[500px] md:h-[800px] overflow-hidden relative marquee-mask touch-none">
       <motion.div
-        drag="y"
+        drag={isMobile ? false : "y"}
         style={{ y }}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
-        whileTap={{ cursor: "grabbing" }}
-        className="flex flex-col gap-6 cursor-grab"
+        whileTap={{ cursor: isMobile ? "default" : "grabbing" }}
+        className={`flex flex-col gap-6 ${isMobile ? "" : "cursor-grab"}`}
       >
         {infiniteItems.map((item, idx) => (
           <TestimonialCard key={`${item.id}-${idx}`} {...item} t={t} />
@@ -149,13 +149,16 @@ export const TestimonialsSection = () => {
   const col2 = [testimonials[3], testimonials[4], testimonials[5]];
   const col3 = [testimonials[6], testimonials[7], testimonials[8]];
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+  const displayItems = isMobile ? testimonials : col1;
+
   return (
-    <section className="relative w-full bg-neutral-100 py-32 overflow-hidden" dir={isRTL ? "rtl" : "ltr"}>
-      {/* Gold Bullet Accent */}
+    <section className="relative w-full bg-neutral-100 py-16 sm:py-32 overflow-hidden" dir={isRTL ? "rtl" : "ltr"}>
+      {/* Gold Bullet Accent - hidden on mobile to avoid overflow */}
       <img
         src={ellipseImage}
         alt=""
-        className="absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none w-[350px] h-auto object-contain"
+        className="hidden md:block absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none w-[350px] h-auto object-contain"
         style={{ zIndex: 0 }}
       />
       <div className="container mx-auto px-6 relative z-10">
@@ -168,9 +171,13 @@ export const TestimonialsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-[1400px] mx-auto relative content-start">
-          <DraggableMarquee items={col1} speed={40} reverse={true} t={t} />
-          <DraggableMarquee items={col2} speed={30} reverse={false} t={t} />
-          <DraggableMarquee items={col3} speed={50} reverse={true} t={t} />
+          <DraggableMarquee items={displayItems} speed={40} reverse={true} t={t} isMobile={isMobile} />
+          <div className="hidden sm:block">
+            <DraggableMarquee items={col2} speed={30} reverse={false} t={t} />
+          </div>
+          <div className="hidden md:block">
+            <DraggableMarquee items={col3} speed={50} reverse={true} t={t} />
+          </div>
         </div>
 
         <motion.p 

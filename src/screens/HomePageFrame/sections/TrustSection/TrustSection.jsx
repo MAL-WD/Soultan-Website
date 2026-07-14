@@ -69,10 +69,8 @@ export const TrustSection = () => {
 
         {/* Quote block */}
         <div className="relative w-full max-w-[850px] flex flex-col items-center">
-          <motion.img
-            custom="left"
-            variants={decorationVariants}
-            className="absolute w-[94px] h-[65px] -top-20 -left-16 sm:-left-24"
+          <img
+            className="absolute w-[40px] h-[30px] sm:w-[94px] sm:h-[65px] -top-10 sm:-top-20 left-0 sm:-left-24 opacity-80"
             alt="Quote decoration"
             src="/quote-decoration---okatgauukgm4fbe7ypnxhzende4-svg-1.svg"
           />
@@ -86,17 +84,15 @@ export const TrustSection = () => {
               letterSpacing={isRTL ? 0 : -2}
               duration={0.5}
               fontWeight={700}
-              fontFamily={isRTL ? 'ThmanyahSerifDisplay, ThmanyahSerifText, Arial, sans-serif' : 'Instrument Serif'}
+              fontFamily={isRTL ? 'ThmanyahSerifDisplay, ThmanyahSerifText, Arial, sans-serif' : 'Inter, Helvetica, sans-serif'}
               transitionStartIndex={isRTL ? 0 : 30}
               paragraphAlign="center"
               isRTL={isRTL}
             />
           </div>
 
-          <motion.img
-            custom="right"
-            variants={decorationVariants}
-            className="absolute w-[94px] h-[65px] -bottom-20 -right-16 sm:-right-24"
+          <img
+            className="absolute w-[40px] h-[30px] sm:w-[94px] sm:h-[65px] -bottom-10 sm:-bottom-20 right-0 sm:-right-24 opacity-80"
             alt="Quote decoration"
             src="/quote-decoration---okatgauukgm4fbe7ypnxhzende4-svg.svg"
           />

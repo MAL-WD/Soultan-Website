@@ -166,6 +166,7 @@ const imageVariants = {
 export const FeaturesSection = () => {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === 'ar';
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const { data: categoriesData } = useGetCategoriesQuery();
   const categories = categoriesData?.data || [];
 
@@ -188,11 +189,11 @@ export const FeaturesSection = () => {
 
   return (
     <section className="w-full py-12 sm:py-16 lg:py-[80px] pt-0 bg-neutral-100 relative" dir={isRTL ? "rtl" : "ltr"}>
-      {/* Gold Bullet Accent */}
+      {/* Gold Bullet Accent - hidden on mobile */}
       <img
         src={ellipseImage}
         alt=""
-        className="absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none w-[350px] h-auto object-contain scale-x-[-1]"
+        className="hidden md:block absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none w-[350px] h-auto object-contain scale-x-[-1]"
         style={{ zIndex: 0 }}
       />
       <div className="container mx-auto px-4 sm:px-8 lg:px-[100px] relative z-10">
@@ -223,13 +224,13 @@ export const FeaturesSection = () => {
                 <Card
                   className={`h-full ${card.bgGradient} rounded-[20px] sm:rounded-[30px] overflow-hidden border ${card.borderColor} shadow-none relative transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${card.hoverBorderColor || 'hover:border-[#f2da61]/50'}`}
                 >
-                  <CardContent className="relative h-[280px] sm:h-[340px] md:h-[420px] p-0 overflow-hidden">
+                  <CardContent className="relative h-[220px] sm:h-[300px] md:h-[420px] p-0 overflow-hidden">
                     {/* Category Image with matching animation */}
                     <motion.img
                       src={card.image}
                       alt={t(card.titleKey)}
-                      className={`absolute ${card.imagePosition || "inset-0 w-full h-full"} object-contain transition-transform duration-700 group-hover:scale-110 group-hover:-translate-y-4`}
-                      variants={imageVariants}
+                      className={`absolute ${card.imagePosition || "inset-0 w-full h-full"} object-contain transition-transform duration-700 md:group-hover:scale-110 md:group-hover:-translate-y-4`}
+                      variants={isMobile ? {} : imageVariants}
                       custom={card.animationType}
                     />
 
