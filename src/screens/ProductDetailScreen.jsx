@@ -10,6 +10,7 @@ import { addToCart } from '../slices/cartSlice';
 import Loader from '../components/Loader';
 import { Alert, AlertDescription, AlertTitle } from '../components/ui/alert';
 import { toast } from 'react-toastify';
+import { useTheme } from '../context/ThemeContext';
 
 // New Sections
 import { BreadcrumbSection } from './ProductDetailScreen/sections/BreadcrumbSection';
@@ -23,6 +24,7 @@ const ProductDetailScreen = () => {
   const { t, i18n } = useTranslation();
   const isArabic = i18n.language === 'ar';
   const { userInfo } = useSelector((state) => state.auth);
+  const { isDark } = useTheme();
 
   const [qty, setQty] = useState(1);
 
@@ -61,8 +63,8 @@ const ProductDetailScreen = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white">
-      {product && <BreadcrumbSection product={product} isArabic={isArabic} />}
+    <div className={`min-h-screen ${isDark ? 'bg-gradient-to-b from-[#0a1f0e] via-[#0d2411] to-[#061409]' : 'bg-white'}`}>
+      {product && <BreadcrumbSection product={product} isArabic={isArabic} isDark={isDark} />}
       
       {product && (
         <KeyFeaturesSection 
@@ -72,6 +74,7 @@ const ProductDetailScreen = () => {
           setQty={setQty} 
           addToCartHandler={addToCartHandler}
           buyNowHandler={buyNowHandler}
+          isDark={isDark}
         />
       )}
 
@@ -79,6 +82,7 @@ const ProductDetailScreen = () => {
         <RelatedProductsSection 
           products={relatedProducts} 
           isArabic={isArabic} 
+          isDark={isDark}
         />
       )}
     </div>

@@ -124,7 +124,7 @@ const DraggableMarquee = ({ items, speed = 60, reverse = false, t, isMobile = fa
   };
 
   return (
-    <div className="flex flex-col h-[360px] sm:h-[500px] md:h-[800px] overflow-hidden relative marquee-mask touch-none">
+    <div className="flex flex-col h-[360px] sm:h-[500px] md:h-[800px] overflow-hidden relative marquee-mask sm:touch-none">
       <motion.div
         drag={isMobile ? false : "y"}
         style={{ y }}

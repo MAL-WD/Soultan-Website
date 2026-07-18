@@ -7,11 +7,15 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SmoothScroll from './components/SmoothScroll';
 import Preloader from './components/Preloader';
+import MobileBottomNav from './components/MobileBottomNav';
+import ScrollProgress from './components/ScrollProgress';
+import { ThemeProvider } from './context/ThemeContext';
 
 const App = () => {
   const { i18n } = useTranslation();
   const location = useLocation();
   const isAdminPath = location.pathname.startsWith('/admin');
+  const isProductsPath = location.pathname === '/products' || location.pathname.startsWith('/product/');
 
   useEffect(() => {
     // Apply font family based on language
@@ -29,17 +33,21 @@ const App = () => {
   }, [i18n.language, i18n.resolvedLanguage]);
 
   return (
-    <SmoothScroll>
-      <Preloader />
-      {!isAdminPath && <Header />}
-      <main>
-        <div className={isAdminPath ? '' : (['/', '/contact', '/about'].includes(location.pathname) ? '' : 'pt-[140px] bg-[#fafbfc]')}>
-          <Outlet />
-        </div>
-      </main>
-      {!isAdminPath && <Footer />}
-      <ToastContainer />
-    </SmoothScroll>
+    <ThemeProvider>
+      <ScrollProgress />
+      <SmoothScroll>
+        <Preloader />
+        {!isAdminPath && <Header />}
+        <main>
+          <div className={isAdminPath ? '' : (['/', '/contact', '/about'].includes(location.pathname) ? 'pb-20 lg:pb-0' : isProductsPath ? 'pt-[100px] pb-20 lg:pb-0' : 'pt-[140px] pb-20 lg:pb-0 bg-[#fafbfc]')}>
+            <Outlet />
+          </div>
+        </main>
+        {!isAdminPath && <Footer />}
+        {!isAdminPath && <MobileBottomNav />}
+        <ToastContainer />
+      </SmoothScroll>
+    </ThemeProvider>
   );
 };
 

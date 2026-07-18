@@ -31,11 +31,11 @@ export const ComparisonSection = () => {
   };
   const itemLeftVariants = {
     hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 100 } }
+    visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } }
   };
   const itemRightVariants = {
     hidden: { opacity: 0, x: 20 },
-    visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 100 } }
+    visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } }
   };
 
   return (
@@ -59,7 +59,7 @@ export const ComparisonSection = () => {
           >
             <Card className="w-full h-full bg-[#f5f5f5] rounded-[26px] overflow-hidden border-0 bg-gradient-to-r from-white via-[#f5f5f5] to-[#f5f5f5]">
               <CardContent className="p-8 sm:p-10 flex flex-col justify-center h-full space-y-6">
-                <h3 className="text-center font-serif text-[#02110c] text-3xl md:text-4xl font-bold tracking-tight mb-2">
+                <h3 className={`text-center text-[#02110c] text-3xl md:text-4xl font-bold tracking-tight mb-2 ${isRtl ? 'font-arabic' : 'font-serif'}`}>
                   {t("comp_others")}
                 </h3>
 
@@ -81,7 +81,7 @@ export const ComparisonSection = () => {
                       }`}
                     >
                       <XIcon className="w-4 h-4 text-red-500 flex-shrink-0" strokeWidth={2.5} />
-                      <span className="[font-family:'Inter',Helvetica] font-medium text-[#52546b] text-sm sm:text-base text-start">
+                      <span className={`font-medium text-[#52546b] text-sm sm:text-base text-start ${isRtl ? 'font-arabic' : 'font-english'}`}>
                         {feature}
                       </span>
                     </motion.div>
@@ -101,7 +101,7 @@ export const ComparisonSection = () => {
           >
             <Card className="w-full h-full bg-[#f5f5f5] rounded-[26px] overflow-hidden border-0 bg-gradient-to-r from-white via-[#f5f5f5] to-[#f5f5f5]">
               <CardContent className="p-8 sm:p-10 flex flex-col justify-center h-full space-y-6">
-                <h3 className="text-center font-serif text-[#02110c] text-3xl md:text-4xl font-bold tracking-tight mb-2">
+                <h3 className={`text-center text-[#02110c] text-3xl md:text-4xl font-bold tracking-tight mb-2 ${isRtl ? 'font-arabic' : 'font-serif'}`}>
                   {t("comp_soltane")}
                 </h3>
 
@@ -123,7 +123,7 @@ export const ComparisonSection = () => {
                       }`}
                     >
                       <CheckIcon className="w-4 h-4 text-green-600 flex-shrink-0" strokeWidth={2.5} />
-                      <span className="[font-family:'Inter',Helvetica] font-medium text-[#52546b] text-sm sm:text-base text-start">
+                      <span className={`font-medium text-[#52546b] text-sm sm:text-base text-start ${isRtl ? 'font-arabic' : 'font-english'}`}>
                         {feature}
                       </span>
                     </motion.div>

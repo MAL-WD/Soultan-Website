@@ -117,7 +117,7 @@ export const HeroSection = () => {
     <section 
       ref={containerRef}
       className="relative w-full min-h-screen flex items-center justify-center bg-[#02110c] bg-cover bg-center px-4 pt-[80px] pb-[140px] sm:pb-[80px] overflow-hidden"
-      style={{ backgroundImage: "url('/container.png')" }}
+      style={{ backgroundImage: "url('/container.png')", backgroundColor: '#02110c' }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -154,8 +154,8 @@ export const HeroSection = () => {
                     </h1>
                     <h1 
                       ref={title2Ref}
-                      className={`italic text-[#f2c161] text-5xl sm:text-6xl lg:text-7xl tracking-[-3.60px] leading-snug text-center ${isRTL ? 'font-black' : 'font-normal'}`}
-                      style={{ fontFamily: isRTL ? undefined : "'Instrument Serif', serif", opacity: 0 }}
+                      className={`italic text-[#f2c161] text-5xl sm:text-6xl lg:text-7xl tracking-[-3.60px] leading-snug text-center ${isRtl ? 'font-black' : 'font-normal'}`}
+                      style={{ fontFamily: isRtl ? undefined : "'Instrument Serif', serif", opacity: 0 }}
                     >
                       {t('heroTitle2')}
                     </h1>

@@ -132,14 +132,14 @@ export const LocationSection = () => {
                     </div>
                     <h3
                       className="text-lg font-bold text-[#02110c] tracking-tight leading-tight"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      
                     >
                       {t(branch.nameKey)}
                     </h3>
                   </div>
 
                   {/* Address */}
-                  <div className="flex items-start gap-2 text-[#6b7280] text-sm leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  <div className="flex items-start gap-2 text-[#6b7280] text-sm leading-relaxed" >
                     <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-[#9ca3af]" strokeWidth={1.5} />
                     <span>{t(branch.addrKey)}</span>
                   </div>
@@ -149,7 +149,7 @@ export const LocationSection = () => {
                     <button
                       onClick={() => window.open(branch.fullMapUrl, "_blank")}
                       className="flex-1 flex items-center justify-center gap-2 h-10 px-4 rounded-xl text-sm font-semibold border border-neutral-200 hover:bg-[#02110c] hover:text-white hover:border-[#02110c] transition-all duration-300"
-                      style={{ fontFamily: "'Inter', sans-serif", color: '#374151' }}
+                      style={{  color: '#374151' }}
                     >
                       <span>{t("viewOnMap")}</span>
                       <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -158,7 +158,7 @@ export const LocationSection = () => {
                       <button
                         onClick={() => window.open(branch.contactUrl, "_blank")}
                         className="flex-1 flex items-center justify-center gap-2 h-10 px-4 rounded-xl text-sm font-semibold border border-neutral-200 hover:bg-[#02110c] hover:text-white hover:border-[#02110c] transition-all duration-300"
-                        style={{ fontFamily: "'Inter', sans-serif", color: '#374151' }}
+                        style={{  color: '#374151' }}
                       >
                         <span>{isRtl ? "الموقع" : "Website"}</span>
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -204,7 +204,7 @@ export const LocationSection = () => {
                 <div className="w-9 h-9 rounded-xl bg-[#f2c161]/20 flex items-center justify-center">
                   <Truck className="w-4.5 h-4.5 text-[#f2c161]" strokeWidth={2} />
                 </div>
-                <span className="text-white/60 text-sm font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <span className="text-white/60 text-sm font-medium" >
                   {isRtl ? "التوصيل السريع" : "Fast Delivery"}
                 </span>
               </div>
@@ -213,25 +213,25 @@ export const LocationSection = () => {
               <div>
                 <div className="text-6xl sm:text-7xl md:text-8xl font-black leading-none tracking-tighter"
                   style={{
-                    fontFamily: "'Inter', sans-serif",
+                    
                     background: "linear-gradient(135deg, #f2c161 20%, #ffd98a 60%, #f2c161 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}>
                   68
                 </div>
-                <div className="text-white/50 text-lg font-semibold tracking-wide mt-1 uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <div className="text-white/50 text-lg font-semibold tracking-wide mt-1 uppercase" >
                   {isRtl ? "ولاية" : "Wilayas"}
                 </div>
               </div>
 
-              <p className="text-white/65 text-base leading-relaxed max-w-[320px]" style={{ fontFamily: "'Inter', sans-serif" }}>
+              <p className="text-white/65 text-base leading-relaxed max-w-[320px]" >
                 {t("deliveryInfo")}
               </p>
 
               <button
                 className="flex items-center gap-2 text-[#f2c161] text-sm font-semibold hover:gap-3 transition-all duration-300"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                
                 onClick={() => window.open("https://maps.app.goo.gl/rEMzBQ9KicBtJg3B6", "_blank")}
               >
                 <span>{isRtl ? "تعرف أكثر" : "Learn more"}</span>
@@ -252,7 +252,7 @@ export const LocationSection = () => {
                 <div className="w-9 h-9 rounded-xl bg-[#71b83e]/20 flex items-center justify-center">
                   <Globe className="w-4.5 h-4.5 text-[#71b83e]" strokeWidth={2} />
                 </div>
-                <span className="text-white/60 text-sm font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <span className="text-white/60 text-sm font-medium" >
                   {isRtl ? "المتجر الرقمي" : "Virtual Store"}
                 </span>
               </div>
@@ -260,7 +260,7 @@ export const LocationSection = () => {
               {/* Big stat */}
               <div>
                 <div className="text-4xl sm:text-5xl md:text-6xl font-black leading-none tracking-tighter text-white"
-                  style={{ fontFamily: "'Inter', sans-serif" }}>
+                  >
                   {isRtl ? "من سريرك" : "From Your"}
                   {!isRtl && (
                     <span style={{
@@ -277,13 +277,13 @@ export const LocationSection = () => {
                 </div>
               </div>
 
-              <p className="text-white/65 text-base leading-relaxed max-w-[320px]" style={{ fontFamily: "'Inter', sans-serif" }}>
+              <p className="text-white/65 text-base leading-relaxed max-w-[320px]" >
                 {t("bedStoreInfo")}
               </p>
 
               <button
                 className="flex items-center gap-2 text-[#71b83e] text-sm font-semibold hover:gap-3 transition-all duration-300"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                
                 onClick={() => window.location.href = '/products'}
               >
                 <span>{isRtl ? "تسوق الآن" : "Shop online"}</span>

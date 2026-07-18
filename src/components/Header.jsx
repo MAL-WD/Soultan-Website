@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingCart, User, LogOut, ChevronDown, Menu, X } from 'lucide-react';
+import { ShoppingCart, User, LogOut, ChevronDown, Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from './ui/button';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
 import { clearCartItems } from '../slices/cartSlice';
 import { useGetCategoriesQuery } from '../slices/categoriesApiSlice';
+import { useTheme } from '../context/ThemeContext';
 
 const NAV_BG = 'bg-[linear-gradient(180deg,rgba(16,16,16,0.9)_0%,rgba(21,48,43,0.9)_100%)]';
 const BACKDROP = 'backdrop-blur-[5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(5px)_brightness(100%)]';
@@ -21,6 +22,9 @@ const Header = () => {
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
+  const location = useLocation();
+  const showDarkToggle = location.pathname === '/products';
+  const { isDark, toggleDark } = useTheme();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -50,23 +54,82 @@ const Header = () => {
 
   const LanguageSwitcher = () => (
     <button
-      onClick={() => changeLanguage(currentLang.startsWith('en') ? 'ar' : 'en')}
+      onClick={() => changeLanguage(currentLang.startsWith('ar') ? 'en' : currentLang.startsWith('en') ? 'fr' : 'ar')}
       className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white/5"
     >
-      {currentLang.startsWith('en') ? (
+      {currentLang.startsWith('ar') ? (
+        <>
+          <img src="https://flagcdn.com/w40/gb.png" alt="English" className="w-5 h-5 rounded-full object-cover" />
+          <span className="text-[#fcfcfa] text-sm font-bold" style={{ fontFamily: 'Inter, sans-serif' }}>EN</span>
+        </>
+      ) : currentLang.startsWith('en') ? (
+        <>
+          <img src="https://flagcdn.com/w40/fr.png" alt="Français" className="w-5 h-5 rounded-full object-cover" />
+          <span className="text-[#fcfcfa] text-sm font-bold" style={{ fontFamily: 'Inter, sans-serif' }}>FR</span>
+        </>
+      ) : (
         <>
           <div className="w-5 h-5 rounded-full bg-[#1b4332] flex items-center justify-center text-white text-xs font-bold leading-none pb-0.5" style={{ fontFamily: 'ThmanyahSerifDisplay, Arial, sans-serif' }}>
             ض
           </div>
           <span className="text-[#fcfcfa] text-sm font-bold" style={{ fontFamily: 'Inter, sans-serif' }}>AR</span>
         </>
-      ) : (
-        <>
-          <img src="https://flagcdn.com/w40/gb.png" alt="English" className="w-5 h-5 rounded-full object-cover" />
-          <span className="text-[#fcfcfa] text-sm font-bold" style={{ fontFamily: 'Inter, sans-serif' }}>EN</span>
-        </>
       )}
     </button>
+  );
+
+  // Animated dark/light toggle — only shows on /products
+  const DarkToggle = () => (
+    <AnimatePresence mode="wait">
+      {showDarkToggle && (
+        <motion.button
+          key="dark-toggle"
+          initial={{ opacity: 0, scale: 0.7 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.7 }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
+          onClick={toggleDark}
+          aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          className="relative flex items-center w-[56px] h-[28px] rounded-full border border-white/10 bg-white/10 hover:bg-white/20 transition-colors overflow-hidden p-0.5 shrink-0"
+        >
+          {/* sliding pill */}
+          <motion.div
+            layout
+            transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+            className={`absolute w-[22px] h-[22px] rounded-full bg-white/90 shadow-sm flex items-center justify-center ${
+              isDark ? 'left-[30px]' : 'left-[3px]'
+            }`}
+          >
+            <AnimatePresence mode="wait">
+              {isDark ? (
+                <motion.span
+                  key="moon"
+                  initial={{ rotate: -30, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 30, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Moon className="w-3 h-3 text-[#0a1f0e]" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="sun"
+                  initial={{ rotate: 30, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -30, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Sun className="w-3 h-3 text-amber-500" />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.div>
+          {/* background icons */}
+          <Sun className={`w-3 h-3 text-white/50 ms-1 shrink-0 transition-opacity ${isDark ? 'opacity-100' : 'opacity-0'}`} />
+          <Moon className={`w-3 h-3 text-white/50 ms-auto me-1 shrink-0 transition-opacity ${isDark ? 'opacity-0' : 'opacity-100'}`} />
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
 
   const CartIcon = () => (
@@ -129,7 +192,7 @@ const Header = () => {
                           className="flex items-center justify-between px-4 py-2 text-[#fcfcfa] text-sm hover:bg-[rgba(255,255,255,0.1)] transition-colors"
                           onClick={() => setCategoriesOpen(false)}
                         >
-                          {currentLang.startsWith('ar') ? category.name_ar : category.name_en}
+                          {currentLang.startsWith('ar') ? category.name_ar : (currentLang.startsWith('fr') && category.name_fr) ? category.name_fr : category.name_en}
                           {category.subcategories?.length > 0 && (
                             <ChevronDown className={`w-3 h-3 ${currentLang.startsWith('ar') ? 'rotate-90' : '-rotate-90'}`} />
                           )}
@@ -145,7 +208,7 @@ const Header = () => {
                                   className="block px-4 py-2 text-[#fcfcfa] text-xs hover:bg-[rgba(255,255,255,0.1)] transition-colors"
                                   onClick={() => setCategoriesOpen(false)}
                                 >
-                                  {currentLang.startsWith('ar') ? sub.name_ar : sub.name_en}
+                                  {currentLang.startsWith('ar') ? sub.name_ar : (currentLang.startsWith('fr') && sub.name_fr) ? sub.name_fr : sub.name_en}
                                 </Link>
                               ))}
                             </div>
@@ -177,6 +240,7 @@ const Header = () => {
 
             {/* Right Actions */}
             <LanguageSwitcher />
+            <DarkToggle />
             <CartIcon />
 
             {userInfo ? (
@@ -228,6 +292,7 @@ const Header = () => {
                 </Link>
               ) : null}
               <LanguageSwitcher />
+              <DarkToggle />
             </div>
           </nav>
 
@@ -271,7 +336,7 @@ const Header = () => {
                               className="text-[#fcfcfa]/80 text-sm py-1"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
-                              {currentLang.startsWith('ar') ? category.name_ar : category.name_en}
+                              {currentLang.startsWith('ar') ? category.name_ar : (currentLang.startsWith('fr') && category.name_fr) ? category.name_fr : category.name_en}
                             </Link>
                           ))}
                         </motion.div>

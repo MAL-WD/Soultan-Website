@@ -72,11 +72,11 @@ const CartScreen = () => {
             <div className="w-24 h-24 mb-6 rounded-full bg-[#f2c161]/20 flex items-center justify-center">
               <ShoppingBag className="w-12 h-12 text-[#f2c161]" />
             </div>
-            <h2 className="text-2xl font-bold text-[#02110c] mb-3">Your cart is empty</h2>
-            <p className="text-gray-500 mb-8 max-w-md mx-auto">Looks like you haven't added anything to your cart yet. Explore our collection and find something you love!</p>
+            <h2 className="text-2xl font-bold text-[#02110c] mb-3">{isArabic ? "عربة التسوق فارغة" : "Your cart is empty"}</h2>
+            <p className="text-gray-500 mb-8 max-w-md mx-auto">{isArabic ? "يبدو أنك لم تضف أي شيء إلى عربة التسوق بعد. استكشف مجموعتنا وابحث عن شيء تحبه!" : "Looks like you haven't added anything to your cart yet. Explore our collection and find something you love!"}</p>
             <Link to="/products">
               <Button className="h-14 px-8 rounded-full bg-[linear-gradient(339deg,rgba(250,219,157,0.7)_0%,rgba(242,193,97,1)_56%,rgba(252,221,159,0.52)_100%)] hover:opacity-90 transition-opacity border-0 text-[#02110c] font-bold text-lg shadow-lg shadow-[#f2c161]/20">
-                Go Shopping
+                {isArabic ? "اذهب للتسوق" : "Go Shopping"}
               </Button>
             </Link>
           </motion.div>
@@ -177,7 +177,7 @@ const CartScreen = () => {
                     </div>
                     {discount > 0 && (
                       <div className="flex justify-between text-[#1b4332] font-semibold bg-[#1b4332]/5 p-3 rounded-xl">
-                        <span>Discount</span>
+                        <span>{isArabic ? "الخصم" : "Discount"}</span>
                         <span>-{discount.toFixed(2)} DZD</span>
                       </div>
                     )}
@@ -186,7 +186,7 @@ const CartScreen = () => {
                         <span className="text-lg font-bold text-[#02110c]">{t('total')}</span>
                         <div className="text-right">
                            <span className="text-2xl font-bold text-[#1b4332] block">{total.toFixed(2)} DZD</span>
-                           <span className="text-xs text-gray-400">Taxes and shipping calculated at checkout</span>
+                           <span className="text-xs text-gray-400">{isArabic ? "يتم حساب الضرائب والشحن عند الدفع" : "Taxes and shipping calculated at checkout"}</span>
                         </div>
                       </div>
                     </div>
@@ -202,7 +202,7 @@ const CartScreen = () => {
                   </Link>
                   
                   <div className="mt-6 flex items-center justify-center gap-4 text-gray-400">
-                     <span className="text-sm text-center">Secure Checkout</span>
+                     <span className="text-sm text-center">{isArabic ? "دفع آمن" : "Secure Checkout"}</span>
                   </div>
                 </div>
               </motion.div>

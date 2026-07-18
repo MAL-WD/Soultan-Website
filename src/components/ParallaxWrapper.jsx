@@ -29,7 +29,7 @@ export const ParallaxWrapper = ({ children, speed = 0.5, className = '', directi
 
   // On mobile: skip parallax entirely — just render children flat
   if (isMobile) {
-    return <div className={className}>{children}</div>;
+    return <div ref={ref} className={className}>{children}</div>;
   }
 
   return (
@@ -53,7 +53,7 @@ export const ParallaxElement = ({ children, speed = 0.3, className = '' }) => {
 
   // On mobile: skip parallax
   if (isMobile) {
-    return <div className={className}>{children}</div>;
+    return <div ref={ref} className={className}>{children}</div>;
   }
 
   return (

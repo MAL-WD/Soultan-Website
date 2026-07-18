@@ -9,6 +9,14 @@ const SmoothScroll = ({ children }) => {
   const isAdminPath = location.pathname.startsWith('/admin');
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
+  // Scroll to top on every route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    }
+  }, [location.pathname, location.search]);
+
   useEffect(() => {
     // Skip smooth scroll for admin panel and mobile devices (causes lag)
     if (isAdminPath || isMobile) return;
@@ -30,6 +38,7 @@ const SmoothScroll = ({ children }) => {
 
     return () => {
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, [isAdminPath, isMobile]);
 

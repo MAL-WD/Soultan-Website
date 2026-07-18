@@ -1,35 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const EachCharacter = ({
-    char,
-    start,
-    end,
-    progress,
-    duration,
-    easing,
-    index,
-    transitionStartIndex,
-}) => {
-    const colorProgress = useTransform(
-        progress,
-        [start, end],
-        ["#E5E7EB", "#02110C"]
-    );
-    const initialColor = index < transitionStartIndex ? "#02110C" : "#E5E7EB";
-    return (
-        <motion.span
-            style={{
-                color:
-                    index < transitionStartIndex ? initialColor : colorProgress,
-            }}
-            transition={{ duration: duration, ease: easing }}
-        >
-            {char}
-        </motion.span>
-    );
-};
-
 const EachWord = ({
     word,
     progress,
@@ -37,33 +8,24 @@ const EachWord = ({
     ending,
     duration,
     easing,
+    index,
     transitionStartIndex,
-    currentCharacterIndex,
 }) => {
-    const characters = word.split("");
-    const wordLength = word.length;
-    const amount = ending - starting;
-    const step = amount / wordLength;
+    const colorProgress = useTransform(
+        progress,
+        [starting, ending],
+        ["#E5E7EB", "#02110C"]
+    );
+    const initialColor = index < transitionStartIndex ? "#02110C" : "#E5E7EB";
     return (
-        <motion.span className="inline-block">
-            {characters.map((char, idx) => {
-                const charStart = starting + step * idx;
-                const charEnd = starting + step * (idx + 1);
-                return (
-                    <EachCharacter
-                        key={idx}
-                        char={char}
-                        start={charStart}
-                        end={charEnd}
-                        progress={progress}
-                        duration={duration}
-                        easing={easing}
-                        index={currentCharacterIndex + idx}
-                        transitionStartIndex={transitionStartIndex}
-                    />
-                );
-            })}
-            &nbsp;
+        <motion.span
+            className="inline-block"
+            style={{
+                color: index < transitionStartIndex ? initialColor : colorProgress,
+            }}
+            transition={{ duration: duration, ease: easing }}
+        >
+            {word}&nbsp;
         </motion.span>
     );
 };
@@ -131,10 +93,6 @@ export const TextColorLetters = (props) => {
             {words.map((word, idx) => {
                 const starting = idx / totalWords;
                 const ending = (idx + 1) / totalWords;
-                const wordLength = word.length;
-                const startIdx = currentCharacterIndex;
-                currentCharacterIndex += wordLength + 1; // Including space
-
                 return (
                     <EachWord
                         key={idx}
@@ -144,8 +102,8 @@ export const TextColorLetters = (props) => {
                         ending={ending}
                         duration={duration}
                         easing={easing}
+                        index={idx}
                         transitionStartIndex={transitionStartIndex}
-                        currentCharacterIndex={startIdx}
                     />
                 );
             })}

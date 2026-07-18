@@ -140,7 +140,7 @@ export const BenefitsSection = () => {
 
   return (
     <div className="relative w-full bg-neutral-100 pb-20" ref={container} dir={isRTL ? "rtl" : "ltr"}>
-      <div className="pt-24 pb-8 px-6">
+      <div className="pt-16 sm:pt-24 pb-2 sm:pb-8 px-6">
         <SectionHeader
           badgeText={t("benefitsBadge")}
           title={t("benefitsTitle")}
@@ -149,7 +149,7 @@ export const BenefitsSection = () => {
       </div>
 
       <div className="sticky-cards relative flex h-screen w-full items-center justify-center overflow-hidden p-2 sm:p-3 lg:p-8">
-        <div className="relative h-[90%] w-full max-w-[1200px] max-h-[700px] overflow-hidden rounded-3xl">
+        <div className="relative h-[480px] md:h-[90%] w-full max-w-[1200px] max-h-[700px] overflow-hidden rounded-3xl">
           {benefitsData.map((benefit, i) => {
              const IconComponent = benefit.Icon;
              return (

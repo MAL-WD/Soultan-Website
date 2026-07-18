@@ -47,7 +47,7 @@ export const FooterSection = () => {
         style={{ background: "linear-gradient(to bottom, #f4f5f8 0%, transparent 100%)" }}
       />
 
-      <div className="relative max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-[120px] pt-12 sm:pt-16 lg:pt-[100px] pb-[180px] sm:pb-[220px]">
+      <div className="relative z-20 max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-[120px] pt-12 sm:pt-16 lg:pt-[100px] pb-[220px] sm:pb-[240px] md:pb-[280px] lg:pb-[280px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-[120px]">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -66,7 +66,7 @@ export const FooterSection = () => {
               {t("footer_description")}
             </p>
 
-            <Button className="w-fit px-6 h-[43px] bg-[#e0e0e0] hover:bg-[#d0d0d0] rounded-lg shadow-[0px_10px_14px_-3px_#0000000f,0px_2.29px_3.2px_-2px_#00000014,0px_0.6px_0.84px_-1px_#00000017] border border-solid border-[#f2f2f2]">
+            <Button className="w-fit px-6 h-[43px] bg-[#f2c161] hover:bg-[#e9b73e] rounded-lg shadow-[0px_10px_14px_-3px_rgba(242,193,97,0.45),0px_2.29px_3.2px_-2px_rgba(242,193,97,0.14)] border-0">
               <span className="font-medium text-[#02110c] text-sm sm:text-base tracking-[-0.64px] leading-[19.2px]">
                 {t("footer_cta")}
               </span>
@@ -171,16 +171,16 @@ export const FooterSection = () => {
         </div>
       </div>
 
-      <div className="absolute w-full left-0 bottom-0 h-[180px] sm:h-[220px] overflow-hidden">
-        <div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center overflow-hidden">
+      <div className="absolute w-full left-0 bottom-0 h-[280px] sm:h-[300px] md:h-[320px] lg:h-[360px]">
+        <div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center px-4">
           <motion.div 
             initial={{ y: 150, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="[-webkit-text-stroke:1px_#f7f8ff26] bg-[linear-gradient(0deg,rgba(242,194,97,0.66)_10%,rgba(242,193,97,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] font-bold text-transparent text-[80px] sm:text-[140px] lg:text-[226.8px] tracking-[1px] leading-none"
+            className="[-webkit-text-stroke:1px_#f7f8ff26] bg-[linear-gradient(0deg,rgba(242,194,97,0.66)_10%,rgba(242,193,97,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] font-bold text-transparent text-[80px] sm:text-[120px] md:text-[160px] lg:text-[226.8px] tracking-[0.5px] leading-none whitespace-nowrap"
           >
-            SOLTANE
+            SOULTAN
           </motion.div>
         </div>
 

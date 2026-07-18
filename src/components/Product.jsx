@@ -7,12 +7,14 @@ import { toast } from 'react-toastify';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
+import { useTheme } from '../context/ThemeContext';
 
 const Product = ({ product, layout = 'grid' }) => {
   const { i18n } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isArabic = i18n.language === 'ar';
+  const { isDark } = useTheme();
 
   const productName = isArabic ? product.name_ar : product.name_en;
   const categoryName = isArabic ? product.category?.name_ar : product.category?.name_en;
@@ -39,12 +41,16 @@ const Product = ({ product, layout = 'grid' }) => {
     return (
       <Link to={`/product/${product._id}`} className="contents">
         <Card
-          className="flex flex-row gap-4 p-3 relative bg-white rounded-[20px] border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer w-full items-start"
+          className={`flex flex-row gap-4 p-3 relative rounded-[20px] shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer w-full items-start ${
+            isDark ? 'bg-[#0f2814] border-emerald-800/50' : 'bg-white border-gray-200'
+          }`}
         >
-          <div className="relative w-[100px] h-[100px] sm:w-[130px] sm:h-[130px] bg-gray-100 rounded-xl overflow-hidden border border-gray-200 shrink-0 aspect-square">
+          <div className={`relative w-[100px] h-[100px] sm:w-[130px] sm:h-[130px] rounded-xl overflow-hidden shrink-0 aspect-square ${
+            isDark ? 'bg-[#1a3620] border-emerald-800/40' : 'bg-gray-100 border-gray-200'
+          }`}>
             {/* Image Layer */}
             <div
-              className="absolute inset-0 w-full h-full bg-cover bg-[50%_50%] bg-gray-50 transition-transform duration-500 ease-in-out group-hover:scale-110"
+              className={`absolute inset-0 w-full h-full bg-cover bg-[50%_50%] transition-transform duration-500 ease-in-out group-hover:scale-110 ${isDark ? 'bg-[#1a3620]' : 'bg-gray-50'}`}
               style={{
                 backgroundImage: `url(${product.images?.[0]?.url || '/placeholder.jpg'})`,
               }}
@@ -74,23 +80,27 @@ const Product = ({ product, layout = 'grid' }) => {
           <div className="flex flex-col items-stretch justify-between relative flex-grow min-w-0 py-0.5">
             <div className="flex flex-col items-start justify-center gap-1.5 relative w-full">
               <div className="flex flex-col items-start gap-1 relative w-full overflow-hidden">
-                <div className="flex items-center gap-2 text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider w-full truncate">
-                  <span className="text-brand-color-main truncate">{product.brand || "Soltane"}</span>
-                  <span className="w-1 h-1 rounded-full bg-gray-300 flex-shrink-0" />
+                <div className={`flex items-center gap-1.5 text-[10px] sm:text-xs font-medium uppercase tracking-wider w-full truncate ${isDark ? 'text-emerald-400/80' : 'text-gray-500'}`}>
+                  {product.brand && (
+                    <>
+                      <span className={`truncate ${isDark ? 'text-emerald-300' : 'text-brand-color-main'}`}>{product.brand}</span>
+                      <span className={`w-1 h-1 rounded-full flex-shrink-0 ${isDark ? 'bg-emerald-600/50' : 'bg-gray-300'}`} />
+                    </>
+                  )}
                   <span className="truncate">{categoryName || "Uncategorized"}</span>
                 </div>
-                <h3 className={`${isArabic ? 'font-arabic text-right' : 'font-english text-left'} font-extrabold text-font-font-color-head text-sm sm:text-lg leading-tight relative self-stretch group-hover:text-brand-color-main transition-colors line-clamp-2`}>
+                <h3 className={`${isArabic ? 'font-arabic text-right' : 'font-english text-left'} font-extrabold text-sm sm:text-lg leading-tight relative self-stretch transition-colors line-clamp-2 ${isDark ? 'text-emerald-100 group-hover:text-amber-400' : 'text-font-font-color-head group-hover:text-brand-color-main'}`}>
                   {productName}
                 </h3>
               </div>
 
               <div className="flex items-baseline gap-2 relative w-full">
-                <span className="text-base sm:text-xl font-bold text-brand-color-accent tracking-tight">
+                <span className="text-lg sm:text-2xl font-bold text-brand-color-accent tracking-tight">
                   {product.price} DZD
                 </span>
 
                 {isOnSale && (
-                  <span className="text-xs sm:text-sm opacity-70 text-font-font-color-body line-through whitespace-nowrap">
+                  <span className={`text-xs sm:text-sm opacity-70 line-through whitespace-nowrap ${isDark ? 'text-emerald-500/60' : 'text-font-font-color-body'}`}>
                     {product.comparePrice} DZD
                   </span>
                 )}
@@ -122,7 +132,9 @@ const Product = ({ product, layout = 'grid' }) => {
               <Button 
                 variant="outline"
                 onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/product/${product._id}`); }}
-                className="h-8 sm:h-9 px-2.5 sm:px-3 rounded-lg sm:rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors text-gray-600 text-xs shrink-0"
+                className={`h-8 sm:h-9 px-2.5 sm:px-3 rounded-lg sm:rounded-xl border transition-colors text-xs shrink-0 ${
+                  isDark ? 'bg-transparent border-emerald-800/40 hover:bg-[#1a3620] text-emerald-100' : 'bg-white border-gray-200 hover:bg-gray-50 text-gray-600'
+                }`}
               >
                 <span className="whitespace-nowrap">
                   {isArabic ? "التفاصيل" : "Details"}
@@ -138,13 +150,17 @@ const Product = ({ product, layout = 'grid' }) => {
   return (
     <Link to={`/product/${product._id}`} className="contents">
       <Card
-        className="flex flex-col min-w-[275px] items-center gap-6 p-4 relative bg-white rounded-[20px] border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer h-full"
+        className={`flex flex-col min-w-0 w-full items-center gap-3 sm:gap-6 p-2.5 sm:p-4 relative rounded-[20px] shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer h-full overflow-hidden ${
+          isDark ? 'bg-[#0f2814] border-emerald-800/50' : 'bg-white border-gray-200'
+        }`}
       >
-        <CardContent className="p-0 w-full flex flex-col h-full">
-          <div className="flex flex-col items-center gap-2 bg-gray-100 rounded-xl overflow-hidden relative self-stretch w-full border border-gray-200 aspect-[1/1.1]">
+        <CardContent className="p-0 w-full flex flex-col h-full min-w-0">
+          <div className={`flex flex-col items-center gap-2 rounded-xl overflow-hidden relative self-stretch w-full aspect-[1/1.1] ${
+            isDark ? 'bg-[#1a3620] border-emerald-800/40' : 'bg-gray-100 border-gray-200'
+          }`}>
             {/* Image Layer */}
             <div
-              className="absolute inset-0 w-full h-full bg-cover bg-[50%_50%] bg-gray-50 transition-transform duration-500 ease-in-out group-hover:scale-110"
+              className={`absolute inset-0 w-full h-full bg-cover bg-[50%_50%] transition-transform duration-500 ease-in-out group-hover:scale-110 ${isDark ? 'bg-[#1a3620]' : 'bg-gray-50'}`}
               style={{
                 backgroundImage: `url(${product.images?.[0]?.url || '/placeholder.jpg'})`,
               }}
@@ -171,53 +187,57 @@ const Product = ({ product, layout = 'grid' }) => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-between relative flex-1 self-stretch w-full grow mt-6">
-            <div className="flex flex-col items-center justify-center gap-3 relative self-stretch w-full">
+          <div className="flex flex-col items-center justify-between relative flex-1 self-stretch w-full grow mt-2 sm:mt-6">
+            <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 relative self-stretch w-full">
               <div className="flex flex-col items-start gap-2 relative self-stretch w-full">
                 <div className="flex flex-col items-start gap-1 relative self-stretch w-full overflow-hidden">
-                  <div className="flex items-center gap-2 text-xs font-medium text-gray-500 uppercase tracking-wider w-full">
-                    <span className="text-brand-color-main truncate">{product.brand || "Soltane"}</span>
-                    <span className="w-1 h-1 rounded-full bg-gray-300 flex-shrink-0" />
+                  <div className={`flex items-center gap-1.5 text-[10px] sm:text-xs font-medium uppercase tracking-wider w-full ${isDark ? 'text-emerald-400/80' : 'text-gray-500'}`}>
+                    {product.brand && (
+                      <>
+                        <span className={`truncate ${isDark ? 'text-emerald-300' : 'text-brand-color-main'}`}>{product.brand}</span>
+                        <span className={`w-1 h-1 rounded-full flex-shrink-0 ${isDark ? 'bg-emerald-600/50' : 'bg-gray-300'}`} />
+                      </>
+                    )}
                     <span className="truncate">{categoryName || "Uncategorized"}</span>
                   </div>
-                  <h3 className={`${isArabic ? 'font-arabic' : 'font-english'} font-extrabold text-font-font-color-head text-lg leading-tight relative self-stretch group-hover:text-brand-color-main transition-colors line-clamp-2`}>
+                  <h3 className={`${isArabic ? 'font-arabic' : 'font-english'} font-extrabold text-sm sm:text-lg leading-tight relative self-stretch transition-colors line-clamp-2 ${isDark ? 'text-emerald-100 group-hover:text-amber-400' : 'text-font-font-color-head group-hover:text-brand-color-main'}`}>
                     {productName}
                   </h3>
                 </div>
               </div>
 
-              <div className="flex items-baseline gap-2 relative self-stretch w-full">
-                <span className="text-xl font-bold text-brand-color-accent tracking-tight">
+              <div className="flex items-baseline gap-1.5 sm:gap-2 relative self-stretch w-full">
+                <span className="text-lg sm:text-2xl font-bold text-brand-color-accent tracking-tight">
                   {product.price} DZD
                 </span>
 
                 {isOnSale && (
-                  <span className="relative w-fit opacity-70 font-ecommerce-product-old-price font-[number:var(--ecommerce-product-old-price-font-weight)] text-font-font-color-body text-[length:var(--ecommerce-product-old-price-font-size)] tracking-[var(--ecommerce-product-old-price-letter-spacing)] leading-[var(--ecommerce-product-old-price-line-height)] line-through whitespace-nowrap [font-style:var(--ecommerce-product-old-price-font-style)]">
+                  <span className={`relative w-fit opacity-70 font-ecommerce-product-old-price font-[number:var(--ecommerce-product-old-price-font-weight)] text-xs sm:text-[length:var(--ecommerce-product-old-price-font-size)] tracking-[var(--ecommerce-product-old-price-letter-spacing)] leading-[var(--ecommerce-product-old-price-line-height)] line-through whitespace-nowrap [font-style:var(--ecommerce-product-old-price-font-style)] ${isDark ? 'text-emerald-500/60' : 'text-font-font-color-body'}`}>
                     {product.comparePrice} DZD
                   </span>
                 )}
               </div>
             </div>
 
-            <div className="flex flex-col items-start justify-end gap-3 relative self-stretch w-full mt-6">
+            <div className="flex flex-col items-start justify-end gap-2 sm:gap-3 relative self-stretch w-full mt-3 sm:mt-6">
               <Button 
                 onClick={buyNowHandler}
                 disabled={isOutOfStock}
-                className="flex min-h-10 px-6 py-[11px] self-stretch w-full rounded-[14px] bg-[linear-gradient(134deg,rgba(2,60,18,1)_0%,rgba(2,112,32,1)_100%)] items-center justify-center gap-2 relative hover:brightness-110 transition-all shadow-md w-full"
+                className="flex min-h-8 sm:min-h-10 px-3 sm:px-6 py-2 sm:py-[11px] self-stretch w-full rounded-xl sm:rounded-[14px] bg-[linear-gradient(134deg,rgba(2,60,18,1)_0%,rgba(2,112,32,1)_100%)] items-center justify-center gap-2 relative hover:brightness-110 transition-all shadow-md w-full"
               >
-                <span className="relative flex items-center justify-center w-fit font-button-button-default font-bold text-white text-[length:var(--button-button-default-font-size)] tracking-[var(--button-button-default-letter-spacing)] leading-[var(--button-button-default-line-height)] whitespace-nowrap [font-style:var(--button-button-default-font-style)]">
+                <span className="relative flex items-center justify-center w-fit font-button-button-default font-bold text-white text-xs sm:text-[length:var(--button-button-default-font-size)] tracking-[var(--button-button-default-letter-spacing)] leading-[var(--button-button-default-line-height)] whitespace-nowrap [font-style:var(--button-button-default-font-style)]">
                   {isArabic ? "شراء الآن" : "Buy now"}
                 </span>
               </Button>
 
-              <div className="flex gap-2 w-full">
+              <div className="flex gap-1.5 sm:gap-2 w-full">
                 <Button 
                   variant="outline"
                   onClick={addToCartHandler}
                   disabled={isOutOfStock}
-                  className="flex-1 min-h-10 items-center justify-center gap-2 px-4 py-[11px] relative rounded-[14px] border border-solid border-brand-color-main hover:bg-brand-color-main hover:text-white transition-colors text-brand-color-main group/cart"
+                  className="flex-1 min-h-8 sm:min-h-10 items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-[11px] relative rounded-xl sm:rounded-[14px] border border-solid border-brand-color-main hover:bg-brand-color-main hover:text-white transition-colors text-brand-color-main group/cart"
                 >
-                   <span className="relative flex items-center justify-center w-fit font-button-button-default text-[length:var(--button-button-default-font-size)] whitespace-nowrap">
+                   <span className="relative flex items-center justify-center w-fit font-button-button-default text-xs sm:text-[length:var(--button-button-default-font-size)] whitespace-nowrap">
                     {isArabic ? "أضف للسلة" : "Add to cart"}
                   </span>
                 </Button>
@@ -225,9 +245,11 @@ const Product = ({ product, layout = 'grid' }) => {
                 <Button 
                   variant="outline"
                   onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/product/${product._id}`); }}
-                  className="flex-1 min-h-10 items-center justify-center gap-2 px-4 py-[11px] relative rounded-[14px] border border-gray-200 hover:bg-gray-50 transition-colors text-gray-600"
+                  className={`flex-1 min-h-8 sm:min-h-10 items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-[11px] relative rounded-xl sm:rounded-[14px] border transition-colors ${
+                    isDark ? 'bg-transparent border-emerald-800/40 hover:bg-[#1a3620] text-emerald-100' : 'bg-white border-gray-200 hover:bg-gray-50 text-gray-600'
+                  }`}
                 >
-                  <span className="relative flex items-center justify-center w-fit font-button-button-default text-[length:var(--button-button-default-font-size)] whitespace-nowrap">
+                  <span className="relative flex items-center justify-center w-fit font-button-button-default text-xs sm:text-[length:var(--button-button-default-font-size)] whitespace-nowrap">
                     {isArabic ? "التفاصيل" : "Details"}
                   </span>
                 </Button>
