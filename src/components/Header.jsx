@@ -70,29 +70,31 @@ const Header = () => {
       </button>
       <AnimatePresence>
         {langDropdownOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full right-0 mt-2 w-32 z-50 bg-[rgba(16,16,16,0.95)] backdrop-blur-md border border-[#ffffff1a] rounded-xl shadow-xl overflow-hidden"
-          >
-            <div className="py-2">
-              {langs.map(l => (
-                <button
-                  key={l.code}
-                  onClick={() => {
-                    changeLanguage(l.code);
-                    setLangDropdownOpen(false);
-                  }}
-                  className={`w-full flex items-center gap-3 px-4 py-2 hover:bg-[rgba(255,255,255,0.1)] transition-colors ${currentLang.startsWith(l.code) ? 'bg-[rgba(255,255,255,0.05)]' : ''}`}
-                >
-                  {l.icon}
-                  <span className="text-[#fcfcfa] text-sm font-medium">{l.label}</span>
-                </button>
-              ))}
-            </div>
-          </motion.div>
+          <div className="absolute top-full right-0 pt-2 w-32 z-50">
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 6 }}
+              transition={{ duration: 0.2 }}
+              className="bg-[rgba(16,16,16,0.95)] backdrop-blur-md border border-[#ffffff1a] rounded-xl shadow-xl overflow-hidden"
+            >
+              <div className="py-2">
+                {langs.map(l => (
+                  <button
+                    key={l.code}
+                    onClick={() => {
+                      changeLanguage(l.code);
+                      setLangDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-3 px-4 py-2 hover:bg-[rgba(255,255,255,0.1)] transition-colors ${currentLang.startsWith(l.code) ? 'bg-[rgba(255,255,255,0.05)]' : ''}`}
+                  >
+                    {l.icon}
+                    <span className="text-[#fcfcfa] text-sm font-medium">{l.label}</span>
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </div>
