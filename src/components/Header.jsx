@@ -22,6 +22,7 @@ const Header = () => {
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const location = useLocation();
   const showDarkToggle = location.pathname === '/products';
   const { isDark, toggleDark } = useTheme();
@@ -52,30 +53,49 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const langs = [
+    { code: 'ar', label: 'AR', icon: <div className="w-5 h-5 rounded-full bg-[#1b4332] flex items-center justify-center text-white text-xs font-bold leading-none pb-0.5" style={{ fontFamily: 'ThmanyahSerifDisplay, Arial, sans-serif' }}>ض</div> },
+    { code: 'en', label: 'EN', icon: <img src="https://flagcdn.com/w40/gb.png" alt="English" className="w-5 h-5 rounded-full object-cover" /> },
+    { code: 'fr', label: 'FR', icon: <img src="https://flagcdn.com/w40/fr.png" alt="Français" className="w-5 h-5 rounded-full object-cover" /> }
+  ];
+
+  const currentLangObj = langs.find(l => currentLang.startsWith(l.code)) || langs[0];
+
   const LanguageSwitcher = () => (
-    <button
-      onClick={() => changeLanguage(currentLang.startsWith('ar') ? 'en' : currentLang.startsWith('en') ? 'fr' : 'ar')}
-      className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white/5"
-    >
-      {currentLang.startsWith('ar') ? (
-        <>
-          <img src="https://flagcdn.com/w40/gb.png" alt="English" className="w-5 h-5 rounded-full object-cover" />
-          <span className="text-[#fcfcfa] text-sm font-bold" style={{ fontFamily: 'Inter, sans-serif' }}>EN</span>
-        </>
-      ) : currentLang.startsWith('en') ? (
-        <>
-          <img src="https://flagcdn.com/w40/fr.png" alt="Français" className="w-5 h-5 rounded-full object-cover" />
-          <span className="text-[#fcfcfa] text-sm font-bold" style={{ fontFamily: 'Inter, sans-serif' }}>FR</span>
-        </>
-      ) : (
-        <>
-          <div className="w-5 h-5 rounded-full bg-[#1b4332] flex items-center justify-center text-white text-xs font-bold leading-none pb-0.5" style={{ fontFamily: 'ThmanyahSerifDisplay, Arial, sans-serif' }}>
-            ض
-          </div>
-          <span className="text-[#fcfcfa] text-sm font-bold" style={{ fontFamily: 'Inter, sans-serif' }}>AR</span>
-        </>
-      )}
-    </button>
+    <div className="relative" onMouseEnter={() => setLangDropdownOpen(true)} onMouseLeave={() => setLangDropdownOpen(false)}>
+      <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white/5">
+        {currentLangObj.icon}
+        <span className="text-[#fcfcfa] text-sm font-bold" style={{ fontFamily: 'Inter, sans-serif' }}>{currentLangObj.label}</span>
+        <ChevronDown className={`w-3 h-3 text-[#fcfcfa] transition-transform ${langDropdownOpen ? 'rotate-180' : ''}`} />
+      </button>
+      <AnimatePresence>
+        {langDropdownOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full right-0 mt-2 w-32 z-50 bg-[rgba(16,16,16,0.95)] backdrop-blur-md border border-[#ffffff1a] rounded-xl shadow-xl overflow-hidden"
+          >
+            <div className="py-2">
+              {langs.map(l => (
+                <button
+                  key={l.code}
+                  onClick={() => {
+                    changeLanguage(l.code);
+                    setLangDropdownOpen(false);
+                  }}
+                  className={`w-full flex items-center gap-3 px-4 py-2 hover:bg-[rgba(255,255,255,0.1)] transition-colors ${currentLang.startsWith(l.code) ? 'bg-[rgba(255,255,255,0.05)]' : ''}`}
+                >
+                  {l.icon}
+                  <span className="text-[#fcfcfa] text-sm font-medium">{l.label}</span>
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 
   // Animated dark/light toggle — only shows on /products

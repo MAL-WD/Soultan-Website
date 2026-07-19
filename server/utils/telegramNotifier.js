@@ -35,7 +35,7 @@ const formatItems = (items = []) => {
 
             // Clickable product link so the manager can tap to see exactly which product it is
             const nameDisplay = productId
-                ? `<a href="${clientUrl}/product/${productId}">${name}</a>`
+                ? `<b><a href="${clientUrl}/product/${productId}">${name}</a></b>`
                 : `<b>${name}</b>`;
 
             return `  • ${nameDisplay} (x${qty}) — ${price} DZD`;
