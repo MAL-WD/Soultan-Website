@@ -64,10 +64,7 @@ app.use(morgan('dev'));
 
 // 7. CORS Configuration
 app.use(cors({
-  origin: function(origin, callback) {
-    // Allow any origin dynamically (required when credentials are true)
-    callback(null, origin || true);
-  },
+  origin: process.env.CLIENT_URL || 'http://localhost:5173',
   credentials: true
 }));
 
