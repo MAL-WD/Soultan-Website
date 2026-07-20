@@ -19,9 +19,9 @@ const LIGHT  = '#faf7f0';
 
 /* ─── Data ──────────────────────────────────────────── */
 const BRANCHES = [
-  { key: 'branch_1', icon: <Crown size={22} />, mapUrl: 'https://maps.google.com/?q=Bechar+Centre+Ville' },
-  { key: 'branch_2', icon: <BookOpen size={22} />, mapUrl: 'https://maps.google.com/?q=Bidando+Bechar' },
-  { key: 'branch_3', icon: <Star size={22} />, mapUrl: 'https://maps.google.com/?q=CNEP+Bechar' },
+{ key: 'branch_1', icon: <Crown size={22} />, mapUrl: 'https://www.google.com/maps/place/%D9%85%D9%83%D8%AA%D8%A8%D8%A9+%D8%A7%D9%84%D8%B3%D9%84%D8%B7%D8%A7%D9%86%E2%80%AD/@31.5970461,-2.231672,17z/data=!3m1!4b1!4m6!3m5!1s0xd8ff7feb40b3981:0x32ff814b6aa38cf3!8m2!3d31.5970461!4d-2.231672!16s%2Fg%2F11jb0q19gl?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D' },
+  { key: 'branch_2', icon: <BookOpen size={22} />, mapUrl: 'https://maps.app.goo.gl/CQdoqYCWtFf5jqiW9' },
+  { key: 'branch_3', icon: <Star size={22} />, mapUrl: 'https://maps.app.goo.gl/qLDcpt4eA9UXcrns5' },
 ];
 
 const VALUES_EN = [

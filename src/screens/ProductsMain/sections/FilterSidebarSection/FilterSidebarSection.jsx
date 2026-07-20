@@ -6,7 +6,7 @@ import {
   SearchIcon,
   ArrowRightIcon,
 } from "lucide-react";
-import React, { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
@@ -28,18 +28,38 @@ import { useTheme } from "../../../../context/ThemeContext";
 const CategoryProductSection = ({ category, isArabic, isDark }) => {
   const navigate = useNavigate();
   const categoryName = isArabic ? category.name_ar : category.name_en;
+  const PAGE_SIZE = 6;
 
-  const { data, isLoading } = useGetProductsQuery({
+  const [page, setPage] = useState(1);
+  const [allProducts, setAllProducts] = useState([]);
+
+  const { data, isLoading, isFetching } = useGetProductsQuery({
     category: category._id,
-    page: 1,
-    limit: 6,
+    page,
+    limit: PAGE_SIZE,
   });
 
-  const products = data?.data || [];
   const totalProducts = data?.total || 0;
+  const totalPages = data?.pages || 1;
+  const hasMore = page < totalPages;
+
+  // Accumulate products as pages load
+  useEffect(() => {
+    if (data?.data) {
+      if (page === 1) {
+        setAllProducts(data.data);
+      } else {
+        setAllProducts((prev) => {
+          const existingIds = new Set(prev.map((p) => p._id));
+          const newOnes = data.data.filter((p) => !existingIds.has(p._id));
+          return [...prev, ...newOnes];
+        });
+      }
+    }
+  }, [data, page]);
 
   // Hide section entirely if no products and not loading
-  if (!isLoading && products.length === 0) return null;
+  if (!isLoading && allProducts.length === 0 && !isFetching) return null;
 
   return (
     <motion.section
@@ -53,17 +73,17 @@ const CategoryProductSection = ({ category, isArabic, isDark }) => {
       <div className="flex items-center justify-between">
         <h2 className={`text-lg font-bold tracking-tight ${isDark ? 'text-emerald-100' : 'text-font-font-color-head'}`}>
           {categoryName}
+          {totalProducts > 0 && (
+            <span className={`ml-2 text-xs font-normal px-2 py-0.5 rounded-full ${isDark ? 'bg-emerald-900/50 text-emerald-400/70' : 'bg-gray-100 text-gray-400'}`}>
+              {totalProducts}
+            </span>
+          )}
         </h2>
         <button
           onClick={() => navigate(`/products?category=${category._id}`)}
           className="flex items-center gap-1.5 text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors group"
         >
           {isArabic ? "عرض الكل" : "See All"}
-          {totalProducts > 6 && (
-            <span className="text-xs bg-amber-500/20 text-amber-400 rounded-full px-1.5 py-0.5">
-              {totalProducts}
-            </span>
-          )}
           <ArrowRightIcon
             className={`w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 ${isArabic ? "rotate-180 group-hover:-translate-x-0.5 group-hover:translate-x-0" : ""}`}
           />
@@ -71,9 +91,9 @@ const CategoryProductSection = ({ category, isArabic, isDark }) => {
       </div>
 
       {/* Product Grid */}
-      {isLoading ? (
+      {isLoading && allProducts.length === 0 ? (
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 w-full">
-          {[...Array(6)].map((_, i) => (
+          {[...Array(PAGE_SIZE)].map((_, i) => (
             <div
               key={i}
               className={`aspect-[3/4] rounded-2xl animate-pulse ${isDark ? 'bg-[#1a3620]' : 'bg-gray-200'}`}
@@ -82,22 +102,73 @@ const CategoryProductSection = ({ category, isArabic, isDark }) => {
         </div>
       ) : (
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 w-full">
-          {products.map((product, index) => (
+          {allProducts.map((product, index) => (
             <motion.div
               key={product._id}
               initial={{ opacity: 0, scale: 0.9, y: 16 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, margin: "0px 0px -30px 0px" }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{
-                duration: 0.45,
-                delay: index * 0.05,
+                duration: 0.4,
+                delay: (index % PAGE_SIZE) * 0.04,
                 ease: [0.21, 1.11, 0.81, 0.99],
               }}
             >
               <Product product={product} layout="grid" />
             </motion.div>
           ))}
+          {/* Skeleton placeholders while fetching next page */}
+          {isFetching && page > 1 &&
+            [...Array(PAGE_SIZE)].map((_, i) => (
+              <div
+                key={`skel-${i}`}
+                className={`aspect-[3/4] rounded-2xl animate-pulse ${isDark ? 'bg-[#1a3620]' : 'bg-gray-200'}`}
+              />
+            ))
+          }
         </div>
+      )}
+
+      {/* Load More / All Shown */}
+      {!isLoading && (
+        hasMore ? (
+          <div className="w-full flex justify-center pt-2 pb-1">
+            <button
+              onClick={() => setPage((p) => p + 1)}
+              disabled={isFetching}
+              className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow hover:shadow-md active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed ${
+                isDark
+                  ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-[#061409] hover:from-amber-400 hover:to-amber-300 shadow-amber-500/20'
+                  : 'bg-gradient-to-r from-brand-color-main to-emerald-600 text-white hover:from-emerald-600 hover:to-emerald-500 shadow-emerald-500/20'
+              }`}
+            >
+              {isFetching ? (
+                <>
+                  <svg className="w-3.5 h-3.5 animate-spin" viewBox="0 0 24 24" fill="none">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                  </svg>
+                  {isArabic ? "جاري التحميل..." : "Loading..."}
+                </>
+              ) : (
+                <>
+                  {isArabic ? "عرض المزيد" : "Load More"}
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </>
+              )}
+            </button>
+          </div>
+        ) : allProducts.length > PAGE_SIZE ? (
+          <div className="w-full text-center pb-1">
+            <span className={`inline-flex items-center gap-1.5 text-xs px-4 py-1.5 rounded-full ${isDark ? 'bg-emerald-900/30 text-emerald-600/60' : 'bg-gray-100 text-gray-400'}`}>
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              {isArabic ? "تم عرض جميع المنتجات" : "All products shown"}
+            </span>
+          </div>
+        ) : null
       )}
 
       {/* Divider */}
@@ -127,8 +198,6 @@ export const FilterSidebarSection = () => {
   const [itemsPerPage] = useState(12);
   const [allLoadedProducts, setAllLoadedProducts] = useState([]);
   const [hasMore, setHasMore] = useState(true);
-
-  const observer = useRef();
 
   // Fetch categories and products from API
   const { data: categoriesData, isLoading: categoriesLoading } = useGetCategoriesQuery();
@@ -337,20 +406,12 @@ export const FilterSidebarSection = () => {
     setAllLoadedProducts([]);
   }, [selectedCategory, searchQuery, selectedBrand, sortBy]);
 
-  // Infinite scroll observer (flat-list mode)
-  const lastProductElementRef = useCallback(
-    (node) => {
-      if (productsLoading || productsFetching) return;
-      if (observer.current) observer.current.disconnect();
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && hasMore) {
-          setCurrentPage((prevPage) => prevPage + 1);
-        }
-      });
-      if (node) observer.current.observe(node);
-    },
-    [productsLoading, productsFetching, hasMore]
-  );
+  // Load more handler (button-based pagination)
+  const handleLoadMore = () => {
+    if (!productsFetching && hasMore) {
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
 
   const totalItems = filteredProducts.length;
   const paginatedProducts = filteredProducts;
@@ -731,47 +792,37 @@ export const FilterSidebarSection = () => {
                 ) : paginatedProducts.length > 0 ? (
                   viewMode === "grid" ? (
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 w-full">
-                      {paginatedProducts.map((product, index) => {
-                        const isLast = index === paginatedProducts.length - 1;
-                        return (
-                          <motion.div
-                            key={product._id}
-                            ref={isLast ? lastProductElementRef : null}
-                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                            viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-                            transition={{
-                              duration: 0.5,
-                              delay: (index % itemsPerPage) * 0.05,
-                              ease: [0.21, 1.11, 0.81, 0.99],
-                            }}
-                          >
-                            <Product product={product} layout="grid" />
-                          </motion.div>
-                        );
-                      })}
+                      {paginatedProducts.map((product, index) => (
+                        <motion.div
+                          key={product._id}
+                          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                          animate={{ opacity: 1, scale: 1, y: 0 }}
+                          transition={{
+                            duration: 0.4,
+                            delay: (index % itemsPerPage) * 0.04,
+                            ease: [0.21, 1.11, 0.81, 0.99],
+                          }}
+                        >
+                          <Product product={product} layout="grid" />
+                        </motion.div>
+                      ))}
                     </div>
                   ) : (
                     // List view
                     <div className="flex flex-col gap-4 w-full">
-                      {paginatedProducts.map((product, index) => {
-                        const isLast = index === paginatedProducts.length - 1;
-                        return (
-                          <motion.div
-                            key={product._id}
-                            ref={isLast ? lastProductElementRef : null}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-                            transition={{
-                              duration: 0.4,
-                              delay: (index % itemsPerPage) * 0.05,
-                            }}
-                          >
-                            <Product product={product} layout="list" />
-                          </motion.div>
-                        );
-                      })}
+                      {paginatedProducts.map((product, index) => (
+                        <motion.div
+                          key={product._id}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{
+                            duration: 0.4,
+                            delay: (index % itemsPerPage) * 0.04,
+                          }}
+                        >
+                          <Product product={product} layout="list" />
+                        </motion.div>
+                      ))}
                     </div>
                   )
                 ) : (
@@ -781,22 +832,48 @@ export const FilterSidebarSection = () => {
                 )}
               </div>
 
-              {productsFetching && currentPage > 1 && (
-                <div className="w-full flex justify-center py-10">
-                  <div className="flex flex-col items-center gap-3">
-                    <Loader />
-                    <p className="text-sm text-emerald-600/70 animate-pulse">
-                      {isArabic ? "جاري تحميل المزيد..." : "Loading more products..."}
-                    </p>
-                  </div>
+              {/* Load More Button */}
+              {hasMore && paginatedProducts.length > 0 && (
+                <div className="w-full flex justify-center pt-4 pb-6">
+                  <button
+                    onClick={handleLoadMore}
+                    disabled={productsFetching}
+                    className={`relative inline-flex items-center gap-3 px-8 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed ${
+                      isDark
+                        ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-[#061409] hover:from-amber-400 hover:to-amber-300 shadow-amber-500/20'
+                        : 'bg-gradient-to-r from-brand-color-main to-emerald-600 text-white hover:from-emerald-600 hover:to-emerald-500 shadow-emerald-500/20'
+                    }`}
+                  >
+                    {productsFetching ? (
+                      <>
+                        <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                        </svg>
+                        {isArabic ? "جاري التحميل..." : "Loading..."}
+                      </>
+                    ) : (
+                      <>
+                        {isArabic ? "عرض المزيد" : "Load More"}
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </>
+                    )}
+                  </button>
                 </div>
               )}
 
               {!hasMore && paginatedProducts.length > 0 && (
-                <div className="w-full text-center py-10">
-                  <p className="text-emerald-700/60 text-sm">
+                <div className="w-full text-center py-8">
+                  <div className={`inline-flex items-center gap-2 text-sm px-5 py-2 rounded-full ${
+                    isDark ? 'bg-emerald-900/30 text-emerald-600/70' : 'bg-gray-100 text-gray-400'
+                  }`}>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
                     {isArabic ? "لقد شاهدت جميع المنتجات" : "You've seen all products"}
-                  </p>
+                  </div>
                 </div>
               )}
             </div>

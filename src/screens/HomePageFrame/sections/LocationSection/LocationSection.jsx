@@ -14,7 +14,7 @@ const branches = [
     addrKey: "branch_1_addr",
     coords: "31.5970461,-2.231672",
     icon: Store,
-    fullMapUrl: "https://maps.app.goo.gl/rEMzBQ9KicBtJg3B6",
+    fullMapUrl: "https://www.google.com/maps/place/%D9%85%D9%83%D8%AA%D8%A8%D8%A9+%D8%A7%D9%84%D8%B3%D9%84%D8%B7%D8%A7%D9%86%E2%80%AD/@31.5970461,-2.231672,17z/data=!3m1!4b1!4m6!3m5!1s0xd8ff7feb40b3981:0x32ff814b6aa38cf3!8m2!3d31.5970461!4d-2.231672!16s%2Fg%2F11jb0q19gl?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D",
     accentColor: "#f2c161",
   },
   {
@@ -23,7 +23,7 @@ const branches = [
     addrKey: "branch_2_addr",
     coords: "31.567666132759076,-2.2324320618687237",
     icon: MapPin,
-    fullMapUrl: "https://maps.app.goo.gl/CQdoqYCWtFf5jqiW9?g_st=ipc",
+    fullMapUrl: "https://maps.app.goo.gl/CQdoqYCWtFf5jqiW9",
     contactUrl: "https://soltanstationerybidando.framer.website/",
     accentColor: "#71b83e",
   },
