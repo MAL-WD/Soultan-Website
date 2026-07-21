@@ -28,7 +28,7 @@ const App = () => {
     } else {
       root.style.fontFamily = 'Satoshi, Inter, sans-serif';
       root.setAttribute('dir', 'ltr');
-      root.setAttribute('lang', 'en');
+      root.setAttribute('lang', lang.startsWith('fr') ? 'fr' : 'en');
     }
   }, [i18n.language, i18n.resolvedLanguage]);
 
