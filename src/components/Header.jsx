@@ -313,7 +313,8 @@ const Header = () => {
                   <span className="text-sm font-medium hidden sm:inline">{userInfo.name}</span>
                 </Link>
               ) : null}
-              <LanguageSwitcher />
+              {/* Show lang in top bar only when NOT on products (dark toggle is there instead) */}
+              {!showDarkToggle && <LanguageSwitcher />}
               <DarkToggle />
             </div>
           </nav>
@@ -386,6 +387,31 @@ const Header = () => {
                         {t('signin')}
                       </Button>
                     </Link>
+                  )}
+
+                  <div className="h-px w-full bg-[#ffffff1a]" />
+
+                  {/* Language switcher inside hamburger — only on /products where top bar has dark toggle */}
+                  {showDarkToggle && (
+                    <div className="flex flex-col gap-2">
+                      <span className="text-[#fcfcfa]/50 text-xs font-semibold uppercase tracking-widest">{t('language') || 'Language'}</span>
+                      <div className="flex items-center gap-2">
+                        {langs.map(l => (
+                          <button
+                            key={l.code}
+                            onClick={() => { changeLanguage(l.code); setIsMobileMenuOpen(false); }}
+                            className={`flex items-center gap-2 px-3 py-2 rounded-full border transition-colors ${
+                              currentLang.startsWith(l.code)
+                                ? 'bg-white/20 border-white/30'
+                                : 'bg-white/5 border-white/10 hover:bg-white/10'
+                            }`}
+                          >
+                            {l.icon}
+                            <span className="text-[#fcfcfa] text-sm font-bold">{l.label}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
                   )}
 
                   <div className="h-px w-full bg-[#ffffff1a]" />

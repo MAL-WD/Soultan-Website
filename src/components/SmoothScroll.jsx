@@ -1,21 +1,24 @@
 import React, { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigationType } from 'react-router-dom';
 
 const SmoothScroll = ({ children }) => {
   const lenisRef = useRef(null);
   const location = useLocation();
+  const navigationType = useNavigationType();
   const isAdminPath = location.pathname.startsWith('/admin');
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-  // Scroll to top on every route change
+  // Scroll to top on every route change except when going back (POP)
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    if (lenisRef.current) {
-      lenisRef.current.scrollTo(0, { immediate: true });
+    if (navigationType !== 'POP') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(0, { immediate: true });
+      }
     }
-  }, [location.pathname, location.search]);
+  }, [location.pathname, location.search, navigationType]);
 
   useEffect(() => {
     // Skip smooth scroll for admin panel and mobile devices (causes lag)

@@ -1,4 +1,4 @@
-// Handle uncaught exceptions first to catch any startup issues
+  // Handle uncaught exceptions first to catch any startup issues
 process.on('uncaughtException', (err) => {
   console.error('🔥 UNCAUGHT EXCEPTION! Shutting down...');
   console.error(err.name, err.message);

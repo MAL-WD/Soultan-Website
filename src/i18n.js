@@ -248,7 +248,8 @@ const resources = {
       "details": "Details",
       "status": "STATUS",
       "adminDashboard": "Admin Dashboard",
-      "analytics": "Analytics"
+      "analytics": "Analytics",
+      "language": "Language"
     }
   },
   ar: {
@@ -496,7 +497,8 @@ const resources = {
       "details": "التفاصيل",
       "status": "الحالة",
       "adminDashboard": "لوحة تحكم المسؤول",
-      "analytics": "التحليلات"
+      "analytics": "التحليلات",
+      "language": "اللغة"
     }
   },
   fr: {
@@ -744,7 +746,8 @@ const resources = {
       "details": "Détails",
       "status": "STATUT",
       "adminDashboard": "Tableau de Bord",
-      "analytics": "Analytique"
+      "analytics": "Analytique",
+      "language": "Langue"
     }
   }
 };
