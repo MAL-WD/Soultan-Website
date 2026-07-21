@@ -30,7 +30,6 @@ const GoogleLoginButton = ({ redirect = '/' }) => {
           {
             theme: 'outline',
             size: 'large',
-            width: '100%',
             text: 'signin_with',
             locale: 'en',
           }
@@ -59,9 +58,9 @@ const GoogleLoginButton = ({ redirect = '/' }) => {
 
       const googleData = JSON.parse(jsonPayload);
 
-      // Send to backend using relative path (works with Vite proxy + production)
+      // Send to backend using VITE_API_URL so it works in production cross-origin
       const res = await axios.post(
-        '/api/auth/google',
+        `${import.meta.env.VITE_API_URL}/auth/google`,
         {
           googleId: googleData.sub,
           email: googleData.email,
