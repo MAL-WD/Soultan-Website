@@ -249,7 +249,7 @@ const resources = {
       "status": "STATUS",
       "adminDashboard": "Admin Dashboard",
       "analytics": "Analytics",
-      "language": "Language",\n
+      "language": "Language",
       "authLoginSubtitle": "Enter your email and password to access your account",
       "email": "Email",
       "emailAddress": "Email Address",
@@ -520,7 +520,7 @@ const resources = {
       "status": "الحالة",
       "adminDashboard": "لوحة تحكم المسؤول",
       "analytics": "التحليلات",
-      "language": "اللغة",\n
+      "language": "اللغة",
       "authLoginSubtitle": "أدخل بريدك الإلكتروني وكلمة المرور للوصول إلى حسابك",
       "email": "البريد الإلكتروني",
       "emailAddress": "عنوان البريد الإلكتروني",
@@ -791,7 +791,7 @@ const resources = {
       "status": "STATUT",
       "adminDashboard": "Tableau de Bord",
       "analytics": "Analytique",
-      "language": "Langue",\n
+      "language": "Langue",
       "authLoginSubtitle": "Entrez votre e-mail et votre mot de passe pour accéder à votre compte",
       "email": "E-mail",
       "emailAddress": "Adresse e-mail",
