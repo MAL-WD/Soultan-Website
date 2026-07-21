@@ -60,15 +60,15 @@ const RegisterScreen = () => {
         <SlideUp delay={0.1}>
           <Card className="border-0 shadow-lg">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center">Create an account</CardTitle>
+          <CardTitle className="text-2xl font-bold text-center">{t('createAccount')}</CardTitle>
           <CardDescription className="text-center">
-            Enter your information to create your account
+            {t('createAccountSubtitle')}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={submitHandler} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">{t('name')}</Label>
               <Input
                 id="name"
                 type="text"
@@ -79,7 +79,7 @@ const RegisterScreen = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t('email')}</Label>
               <Input
                 id="email"
                 type="email"
@@ -90,7 +90,7 @@ const RegisterScreen = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t('password')}</Label>
               <Input
                 id="password"
                 type="password"
@@ -100,7 +100,7 @@ const RegisterScreen = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Label htmlFor="confirmPassword">{t('confirmPassword')}</Label>
               <Input
                 id="confirmPassword"
                 type="password"
@@ -114,7 +114,7 @@ const RegisterScreen = () => {
               className="w-full bg-[#02110c] hover:bg-[#02110c]/90 text-white"
               disabled={isLoading}
             >
-              {isLoading ? 'Register' : 'Register'}
+              {isLoading ? t('register') + '...' : t('register')}
             </Button>
           </form>
 
@@ -123,7 +123,7 @@ const RegisterScreen = () => {
               <div className="w-full border-t border-gray-300"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">Or continue with</span>
+              <span className="px-2 bg-white text-gray-500">{t('orContinueWith')}</span>
             </div>
           </div>
 
@@ -131,9 +131,9 @@ const RegisterScreen = () => {
         </CardContent>
         <CardFooter className="flex flex-col space-y-2">
           <div className="text-sm text-center text-gray-500">
-            Already have an account?{' '}
+            {t('alreadyHaveAccount')}{' '}
             <Link to={redirect ? `/login?redirect=${redirect}` : '/login'} className="text-[#f2c161] hover:underline font-medium">
-              Sign In
+              {t('signin')}
             </Link>
           </div>
         </CardFooter>

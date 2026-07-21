@@ -81,15 +81,15 @@ const ForgotPasswordScreen = () => {
         {step === 'email' ? (
           <>
             <CardHeader className="space-y-1">
-              <CardTitle className="text-2xl font-bold text-center">{t('forgotPassword') || 'Forgot Password'}</CardTitle>
+              <CardTitle className="text-2xl font-bold text-center">{t('forgotPasswordTitle') || 'Forgot Password'}</CardTitle>
               <CardDescription className="text-center">
-                Enter your email address and we'll send you a reset link
+                {t('forgotPasswordSubtitle')}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleEmailSubmit} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email Address</Label>
+                  <Label htmlFor="email">{t('emailAddress')}</Label>
                   <Input
                     id="email"
                     type="email"
@@ -104,15 +104,15 @@ const ForgotPasswordScreen = () => {
                   className="w-full bg-[#02110c] hover:bg-[#02110c]/90 text-white"
                   disabled={isLoading}
                 >
-                  {isLoading ? 'Sending...' : 'Send Reset Link'}
+                  {isLoading ? t('sendResetLink') + '...' : t('sendResetLink')}
                 </Button>
               </form>
             </CardContent>
             <CardFooter className="flex flex-col space-y-2">
               <div className="text-sm text-center text-gray-500">
-                Remember your password?{' '}
+                {t('rememberPassword')}{' '}
                 <Link to="/login" className="text-[#f2c161] hover:underline font-medium">
-                  Sign In
+                  {t('signin')}
                 </Link>
               </div>
             </CardFooter>
@@ -120,30 +120,30 @@ const ForgotPasswordScreen = () => {
         ) : (
           <>
             <CardHeader className="space-y-1">
-              <CardTitle className="text-2xl font-bold text-center">Reset Password</CardTitle>
+              <CardTitle className="text-2xl font-bold text-center">{t('resetPassword')}</CardTitle>
               <CardDescription className="text-center">
-                Enter your new password
+                {t('resetPasswordSubtitle')}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleResetSubmit} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="newPassword">New Password</Label>
+                  <Label htmlFor="newPassword">{t('newPassword')}</Label>
                   <Input
                     id="newPassword"
                     type="password"
-                    placeholder="Enter new password"
+                    placeholder="********"
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="confirmPassword">Confirm Password</Label>
+                  <Label htmlFor="confirmPassword">{t('confirmPassword')}</Label>
                   <Input
                     id="confirmPassword"
                     type="password"
-                    placeholder="Confirm password"
+                    placeholder="********"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
@@ -154,7 +154,7 @@ const ForgotPasswordScreen = () => {
                   className="w-full bg-[#02110c] hover:bg-[#02110c]/90 text-white"
                   disabled={isLoading}
                 >
-                  {isLoading ? 'Resetting...' : 'Reset Password'}
+                  {isLoading ? t('resetPassword') + '...' : t('resetPassword')}
                 </Button>
               </form>
             </CardContent>
@@ -164,7 +164,7 @@ const ForgotPasswordScreen = () => {
                 onClick={() => setStep('email')}
                 className="text-sm text-[#f2c161] hover:underline font-medium"
               >
-                Use a different email
+                {t('useDifferentEmail')}
               </button>
             </CardFooter>
           </>

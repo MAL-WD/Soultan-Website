@@ -2,12 +2,15 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 import { setCredentials } from '../slices/authSlice';
 import axios from 'axios';
 
 const GoogleLoginButton = ({ redirect = '/' }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'en').toLowerCase().split('-')[0];
 
   useEffect(() => {
     // Load Google Sign-In script
@@ -31,7 +34,7 @@ const GoogleLoginButton = ({ redirect = '/' }) => {
             theme: 'outline',
             size: 'large',
             text: 'signin_with',
-            locale: 'en',
+            locale: currentLang,
           }
         );
       }
@@ -42,7 +45,7 @@ const GoogleLoginButton = ({ redirect = '/' }) => {
         document.head.removeChild(script);
       }
     };
-  }, []);
+  }, [currentLang]);
 
   const handleGoogleResponse = async (response) => {
     try {

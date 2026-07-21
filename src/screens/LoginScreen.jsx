@@ -55,13 +55,13 @@ const LoginScreen = () => {
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">{t('signin')}</CardTitle>
           <CardDescription className="text-center">
-            Enter your email and password to access your account
+            {t('authLoginSubtitle')}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={submitHandler} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t('email')}</Label>
               <Input
                 id="email"
                 type="email"
@@ -73,9 +73,9 @@ const LoginScreen = () => {
             </div>
             <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">{t('password')}</Label>
                 <Link to="/forgot-password" className="text-sm text-[#f2c161] hover:underline">
-                  Forgot password?
+                  {t('forgotPassword')}
                 </Link>
               </div>
               <Input
@@ -91,7 +91,7 @@ const LoginScreen = () => {
               className="w-full bg-[#02110c] hover:bg-[#02110c]/90 text-white"
               disabled={isLoading}
             >
-              {isLoading ? 'Signing In...' : t('signin')}
+              {isLoading ? t('signin') + '...' : t('signin')}
             </Button>
           </form>
           
@@ -100,7 +100,7 @@ const LoginScreen = () => {
               <div className="w-full border-t border-gray-300"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">Or continue with</span>
+              <span className="px-2 bg-white text-gray-500">{t('orContinueWith')}</span>
             </div>
           </div>
 
@@ -108,9 +108,9 @@ const LoginScreen = () => {
         </CardContent>
         <CardFooter className="flex flex-col space-y-2">
           <div className="text-sm text-center text-gray-500">
-            New customer?{' '}
+            {t('newCustomer')}{' '}
             <Link to={redirect ? `/register?redirect=${redirect}` : '/register'} className="text-[#f2c161] hover:underline font-medium">
-              Register
+              {t('register')}
             </Link>
           </div>
         </CardFooter>

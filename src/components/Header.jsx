@@ -305,14 +305,8 @@ const Header = () => {
               <img src="/logo.png" alt="Soltane" className="w-[42px] h-[42px] rounded-full object-cover" />
             </Link>
 
-            {/* Right: User + Lang */}
+            {/* Right: Lang & Dark Toggle */}
             <div className="flex items-center gap-3">
-              {userInfo ? (
-                <Link to="/profile" className="text-[#fcfcfa] hover:opacity-80 transition-opacity flex items-center gap-1.5" onClick={() => setIsMobileMenuOpen(false)}>
-                  <User className="w-5 h-5" />
-                  <span className="text-sm font-medium hidden sm:inline">{userInfo.name}</span>
-                </Link>
-              ) : null}
               {/* Show lang in top bar only when NOT on products (dark toggle is there instead) */}
               {!showDarkToggle && <LanguageSwitcher />}
               <DarkToggle />
@@ -378,6 +372,13 @@ const Header = () => {
                   {userInfo && userInfo.role === 'admin' && (
                     <Link to="/admin/dashboard" className="text-brand-color-accent text-base font-bold" onClick={() => setIsMobileMenuOpen(false)}>
                       {t('admin')}
+                    </Link>
+                  )}
+
+                  {userInfo && (
+                    <Link to="/profile" className="text-[#fcfcfa] text-base font-medium flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                      <User className="w-5 h-5" />
+                      {t('profile')}
                     </Link>
                   )}
 
