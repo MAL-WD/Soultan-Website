@@ -34,7 +34,9 @@ connectDB();
 // Middlewares
 // 1. Security HTTP Headers (configured to allow cross-origin resource sharing for static files)
 app.use(helmet({
-  crossOriginResourcePolicy: { policy: 'cross-origin' }
+  crossOriginResourcePolicy: { policy: 'cross-origin' },
+  // Required for Google Sign-In popup to communicate via window.postMessage
+  crossOriginOpenerPolicy: { policy: 'same-origin-allow-popups' },
 }));
 
 // 2. Rate Limiting for API routes

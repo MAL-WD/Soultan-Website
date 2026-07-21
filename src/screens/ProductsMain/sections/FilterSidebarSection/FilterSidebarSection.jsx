@@ -30,8 +30,24 @@ const CategoryProductSection = ({ category, isArabic, isDark }) => {
   const categoryName = isArabic ? category.name_ar : category.name_en;
   const PAGE_SIZE = 6;
 
-  const [page, setPage] = useState(1);
-  const [allProducts, setAllProducts] = useState([]);
+  const [page, setPage] = useState(() => {
+    const saved = sessionStorage.getItem(`cat_page_${category._id}`);
+    return saved ? parseInt(saved, 10) : 1;
+  });
+  const [allProducts, setAllProducts] = useState(() => {
+    const saved = sessionStorage.getItem(`cat_products_${category._id}`);
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem(`cat_page_${category._id}`, page);
+  }, [page, category._id]);
+
+  useEffect(() => {
+    if (allProducts.length > 0) {
+      sessionStorage.setItem(`cat_products_${category._id}`, JSON.stringify(allProducts));
+    }
+  }, [allProducts, category._id]);
 
   const { data, isLoading, isFetching } = useGetProductsQuery({
     category: category._id,
@@ -193,11 +209,37 @@ export const FilterSidebarSection = () => {
   const [selectedBrand, setSelectedBrand] = useState("All Brand");
   const [sortBy, setSortBy] = useState("newest");
   const [expandedCategories, setExpandedCategories] = useState([]);
-  const [viewMode, setViewMode] = useState("grid");
-  const [currentPage, setCurrentPage] = useState(1);
+  
+  const [viewMode, setViewMode] = useState(() => {
+    return sessionStorage.getItem('products_viewMode') || "grid";
+  });
+  useEffect(() => {
+    sessionStorage.setItem('products_viewMode', viewMode);
+  }, [viewMode]);
+
+  const filterKey = `${selectedCategory}_${searchQuery}_${selectedBrand}_${sortBy}`;
+  const prevFilterKey = React.useRef(filterKey);
+
+  const [currentPage, setCurrentPage] = useState(() => {
+    const saved = sessionStorage.getItem(`flat_page_${filterKey}`);
+    return saved ? parseInt(saved, 10) : 1;
+  });
   const [itemsPerPage] = useState(12);
-  const [allLoadedProducts, setAllLoadedProducts] = useState([]);
+  const [allLoadedProducts, setAllLoadedProducts] = useState(() => {
+    const saved = sessionStorage.getItem(`flat_products_${filterKey}`);
+    return saved ? JSON.parse(saved) : [];
+  });
   const [hasMore, setHasMore] = useState(true);
+
+  useEffect(() => {
+    sessionStorage.setItem(`flat_page_${filterKey}`, currentPage);
+  }, [currentPage, filterKey]);
+
+  useEffect(() => {
+    if (allLoadedProducts.length > 0) {
+      sessionStorage.setItem(`flat_products_${filterKey}`, JSON.stringify(allLoadedProducts));
+    }
+  }, [allLoadedProducts, filterKey]);
 
   // Fetch categories and products from API
   const { data: categoriesData, isLoading: categoriesLoading } = useGetCategoriesQuery();
@@ -402,9 +444,12 @@ export const FilterSidebarSection = () => {
 
   // Reset pagination when filters change
   useEffect(() => {
-    setCurrentPage(1);
-    setAllLoadedProducts([]);
-  }, [selectedCategory, searchQuery, selectedBrand, sortBy]);
+    if (prevFilterKey.current !== filterKey) {
+      setCurrentPage(1);
+      setAllLoadedProducts([]);
+      prevFilterKey.current = filterKey;
+    }
+  }, [filterKey]);
 
   // Load more handler (button-based pagination)
   const handleLoadMore = () => {

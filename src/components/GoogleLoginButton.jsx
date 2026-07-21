@@ -47,7 +47,7 @@ const GoogleLoginButton = ({ redirect = '/' }) => {
 
   const handleGoogleResponse = async (response) => {
     try {
-      // Decode JWT token from Google
+      // Decode JWT token from Google to extract user info
       const base64Url = response.credential.split('.')[1];
       const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
       const jsonPayload = decodeURIComponent(
@@ -59,9 +59,9 @@ const GoogleLoginButton = ({ redirect = '/' }) => {
 
       const googleData = JSON.parse(jsonPayload);
 
-      // Send to backend
+      // Send to backend using relative path (works with Vite proxy + production)
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/auth/google`,
+        '/api/auth/google',
         {
           googleId: googleData.sub,
           email: googleData.email,
