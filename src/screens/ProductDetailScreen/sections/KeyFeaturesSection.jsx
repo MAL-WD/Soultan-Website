@@ -67,15 +67,31 @@ export const KeyFeaturesSection = ({
                 <div className="flex items-start justify-center gap-[25px] flex-1">
                   <div className="flex flex-col items-center gap-6 flex-1 w-full">
                     <div 
-                      className={`w-full h-[400px] lg:h-[609px] border border-solid rounded-3xl overflow-hidden bg-contain bg-no-repeat bg-center transition-all duration-500 cursor-pointer hover:opacity-90 ${
-                        isDark ? 'border-emerald-800/40 bg-[#122816]' : 'border-[#dfdfdf]'
+                      className={`relative w-full h-[400px] lg:h-[609px] border border-solid rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer group ${
+                        isDark ? 'border-emerald-800/40 bg-[#122816]' : 'border-[#dfdfdf] bg-white'
                       }`}
-                      style={{ backgroundImage: `url(${images[selectedImage]?.url})` }}
                       onClick={() => handleImageClick(selectedImage)}
                       role="button"
                       tabIndex={0}
                       onKeyDown={(e) => e.key === 'Enter' && handleImageClick(selectedImage)}
-                    />
+                    >
+                      {/* Glassmorphism Background */}
+                      <div className="absolute inset-0 z-0 overflow-hidden">
+                        <img 
+                          src={images[selectedImage]?.url} 
+                          alt="" 
+                          className="w-full h-full object-cover blur-3xl scale-125 opacity-50" 
+                        />
+                        <div className={`absolute inset-0 ${isDark ? 'bg-black/50' : 'bg-white/50'} backdrop-blur-xl`}></div>
+                      </div>
+                      
+                      {/* Main Image */}
+                      <img 
+                        src={images[selectedImage]?.url} 
+                        alt={isArabic ? product.name_ar : product.name_en} 
+                        className="relative z-10 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
 
                     <div className="flex items-center justify-between w-full">
                       <Button
