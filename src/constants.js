@@ -10,3 +10,4 @@ export const UPLOAD_URL = '/api/upload';
 export const CATEGORIES_URL = '/api/categories';
 export const WISHLIST_URL = '/api/wishlist';
 export const CONTACT_URL = '/api/contact';
+export const BANNERS_URL = '/api/banners';

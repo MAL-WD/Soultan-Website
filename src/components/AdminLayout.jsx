@@ -13,6 +13,7 @@ import {
   X,
   ChevronRight,
   LogOut,
+  Tag,
 } from 'lucide-react';
 import { logout } from '../slices/authSlice';
 import { useLogoutMutation } from '../slices/usersApiSlice';
@@ -22,6 +23,7 @@ const navItems = [
   { path: '/admin/productlist', label: 'Products', labelAr: 'المنتجات', icon: Package },
   { path: '/admin/orderlist', label: 'Orders', labelAr: 'الطلبات', icon: ShoppingBag },
   { path: '/admin/userlist', label: 'Users', labelAr: 'المستخدمون', icon: Users },
+  { path: '/admin/offers', label: 'Offers', labelAr: 'العروض', icon: Tag },
   { path: '/admin/analytics', label: 'Analytics', labelAr: 'الإحصائيات', icon: BarChart3 },
 ];
 

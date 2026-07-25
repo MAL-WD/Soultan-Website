@@ -262,3 +262,68 @@ export const addProductReview = async (req, res) => {
     });
   }
 };
+
+// @desc    Bulk discount products (by category or all)
+// @route   POST /api/products/bulk-discount
+// @access  Private/Admin
+export const bulkDiscountProducts = async (req, res) => {
+  try {
+    const { category, productId, discountType, discountValue, reset } = req.body;
+
+    // Build query
+    const query = { isActive: true };
+    
+    if (productId) {
+      query._id = productId;
+    } else if (category) {
+      const categoryDoc = await Category.findById(category);
+      if (!categoryDoc) return res.status(404).json({ success: false, message: 'Category not found' });
+      const subcategories = await Category.find({ parent: category });
+      const categoryIds = [category, ...subcategories.map((c) => c._id)];
+      query.category = { $in: categoryIds };
+    }
+
+    const products = await Product.find(query);
+
+    if (reset) {
+      // Reset: set price = comparePrice and clear comparePrice
+      const ops = products
+        .filter((p) => p.comparePrice && p.comparePrice > 0)
+        .map((p) => ({
+          updateOne: {
+            filter: { _id: p._id },
+            update: { $set: { price: p.comparePrice }, $unset: { comparePrice: '' } },
+          },
+        }));
+      if (ops.length > 0) await Product.bulkWrite(ops);
+      return res.json({ success: true, message: `Reset ${ops.length} products to original price`, affected: ops.length });
+    }
+
+    // Apply discount
+    const ops = products.map((p) => {
+      const originalPrice = p.comparePrice && p.comparePrice > 0 ? p.comparePrice : p.price;
+      let newPrice;
+      if (discountType === 'percentage') {
+        newPrice = Math.round(originalPrice * (1 - discountValue / 100));
+      } else {
+        newPrice = Math.max(0, originalPrice - discountValue);
+      }
+      return {
+        updateOne: {
+          filter: { _id: p._id },
+          update: { $set: { price: newPrice, comparePrice: originalPrice } },
+        },
+      };
+    });
+
+    await Product.bulkWrite(ops);
+
+    res.json({
+      success: true,
+      message: `Discount applied to ${ops.length} products`,
+      affected: ops.length,
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};

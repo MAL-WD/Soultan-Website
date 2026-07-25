@@ -57,6 +57,7 @@ import UserListScreen from './screens/admin/UserListScreen';
 import OrderListScreen from './screens/admin/OrderListScreen';
 import ProductEditScreen from './screens/admin/ProductEditScreen';
 import UserEditScreen from './screens/admin/UserEditScreen';
+import OffersScreen from './screens/admin/OffersScreen';
 import NotFoundScreen from './screens/NotFoundScreen';
 import QuickCheckoutScreen from './screens/QuickCheckoutScreen';
 import ContactScreen from './screens/ContactScreen';
@@ -105,6 +106,7 @@ const router = createBrowserRouter(
         <Route path="/admin/userlist" element={<UserListScreen />} />
         <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
         <Route path="/admin/orderlist" element={<OrderListScreen />} />
+        <Route path="/admin/offers" element={<OffersScreen />} />
       </Route>
       <Route path="*" element={<NotFoundScreen />} />
     </Route>

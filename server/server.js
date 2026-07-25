@@ -66,7 +66,13 @@ app.use(morgan('dev'));
 
 // 7. CORS Configuration
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: [
+    process.env.CLIENT_URL || 'http://localhost:5173', 
+    'http://localhost:8081', 
+    'http://127.0.0.1:8081',
+    'http://192.168.1.6:8081',
+    'http://192.168.1.6:8082'
+  ],
   credentials: true
 }));
 
@@ -112,6 +118,7 @@ import couponRoutes from './routes/couponRoutes.js';
 import analyticsRoutes from './routes/analyticsRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
+import bannerRoutes from './routes/bannerRoutes.js';
 
 // Use routes
 app.use('/api/auth', authRoutes);
@@ -125,6 +132,7 @@ app.use('/api/coupons', couponRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/banners', bannerRoutes);
 
 // Make uploads folder static
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));

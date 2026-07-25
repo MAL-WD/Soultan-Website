@@ -10,6 +10,7 @@ import { logout } from '../slices/authSlice';
 import { clearCartItems } from '../slices/cartSlice';
 import { useGetCategoriesQuery } from '../slices/categoriesApiSlice';
 import { useTheme } from '../context/ThemeContext';
+import { AnnouncementBanner } from './AnnouncementBanner';
 
 const NAV_BG = 'bg-[linear-gradient(180deg,rgba(16,16,16,0.9)_0%,rgba(21,48,43,0.9)_100%)]';
 const BACKDROP = 'backdrop-blur-[5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(5px)_brightness(100%)]';
@@ -170,13 +171,19 @@ const Header = () => {
   );
 
   return (
-    <motion.header
-      initial={{ y: -150, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-      className="fixed top-3 md:top-[18px] w-full flex justify-center z-50 pointer-events-none"
-    >
-      <div className="w-full max-w-[1440px] mx-auto px-4 pointer-events-auto flex justify-center">
+    <div className="fixed top-0 left-0 w-full z-50 flex flex-col">
+      {/* Announcement Banner goes at the absolute top */}
+      <div className="pointer-events-auto w-full relative z-[60]">
+        <AnnouncementBanner />
+      </div>
+
+      <motion.header
+        initial={{ y: -150, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+        className="w-full flex justify-center pointer-events-none mt-3 md:mt-[18px]"
+      >
+        <div className="w-full max-w-[1440px] mx-auto px-4 pointer-events-auto flex justify-center">
         {/* ── DESKTOP NAV (≥1024px): centered pill ── */}
         <div className="hidden lg:flex justify-center">
           <nav className={`h-[72px] inline-flex items-center gap-6 px-6 rounded-[999px] ${NAV_BG} ${BACKDROP} border border-[#ffffff1a]`}>
@@ -434,7 +441,8 @@ const Header = () => {
           </AnimatePresence>
         </div>
       </div>
-    </motion.header>
+      </motion.header>
+    </div>
   );
 };
 

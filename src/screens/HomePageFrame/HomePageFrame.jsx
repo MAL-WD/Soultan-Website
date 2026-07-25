@@ -17,6 +17,7 @@ import { TestimonialsSection } from "./sections/TestimonialsSection";
 import { TrustSection } from "./sections/TrustSection";
 import { UserFlowSection } from "./sections/UserFlowSection";
 import { StatsSection } from "./sections/StatsSection";
+import { PromoBannerStrip } from "../../components/PromoBannerStrip";
 
 const navigationItems = [
   { label: "About", width: "w-[36.94px]" },
@@ -30,6 +31,10 @@ export const HomePageFrame = () => {
     <div className="bg-neutral-100 w-full relative">
       <div className="w-full">
         <HeroSection />
+
+        <div className="max-w-[1440px] mx-auto px-4 mt-8 md:mt-12">
+          <PromoBannerStrip placement="homepage" />
+        </div>
 
         <ParallaxWrapper speed={0.15}>
           <IntroductionSection />

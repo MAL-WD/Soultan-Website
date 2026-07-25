@@ -67,6 +67,14 @@ export const productsApiSlice = apiSlice.injectEndpoints({
       query: () => `${PRODUCTS_URL}/top`,
       keepUnusedDataFor: 5,
     }),
+    bulkDiscount: builder.mutation({
+      query: (data) => ({
+        url: `${PRODUCTS_URL}/bulk-discount`,
+        method: 'POST',
+        body: data,
+      }),
+      invalidatesTags: ['Product'],
+    }),
   }),
 });
 
@@ -79,4 +87,5 @@ export const {
   useDeleteProductMutation,
   useCreateReviewMutation,
   useGetTopProductsQuery,
+  useBulkDiscountMutation,
 } = productsApiSlice;

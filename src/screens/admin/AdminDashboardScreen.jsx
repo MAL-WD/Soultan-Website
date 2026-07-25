@@ -9,6 +9,7 @@ import {
   BarChart3,
   ArrowRight,
   TrendingUp,
+  Tag,
 } from 'lucide-react';
 import AdminLayout from '../../components/AdminLayout';
 
@@ -52,6 +53,15 @@ const AdminDashboardScreen = () => {
       gradient: 'from-purple-500 to-violet-600',
       lightBg: 'bg-purple-50',
       lightText: 'text-purple-600',
+    },
+    {
+      name: isArabic ? 'العروض' : 'Offers',
+      desc: isArabic ? 'إدارة الكوبونات والخصومات' : 'Manage coupons & discounts',
+      path: '/admin/offers',
+      icon: Tag,
+      gradient: 'from-rose-500 to-pink-600',
+      lightBg: 'bg-rose-50',
+      lightText: 'text-rose-600',
     },
   ];
 

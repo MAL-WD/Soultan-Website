@@ -17,14 +17,14 @@ import Loader from '../../components/Loader';
 import AdminLayout from '../../components/AdminLayout';
 
 const STATUS_CONFIG = {
-  pending:     { label: 'Pending',      color: 'bg-amber-50 text-amber-700 border-amber-200',    icon: Clock },
-  processing:  { label: 'Processing',   color: 'bg-blue-50 text-blue-700 border-blue-200',       icon: RefreshCw },
-  shipped:     { label: 'Shipped',      color: 'bg-indigo-50 text-indigo-700 border-indigo-200', icon: Truck },
-  delivered:   { label: 'Delivered',    color: 'bg-green-50 text-green-700 border-green-200',    icon: CheckCircle2 },
-  cancelled:   { label: 'Cancelled',    color: 'bg-red-50 text-red-600 border-red-200',          icon: XCircle },
-  validated:   { label: 'Validated',    color: 'bg-teal-50 text-teal-700 border-teal-200',       icon: CheckCircle2 },
-  no_response: { label: 'No Response',  color: 'bg-gray-50 text-gray-600 border-gray-200',       icon: Clock },
-  returned:    { label: 'Returned',     color: 'bg-orange-50 text-orange-600 border-orange-200', icon: Package },
+  pending:     { label: 'قيد الانتظار', color: 'bg-amber-50 text-amber-700 border-amber-200',    icon: Clock },
+  processing:  { label: 'قيد التجهيز',  color: 'bg-blue-50 text-blue-700 border-blue-200',       icon: RefreshCw },
+  shipped:     { label: 'تم الشحن',     color: 'bg-indigo-50 text-indigo-700 border-indigo-200', icon: Truck },
+  delivered:   { label: 'تم التوصيل',   color: 'bg-green-50 text-green-700 border-green-200',    icon: CheckCircle2 },
+  cancelled:   { label: 'ملغي',         color: 'bg-red-50 text-red-600 border-red-200',          icon: XCircle },
+  validated:   { label: 'تم التأكيد',   color: 'bg-teal-50 text-teal-700 border-teal-200',       icon: CheckCircle2 },
+  no_response: { label: 'لا يوجد رد',   color: 'bg-gray-50 text-gray-600 border-gray-200',       icon: Clock },
+  returned:    { label: 'تم الإرجاع',   color: 'bg-orange-50 text-orange-600 border-orange-200', icon: Package },
 };
 
 const StatusBadge = ({ status }) => {
@@ -54,12 +54,12 @@ const OrderListScreen = () => {
     <AdminLayout title="Orders">
       {/* Controls */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-        <p className="text-sm text-gray-500">{orders?.data?.length || 0} orders total</p>
+        <p className="text-sm text-gray-500">إجمالي الطلبات: {orders?.data?.length || 0}</p>
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
             type="text"
-            placeholder="Search by ID or customer..."
+            placeholder="البحث برقم الطلب أو العميل..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="pl-9 pr-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#023c12]/20 focus:border-[#023c12] bg-white w-64"
@@ -84,14 +84,14 @@ const OrderListScreen = () => {
             <table className="w-full text-sm text-left">
               <thead>
                 <tr className="border-b border-gray-100 bg-gray-50/70">
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Order ID</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Customer</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Date</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Total</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Paid</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Delivered</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Actions</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">رقم الطلب</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">العميل</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">التاريخ</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">الإجمالي</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">الحالة</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">الدفع</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">التوصيل</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">الإجراءات</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
@@ -130,12 +130,12 @@ const OrderListScreen = () => {
                       {order.isPaid ? (
                         <span className="inline-flex items-center gap-1 text-xs font-semibold text-green-600">
                           <CheckCircle2 className="w-4 h-4" />
-                          {order.paidAt?.substring(0, 10) || 'Paid'}
+                          {order.paidAt?.substring(0, 10) || 'تم الدفع'}
                         </span>
                       ) : (
                         <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-500">
                           <XCircle className="w-4 h-4" />
-                          Unpaid
+                          غير مدفوع
                         </span>
                       )}
                     </td>
@@ -143,12 +143,12 @@ const OrderListScreen = () => {
                       {order.isDelivered ? (
                         <span className="inline-flex items-center gap-1 text-xs font-semibold text-green-600">
                           <CheckCircle2 className="w-4 h-4" />
-                          {order.deliveredAt?.substring(0, 10) || 'Delivered'}
+                          {order.deliveredAt?.substring(0, 10) || 'تم التوصيل'}
                         </span>
                       ) : (
                         <span className="inline-flex items-center gap-1 text-xs font-semibold text-gray-400">
                           <XCircle className="w-4 h-4" />
-                          Pending
+                          قيد الانتظار
                         </span>
                       )}
                     </td>
@@ -156,7 +156,7 @@ const OrderListScreen = () => {
                       <Link to={`/order/${order._id}`}>
                         <button className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#023c12]/8 text-[#023c12] hover:bg-[#023c12] hover:text-white transition-all">
                           <Eye className="w-3.5 h-3.5" />
-                          Details
+                          التفاصيل
                         </button>
                       </Link>
                     </td>
@@ -165,7 +165,7 @@ const OrderListScreen = () => {
               </tbody>
             </table>
             {filtered?.length === 0 && (
-              <div className="py-16 text-center text-gray-400 text-sm">No orders found</div>
+              <div className="py-16 text-center text-gray-400 text-sm">لا توجد طلبات</div>
             )}
           </div>
         </motion.div>
