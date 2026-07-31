@@ -55,7 +55,7 @@ export const CategoriesMarqueeSection = () => {
             {topRowCategories.map((name, index) => (
               <React.Fragment key={`top-1-${index}`}>
                 <div className="flex-shrink-0 min-w-[160px] sm:min-w-[200px] flex items-center justify-center bg-[#03291c] border border-[#f2da61]/20 rounded-full px-6 py-3 transition-all duration-300 hover:border-[#f2da61]/40">
-                  <span className="text-[#fffef0] font-normal italic text-base sm:text-lg tracking-wide" style={{ fontFamily: isRtl ? 'ThmanyahSerifDisplay, Arial, sans-serif' : "'Instrument Serif', serif" }}>
+                  <span className={`text-[#fffef0] font-normal text-base sm:text-lg tracking-wide ${isRtl ? 'not-italic' : 'italic'}`} style={{ fontFamily: isRtl ? 'ThmanyahSerifDisplay, Arial, sans-serif' : "'Instrument Serif', serif" }}>
                     {name}
                   </span>
                 </div>
@@ -73,7 +73,7 @@ export const CategoriesMarqueeSection = () => {
             {topRowCategories.map((name, index) => (
               <React.Fragment key={`top-2-${index}`}>
                 <div className="flex-shrink-0 min-w-[160px] sm:min-w-[200px] flex items-center justify-center bg-[#03291c] border border-[#f2da61]/20 rounded-full px-6 py-3 transition-all duration-300 hover:border-[#f2da61]/40">
-                  <span className="text-[#fffef0] font-normal italic text-base sm:text-lg tracking-wide" style={{ fontFamily: isRtl ? 'ThmanyahSerifDisplay, Arial, sans-serif' : "'Instrument Serif', serif" }}>
+                  <span className={`text-[#fffef0] font-normal text-base sm:text-lg tracking-wide ${isRtl ? 'not-italic' : 'italic'}`} style={{ fontFamily: isRtl ? 'ThmanyahSerifDisplay, Arial, sans-serif' : "'Instrument Serif', serif" }}>
                     {name}
                   </span>
                 </div>
@@ -96,7 +96,7 @@ export const CategoriesMarqueeSection = () => {
             {bottomRowRepeated.map((name, index) => (
               <React.Fragment key={`bottom-1-${index}`}>
                 <div className="flex-shrink-0 min-w-[160px] sm:min-w-[200px] flex items-center justify-center bg-[#03291c] border border-[#f2da61]/20 rounded-full px-6 py-3 transition-all duration-300 hover:border-[#f2da61]/40">
-                  <span className="text-[#fffef0] font-normal italic text-base sm:text-lg tracking-wide" style={{ fontFamily: isRtl ? 'ThmanyahSerifDisplay, Arial, sans-serif' : "'Instrument Serif', serif" }}>
+                  <span className={`text-[#fffef0] font-normal text-base sm:text-lg tracking-wide ${isRtl ? 'not-italic' : 'italic'}`} style={{ fontFamily: isRtl ? 'ThmanyahSerifDisplay, Arial, sans-serif' : "'Instrument Serif', serif" }}>
                     {name}
                   </span>
                 </div>
@@ -114,7 +114,7 @@ export const CategoriesMarqueeSection = () => {
             {bottomRowRepeated.map((name, index) => (
               <React.Fragment key={`bottom-2-${index}`}>
                 <div className="flex-shrink-0 min-w-[160px] sm:min-w-[200px] flex items-center justify-center bg-[#03291c] border border-[#f2da61]/20 rounded-full px-6 py-3 transition-all duration-300 hover:border-[#f2da61]/40">
-                  <span className="text-[#fffef0] font-normal italic text-base sm:text-lg tracking-wide" style={{ fontFamily: isRtl ? 'ThmanyahSerifDisplay, Arial, sans-serif' : "'Instrument Serif', serif" }}>
+                  <span className={`text-[#fffef0] font-normal text-base sm:text-lg tracking-wide ${isRtl ? 'not-italic' : 'italic'}`} style={{ fontFamily: isRtl ? 'ThmanyahSerifDisplay, Arial, sans-serif' : "'Instrument Serif', serif" }}>
                     {name}
                   </span>
                 </div>

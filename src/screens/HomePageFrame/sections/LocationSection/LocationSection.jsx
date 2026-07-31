@@ -148,7 +148,7 @@ export const LocationSection = () => {
                   <div className="flex gap-2 mt-auto pt-2">
                     <button
                       onClick={() => window.open(branch.fullMapUrl, "_blank")}
-                      className="flex-1 flex items-center justify-center gap-2 h-10 px-4 rounded-xl text-sm font-semibold border border-neutral-200 hover:bg-[#02110c] hover:text-white hover:border-[#02110c] transition-all duration-300"
+                      className="flex-1 flex items-center justify-center gap-1.5 min-h-[40px] py-1 px-2 sm:px-3 rounded-xl text-[12px] sm:text-sm font-semibold border border-neutral-200 hover:bg-[#02110c] hover:text-white hover:border-[#02110c] transition-all duration-300 text-center leading-tight"
                       style={{  color: '#374151' }}
                     >
                       <span>{t("viewOnMap")}</span>
@@ -157,7 +157,7 @@ export const LocationSection = () => {
                     {branch.contactUrl && (
                       <button
                         onClick={() => window.open(branch.contactUrl, "_blank")}
-                        className="flex-1 flex items-center justify-center gap-2 h-10 px-4 rounded-xl text-sm font-semibold border border-neutral-200 hover:bg-[#02110c] hover:text-white hover:border-[#02110c] transition-all duration-300"
+                        className="flex-1 flex items-center justify-center gap-1.5 min-h-[40px] py-1 px-2 sm:px-3 rounded-xl text-[12px] sm:text-sm font-semibold border border-neutral-200 hover:bg-[#02110c] hover:text-white hover:border-[#02110c] transition-all duration-300 text-center leading-tight"
                         style={{  color: '#374151' }}
                       >
                         <span>{isRtl ? "الموقع" : "Website"}</span>

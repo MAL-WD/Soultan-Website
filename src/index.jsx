@@ -62,6 +62,7 @@ import NotFoundScreen from './screens/NotFoundScreen';
 import QuickCheckoutScreen from './screens/QuickCheckoutScreen';
 import ContactScreen from './screens/ContactScreen';
 import AboutScreen from './screens/AboutScreen';
+import PrivacyScreen from './screens/PrivacyScreen';
 
 
 import PaymentInstructionsScreen from './screens/PaymentInstructionsScreen';
@@ -83,6 +84,7 @@ const router = createBrowserRouter(
       <Route path="/quick-checkout" element={<QuickCheckoutScreen />} />
       <Route path="/contact" element={<ContactScreen />} />
       <Route path="/about" element={<AboutScreen />} />
+      <Route path="/privacy" element={<PrivacyScreen />} />
 
       
       {/* Protected Routes */}

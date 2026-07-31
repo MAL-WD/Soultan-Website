@@ -39,7 +39,7 @@ const App = () => {
         <Preloader />
         {!isAdminPath && <Header />}
         <main>
-          <div className={isAdminPath ? '' : (['/', '/contact', '/about'].includes(location.pathname) ? 'pb-20 lg:pb-0' : isProductsPath ? 'pt-[100px] pb-20 lg:pb-0' : 'pt-[140px] pb-20 lg:pb-0 bg-[#fafbfc]')}>
+          <div className={isAdminPath ? '' : (['/', '/contact', '/about', '/privacy'].includes(location.pathname) ? 'pb-20 lg:pb-0' : isProductsPath ? 'pt-[100px] pb-20 lg:pb-0' : 'pt-[140px] pb-20 lg:pb-0 bg-[#fafbfc]')}>
             <Outlet />
           </div>
         </main>

@@ -22,9 +22,10 @@ export const FooterSection = () => {
   ];
 
   const pageLinks = [
-    { label: t("home"), path: "/" },
-    { label: t("about"), path: "/about" },
-    { label: t("profile"), path: "/profile" },
+    { label: t('home'), path: '/' },
+    { label: t('about'), path: '/about' },
+    { label: t('profile'), path: '/profile' },
+    { label: t('privacy') || 'Privacy Policy', path: '/privacy' },
   ];
 
   const contactInfo = [
@@ -148,7 +149,9 @@ export const FooterSection = () => {
                       dir={link.label.includes('0656') ? "ltr" : undefined}
                       target={link.type === 'branch' ? "_blank" : undefined}
                       rel={link.type === 'branch' ? "noopener noreferrer" : undefined}
-                      className={`flex items-center gap-1.5 text-sm sm:text-base tracking-[-0.96px] leading-[17.6px] transition-colors whitespace-nowrap ${
+                      className={`flex items-center gap-1.5 text-sm sm:text-base tracking-[-0.96px] leading-[17.6px] transition-colors ${
+                        link.label.includes('@') ? 'break-all sm:break-normal whitespace-normal sm:whitespace-nowrap' : 'whitespace-nowrap'
+                      } ${
                         link.type === 'branch' 
                           ? 'font-medium text-[#02110c] hover:text-[#055228] mt-1' 
                           : 'font-normal text-[#424242] hover:text-[#02110c]'
@@ -156,7 +159,7 @@ export const FooterSection = () => {
                     >
                       {link.label}
                       {link.type === 'branch' && (
-                        <svg className="w-3 h-3 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <svg className="w-3 h-3 opacity-60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                           <polyline points="15 3 21 3 21 9"></polyline>
                           <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -171,28 +174,37 @@ export const FooterSection = () => {
         </div>
       </div>
 
-      <div className="absolute w-full left-0 bottom-0 h-[280px] sm:h-[300px] md:h-[320px] lg:h-[360px]">
+      <div className="absolute w-full left-0 bottom-0 h-[280px] sm:h-[300px] md:h-[320px] lg:h-[360px] pointer-events-none">
         <div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center px-4">
           <motion.div 
             initial={{ y: 150, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="[-webkit-text-stroke:1px_#f7f8ff26] bg-[linear-gradient(0deg,rgba(242,194,97,0.66)_10%,rgba(242,193,97,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] font-bold text-transparent text-[80px] sm:text-[120px] md:text-[160px] lg:text-[226.8px] tracking-[0.5px] leading-none whitespace-nowrap"
+            className="[-webkit-text-stroke:1px_#f7f8ff26] bg-[linear-gradient(0deg,rgba(242,194,97,0.66)_10%,rgba(242,193,97,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] font-bold text-transparent text-[16vw] min-[450px]:text-[80px] sm:text-[120px] md:text-[160px] lg:text-[226.8px] tracking-[0.5px] leading-none whitespace-nowrap"
           >
             SOULTAN
           </motion.div>
         </div>
+      </div>
 
-        <div className="absolute w-full bottom-0 left-0 px-6 sm:px-12 lg:px-[120px] py-5 border-solid border-brand-color-main">
-          <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-            <p className="font-normal text-[#e0e0e0] text-sm sm:text-base tracking-[-0.32px] leading-[17.6px]">
-              {t("footer_rights")}
-            </p>
-            <p className="font-normal text-white text-sm sm:text-base text-center tracking-[-0.32px] leading-[17.6px]">
-              {t("footer_made_by")}
-            </p>
-          </div>
+      <div className="absolute w-full bottom-0 left-0 px-6 sm:px-12 lg:px-[120px] py-5 border-solid border-brand-color-main z-30">
+        <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="font-normal text-[#e0e0e0] text-sm sm:text-base tracking-[-0.32px] leading-[17.6px]">
+            {t("footer_rights")}
+          </p>
+          <p className="font-normal text-white text-sm sm:text-base text-center tracking-[-0.32px] leading-[17.6px]">
+            {t("footer_made_by").split("MAL").map((part, i, arr) => (
+              <span key={i}>
+                {part}
+                {i < arr.length - 1 && (
+                  <a href="https://mal-links.framer.website/" target="_blank" rel="noopener noreferrer" className="hover:underline text-[#f2c161] relative z-50 cursor-pointer">
+                    MAL
+                  </a>
+                )}
+              </span>
+            ))}
+          </p>
         </div>
       </div>
     </footer>

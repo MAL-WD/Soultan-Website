@@ -1,9 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Badge } from "../ui/badge";
 import crownImage from "../../assets/crown.png";
 import { motion } from "framer-motion";
 
 export const SectionHeader = ({ badgeText, title, description }) => {
+  const { i18n } = useTranslation();
+  const isRtl = i18n.language === 'ar';
   // Premium smooth easing
   const smoothEase = [0.22, 1, 0.36, 1];
 
@@ -54,7 +57,9 @@ export const SectionHeader = ({ badgeText, title, description }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2, duration: 0.6, ease: smoothEase }}
-        className="[font-family:'Inter',Helvetica] font-semibold text-[#02110c] text-[28px] sm:text-[38px] md:text-[48px] tracking-[-1.5px] sm:tracking-[-2px] md:tracking-[-2.40px] leading-[34px] sm:leading-[44px] md:leading-[54px] mb-4 mt-2 md:mt-3"
+        className={`font-semibold text-[#02110c] text-[28px] sm:text-[38px] md:text-[48px] leading-tight mb-4 mt-2 md:mt-3 ${
+          isRtl ? 'tracking-normal' : "[font-family:'Inter',Helvetica] tracking-[-1.5px] sm:tracking-[-2px] md:tracking-[-2.40px]"
+        }`}
       >
         {title}
       </motion.h2>
@@ -65,7 +70,9 @@ export const SectionHeader = ({ badgeText, title, description }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6, ease: smoothEase }}
-          className="[font-family:'Inter',Helvetica] font-normal text-[#424242] text-sm sm:text-base md:text-lg tracking-[-0.32px] leading-[20px] sm:leading-[24px] max-w-[600px] mx-auto opacity-80"
+          className={`font-normal text-[#424242] text-sm sm:text-base md:text-lg leading-relaxed max-w-[600px] mx-auto opacity-80 ${
+            isRtl ? 'tracking-normal' : "[font-family:'Inter',Helvetica] tracking-[-0.32px]"
+          }`}
         >
           {description}
         </motion.p>

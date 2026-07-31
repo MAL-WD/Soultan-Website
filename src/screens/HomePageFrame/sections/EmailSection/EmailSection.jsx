@@ -157,7 +157,7 @@ export const EmailSection = () => {
               // Arabic: رحلتك كسلطان؟
               <>
                 {t("email_journey")}{" "}
-                <span className="font-serif italic font-normal opacity-90">
+                <span className="italic opacity-90">
                   {t("email_soltane")}
                 </span>
                 {"؟"}
@@ -165,7 +165,7 @@ export const EmailSection = () => {
             ) : (
               // English: Soltane Journey?
               <>
-                <span className="font-serif italic font-normal opacity-90 mr-2">
+                <span className="italic opacity-90 mr-2">
                   {t("email_soltane")}
                 </span>
                 {t("email_journey")}
@@ -174,7 +174,7 @@ export const EmailSection = () => {
           </h2>
 
           <p
-            className="text-white/75 text-sm md:text-base max-w-[460px] leading-relaxed font-['Inter']"
+            className="text-white/75 text-sm md:text-base max-w-[460px] leading-relaxed"
             dangerouslySetInnerHTML={{
               __html: `${t("email_join")} ${t("email_soltane")}`,
             }}

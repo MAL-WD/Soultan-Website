@@ -43,7 +43,7 @@ export const HeroSection = () => {
   };
 
 
-  const isRtl = i18n.language === 'ar';
+  const isRtl = i18n.language?.startsWith('ar') || i18n.dir() === 'rtl';
   const containerRef = useRef(null);
   const cardRef = useRef(null);
   const avatarsRef = useRef(null);
@@ -77,7 +77,7 @@ export const HeroSection = () => {
     )
     // Title line 2 — golden italic
     .fromTo(title2Ref.current,
-      { opacity: 0, y: 30, skewX: isRtl ? 3 : -3, filter: "blur(6px)" },
+      { opacity: 0, y: 30, skewX: isRtl ? 0 : -3, filter: "blur(6px)" },
       { opacity: 1, y: 0, skewX: 0, filter: "blur(0px)", duration: 0.9 },
       "-=0.5"
     )
@@ -144,17 +144,25 @@ export const HeroSection = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-col items-center justify-center gap-1">
+                  <div className="w-full flex flex-col items-center justify-center gap-6 sm:gap-8 text-center my-2">
                     <h1 
                       ref={title1Ref}
-                      className={`mb-2 text-[#e0e0e0] text-5xl sm:text-6xl lg:text-7xl tracking-[-3.60px] leading-snug break-words text-center ${isRtl ? 'font-black' : 'font-semibold'}`}
+                      className={`block text-[#e0e0e0] text-5xl sm:text-6xl lg:text-7xl text-center ${
+                        isRtl 
+                          ? 'font-black tracking-normal leading-normal' 
+                          : 'font-semibold tracking-[-3.60px] leading-tight break-words'
+                      }`}
                       style={{ fontFamily: isRtl ? undefined : "'Inter', sans-serif", opacity: 0 }}
                     >
                       {t('heroTitle1')}
                     </h1>
                     <h1 
                       ref={title2Ref}
-                      className={`italic text-[#f2c161] text-5xl sm:text-6xl lg:text-7xl tracking-[-3.60px] leading-snug text-center ${isRtl ? 'font-black' : 'font-normal'}`}
+                      className={`block text-[#f2c161] text-5xl sm:text-6xl lg:text-7xl text-center ${
+                        isRtl 
+                          ? 'font-black tracking-normal not-italic leading-normal' 
+                          : 'font-normal italic tracking-[-3.60px] leading-tight'
+                      }`}
                       style={{ fontFamily: isRtl ? undefined : "'Instrument Serif', serif", opacity: 0 }}
                     >
                       {t('heroTitle2')}
