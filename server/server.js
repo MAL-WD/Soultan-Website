@@ -71,7 +71,9 @@ app.use(cors({
     'http://localhost:8081', 
     'http://127.0.0.1:8081',
     'http://192.168.1.6:8081',
-    'http://192.168.1.6:8082'
+    'http://192.168.1.6:8082',
+    'https://www.soultanstationery.com',
+    'https://soultanstationery.com'
   ],
   credentials: true
 }));
