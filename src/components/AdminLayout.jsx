@@ -57,7 +57,7 @@ const AdminLayout = ({ children, title }) => {
             alt="Soltane Logo"
             className="h-12 w-auto object-contain"
           />
-          <p className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">Admin Panel</p>
+          <p className="text-sm text-white/70 uppercase tracking-widest font-semibold">Admin Panel</p>
         </Link>
       </div>
 
@@ -78,7 +78,7 @@ const AdminLayout = ({ children, title }) => {
               }`}
             >
               <Icon className={`w-5 h-5 flex-shrink-0 transition-transform group-hover:scale-110 ${isActive ? 'text-[#023c12]' : ''}`} />
-              <span className="text-sm font-medium">{isArabic ? item.labelAr : item.label}</span>
+              <span className="text-sm font-medium font-arabic">{isArabic ? item.labelAr : item.label}</span>
               {isActive && <ChevronRight className="w-4 h-4 ml-auto text-[#023c12]/60" />}
             </Link>
           );
