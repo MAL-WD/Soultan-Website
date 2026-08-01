@@ -21,17 +21,60 @@ import {
 } from '../../slices/productsApiSlice';
 import Loader from '../../components/Loader';
 import AdminLayout from '../../components/AdminLayout';
+import { useGetCategoriesQuery } from '../../slices/categoriesApiSlice';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 const ProductListScreen = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
+  const [category, setCategory] = useState('');
+  const [page, setPage] = useState(1);
+  const [mergedProducts, setMergedProducts] = useState([]);
+  
+  const { data: categoriesData } = useGetCategoriesQuery();
 
-  const { data, isLoading, error, refetch } = useGetProductsQuery({});
-  const [createProduct, { isLoading: loadingCreate }] = useCreateProductMutation();
+  const { data, isLoading, error, refetch, isFetching } = useGetProductsQuery({ 
+    search: search || undefined, 
+    category: category || undefined,
+    page,
+    limit: 12
+  });
+
   const [deleteProduct, { isLoading: loadingDelete }] = useDeleteProductMutation();
+
+  const observer = useRef();
+  const lastProductElementRef = useCallback(node => {
+    if (isLoading || isFetching) return;
+    if (observer.current) observer.current.disconnect();
+    observer.current = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && data?.pages > page) {
+        setPage(prevPage => prevPage + 1);
+      }
+    });
+    if (node) observer.current.observe(node);
+  }, [isLoading, isFetching, data?.pages, page]);
+
+  useEffect(() => {
+    if (data?.data) {
+      if (page === 1) {
+        setMergedProducts(data.data);
+      } else {
+        setMergedProducts(prev => {
+          // Filter out duplicates to avoid React key warnings in case of overlap
+          const newProducts = data.data.filter(newP => !prev.find(p => p._id === newP._id));
+          return [...prev, ...newProducts];
+        });
+      }
+    }
+  }, [data]);
+
+  // Reset page and list when search or category changes
+  useEffect(() => {
+    setPage(1);
+    setMergedProducts([]);
+  }, [search, category]);
 
   const deleteHandler = async (id) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
@@ -45,29 +88,15 @@ const ProductListScreen = () => {
     }
   };
 
-  const createProductHandler = async () => {
-    if (window.confirm('Are you sure you want to create a new product?')) {
-      try {
-        const res = await createProduct().unwrap();
-        const productId = res.data?._id || res._id;
-        toast.success('Product created successfully');
-        setTimeout(() => navigate(`/admin/product/${productId}/edit`), 100);
-      } catch (err) {
-        toast.error(err?.data?.message || err.error);
-      }
-    }
+  const createProductHandler = () => {
+    navigate('/admin/product/create');
   };
 
-  const filtered = data?.data?.filter(
-    (p) =>
-      !search ||
-      p.name_en?.toLowerCase().includes(search.toLowerCase()) ||
-      p.brand?.toLowerCase().includes(search.toLowerCase())
-  );
+  const filtered = mergedProducts;
 
   return (
     <AdminLayout title="Products">
-      {(loadingCreate || loadingDelete) && (
+      {loadingDelete && (
         <div className="fixed inset-0 bg-black/20 z-50 flex items-center justify-center">
           <Loader />
         </div>
@@ -79,7 +108,6 @@ const ProductListScreen = () => {
           <p className="text-sm text-gray-500">{data?.data?.length || 0} products total</p>
         </div>
         <div className="flex items-center gap-3">
-          {/* Search */}
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
             <input
@@ -90,6 +118,25 @@ const ProductListScreen = () => {
               className="pl-9 pr-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#023c12]/20 focus:border-[#023c12] bg-white w-48"
             />
           </div>
+          
+          {/* Category Filter */}
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#023c12]/20 focus:border-[#023c12] bg-white text-gray-700"
+          >
+            <option value="">All Categories</option>
+            {categoriesData?.data?.map((cat) => (
+              <optgroup key={cat._id} label={cat.name_en}>
+                <option value={cat._id}>{cat.name_en} (Main)</option>
+                {cat.subcategories?.map((sub) => (
+                  <option key={sub._id} value={sub._id}>
+                    -- {sub.name_en}
+                  </option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
           <button
             onClick={createProductHandler}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#023c12] text-white text-sm font-semibold hover:bg-[#023c12]/90 transition-colors shadow-sm"
@@ -102,7 +149,7 @@ const ProductListScreen = () => {
       </div>
 
       {/* Content */}
-      {isLoading ? (
+      {isLoading && page === 1 ? (
         <div className="flex justify-center py-24"><Loader /></div>
       ) : error ? (
         <div className="bg-red-50 border border-red-200 text-red-700 rounded-2xl p-6 text-sm">
@@ -118,21 +165,24 @@ const ProductListScreen = () => {
             <table className="w-full text-sm text-left">
               <thead>
                 <tr className="border-b border-gray-100 bg-[#023c12]/3">
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Image</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Name</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Price</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Category</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Brand</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Stock</th>
-                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Actions</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider font-arabic">الصورة</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider font-arabic">الاسم</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider font-arabic">السعر</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider font-arabic">الفئة</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider font-arabic">العلامة التجارية</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider font-arabic">المخزون</th>
+                  <th className="px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider font-arabic">إجراءات</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
                 {filtered?.map((product, idx) => {
                   const mainImage = product.images?.find((i) => i.isMain)?.url || product.images?.[0]?.url;
                   const inStock = (product.stock || 0) > 0;
+                  const isLastProduct = filtered.length === idx + 1;
+                  
                   return (
                     <motion.tr
+                      ref={isLastProduct ? lastProductElementRef : null}
                       key={product._id}
                       initial={{ opacity: 0, x: -8 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -200,8 +250,14 @@ const ProductListScreen = () => {
                 })}
               </tbody>
             </table>
-            {filtered?.length === 0 && (
+            {filtered?.length === 0 && !isLoading && (
               <div className="py-16 text-center text-gray-400 text-sm">No products found</div>
+            )}
+            
+            {isFetching && page > 1 && (
+              <div className="py-6 flex justify-center">
+                <Loader />
+              </div>
             )}
           </div>
         </motion.div>

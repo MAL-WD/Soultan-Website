@@ -35,11 +35,20 @@ const productSchema = new mongoose.Schema(
       default: 'منتج جديد',
       trim: true,
     },
+    name_fr: {
+      type: String,
+      default: 'Nouveau Produit',
+      trim: true,
+    },
     description_en: {
       type: String,
       default: '',
     },
     description_ar: {
+      type: String,
+      default: '',
+    },
+    description_fr: {
       type: String,
       default: '',
     },
@@ -135,7 +144,14 @@ productSchema.methods.calculateAverageRating = function () {
 };
 
 // Index for search
-productSchema.index({ name_en: 'text', name_ar: 'text', description_en: 'text', description_ar: 'text' });
+productSchema.index({ 
+  name_en: 'text', 
+  name_ar: 'text', 
+  name_fr: 'text',
+  description_en: 'text', 
+  description_ar: 'text',
+  description_fr: 'text'
+});
 
 const Product = mongoose.model('Product', productSchema);
 

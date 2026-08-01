@@ -48,7 +48,7 @@ const Section = ({ title, icon: Icon, children }) => (
 // Styled input with floating label support
 const FieldInput = ({ label, required, hint, children }) => (
   <div className="space-y-1.5">
-    <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+    <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide font-arabic">
       {label}
       {required && <span className="text-red-400 ml-1">*</span>}
       {hint && <span className="normal-case tracking-normal font-normal text-gray-400 ml-1">({hint})</span>}
@@ -66,6 +66,7 @@ const ProductEditScreen = () => {
 
   const [nameEn, setNameEn] = useState('');
   const [nameAr, setNameAr] = useState('');
+  const [nameFr, setNameFr] = useState('');
   const [price, setPrice] = useState(0);
   const [comparePrice, setComparePrice] = useState(0);
   const [brand, setBrand] = useState('');
@@ -73,6 +74,7 @@ const ProductEditScreen = () => {
   const [isInStock, setIsInStock] = useState(true);
   const [descriptionEn, setDescriptionEn] = useState('');
   const [descriptionAr, setDescriptionAr] = useState('');
+  const [descriptionFr, setDescriptionFr] = useState('');
   const [availableColors, setAvailableColors] = useState('');
   const [reference, setReference] = useState('');
   const [images, setImages] = useState([]);
@@ -95,12 +97,14 @@ const ProductEditScreen = () => {
 
       setNameEn(product.name_en || '');
       setNameAr(product.name_ar || '');
+      setNameFr(product.name_fr || '');
       setPrice(product.price || 0);
       setComparePrice(product.comparePrice || 0);
       setBrand(product.brand || '');
       setIsInStock((product.stock || 0) > 0);
       setDescriptionEn(product.description_en || '');
       setDescriptionAr(product.description_ar || '');
+      setDescriptionFr(product.description_fr || '');
       setAvailableColors(product.availableColors ? product.availableColors.join(', ') : '');
       setProductOptions(product.productOptions ? product.productOptions.join(', ') : '');
       setReference(product.reference || '');
@@ -139,12 +143,14 @@ const ProductEditScreen = () => {
       const payload = {
         name_en: nameEn,
         name_ar: nameAr,
+        name_fr: nameFr,
         price,
         comparePrice: comparePrice || 0,
         brand,
         category,
         description_en: descriptionEn,
         description_ar: descriptionAr,
+        description_fr: descriptionFr,
         stock: isInStock ? 100 : 0,
         availableColors: colorsArray,
         productOptions: optionsArray,
@@ -221,7 +227,7 @@ const ProductEditScreen = () => {
               {/* Basic Info */}
               <Section title="Basic Information" icon={Package}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <FieldInput label="Name (English)" required>
+                  <FieldInput label="الاسم (إنجليزي)" required>
                     <Input
                       placeholder="Enter English name"
                       value={nameEn}
@@ -229,7 +235,7 @@ const ProductEditScreen = () => {
                       className="h-11 rounded-xl border-gray-200 focus:border-[#023c12] focus:ring-[#023c12]/20"
                     />
                   </FieldInput>
-                  <FieldInput label="Name (Arabic)" required>
+                  <FieldInput label="الاسم (عربي)" required>
                     <Input
                       placeholder="أدخل الاسم بالعربية"
                       value={nameAr}
@@ -238,7 +244,15 @@ const ProductEditScreen = () => {
                       className="h-11 rounded-xl border-gray-200 focus:border-[#023c12] focus:ring-[#023c12]/20 text-right"
                     />
                   </FieldInput>
-                  <FieldInput label="Reference / SKU">
+                  <FieldInput label="الاسم (فرنسي)">
+                    <Input
+                      placeholder="Enter French name"
+                      value={nameFr}
+                      onChange={(e) => setNameFr(e.target.value)}
+                      className="h-11 rounded-xl border-gray-200 focus:border-[#023c12] focus:ring-[#023c12]/20"
+                    />
+                  </FieldInput>
+                  <FieldInput label="المرجع / SKU">
                     <Input
                       placeholder="e.g., SLT-001"
                       value={reference}
@@ -246,7 +260,7 @@ const ProductEditScreen = () => {
                       className="h-11 rounded-xl border-gray-200 focus:border-[#023c12] focus:ring-[#023c12]/20"
                     />
                   </FieldInput>
-                  <FieldInput label="Brand">
+                  <FieldInput label="العلامة التجارية">
                     <Input
                       placeholder="Enter brand"
                       value={brand}
@@ -260,7 +274,7 @@ const ProductEditScreen = () => {
               {/* Pricing & Stock */}
               <Section title="Pricing & Stock" icon={DollarSign}>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-                  <FieldInput label="Current Price (DZD)" required>
+                  <FieldInput label="السعر الحالي (د.ج)" required>
                     <Input
                       type="number"
                       value={price}
@@ -269,7 +283,7 @@ const ProductEditScreen = () => {
                       className="h-11 rounded-xl border-gray-200 focus:border-[#023c12] focus:ring-[#023c12]/20 font-bold text-[#023c12]"
                     />
                   </FieldInput>
-                  <FieldInput label="Original Price (DZD)" hint="optional">
+                  <FieldInput label="السعر الأصلي (د.ج)" hint="اختياري">
                     <Input
                       type="number"
                       placeholder="Leave empty if no discount"
@@ -279,7 +293,7 @@ const ProductEditScreen = () => {
                       className="h-11 rounded-xl border-gray-200 focus:border-[#023c12] focus:ring-[#023c12]/20 text-gray-400"
                     />
                   </FieldInput>
-                  <FieldInput label="Stock Status">
+                  <FieldInput label="حالة المخزون">
                     <button
                       type="button"
                       onClick={() => setIsInStock(!isInStock)}
@@ -299,8 +313,8 @@ const ProductEditScreen = () => {
                           {isInStock ? 'In Stock' : 'Out of Stock'}
                         </span>
                       </div>
-                      <div className={`w-9 h-5 rounded-full p-0.5 transition-colors ${isInStock ? 'bg-green-500' : 'bg-gray-300'}`}>
-                        <div className={`w-4 h-4 rounded-full bg-white shadow-sm transition-transform ${isInStock ? 'translate-x-4' : 'translate-x-0'}`} />
+                      <div className={`w-9 h-5 rounded-full p-0.5 flex items-center transition-colors ${isInStock ? 'bg-green-500 justify-end' : 'bg-gray-300 justify-start'}`}>
+                        <div className="w-4 h-4 rounded-full bg-white shadow-sm" />
                       </div>
                     </button>
                   </FieldInput>
@@ -310,7 +324,7 @@ const ProductEditScreen = () => {
               {/* Descriptions */}
               <Section title="Descriptions" icon={FileText}>
                 <div className="space-y-5">
-                  <FieldInput label="Description (English)">
+                  <FieldInput label="الوصف (إنجليزي)">
                     <Textarea
                       rows={5}
                       placeholder="Enter detailed English description..."
@@ -319,7 +333,7 @@ const ProductEditScreen = () => {
                       className="rounded-xl border-gray-200 focus:border-[#023c12] focus:ring-[#023c12]/20 resize-none"
                     />
                   </FieldInput>
-                  <FieldInput label="Description (Arabic)">
+                  <FieldInput label="الوصف (عربي)">
                     <Textarea
                       rows={5}
                       placeholder="أدخل وصف المنتج بالتفصيل..."
@@ -327,6 +341,15 @@ const ProductEditScreen = () => {
                       onChange={(e) => setDescriptionAr(e.target.value)}
                       dir="rtl"
                       className="rounded-xl border-gray-200 focus:border-[#023c12] focus:ring-[#023c12]/20 resize-none text-right"
+                    />
+                  </FieldInput>
+                  <FieldInput label="الوصف (فرنسي)">
+                    <Textarea
+                      rows={5}
+                      placeholder="Enter detailed French description..."
+                      value={descriptionFr}
+                      onChange={(e) => setDescriptionFr(e.target.value)}
+                      className="rounded-xl border-gray-200 focus:border-[#023c12] focus:ring-[#023c12]/20 resize-none"
                     />
                   </FieldInput>
                 </div>
@@ -417,7 +440,7 @@ const ProductEditScreen = () => {
               {/* Category */}
               <Section title="Category" icon={Tag}>
                 <div className="space-y-4">
-                  <FieldInput label="Main Category" required>
+                  <FieldInput label="الفئة الرئيسية" required>
                     {loadingCategories ? (
                       <div className="h-11 flex items-center"><Loader /></div>
                     ) : (
@@ -445,7 +468,7 @@ const ProductEditScreen = () => {
                     )}
                   </FieldInput>
 
-                  <FieldInput label="Sub Category">
+                  <FieldInput label="الفئة الفرعية">
                     <select
                       className="w-full h-11 px-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#023c12]/20 focus:border-[#023c12] bg-white text-gray-700 disabled:opacity-40"
                       value={category}
@@ -472,7 +495,7 @@ const ProductEditScreen = () => {
               {/* Attributes */}
               <Section title="Attributes" icon={Palette}>
                 <div className="space-y-4">
-                  <FieldInput label="Available Options" hint="comma separated">
+                  <FieldInput label="الخيارات المتاحة" hint="مفصولة بفاصلة">
                     <Input
                       placeholder="96 pages, Pack of 12..."
                       value={productOptions}
@@ -480,7 +503,7 @@ const ProductEditScreen = () => {
                       className="h-11 rounded-xl border-gray-200 focus:border-[#023c12] focus:ring-[#023c12]/20"
                     />
                   </FieldInput>
-                  <FieldInput label="Available Colors" hint="comma separated">
+                  <FieldInput label="الألوان المتاحة" hint="مفصولة بفاصلة">
                     <Input
                       placeholder="Gold, Green, Silver..."
                       value={availableColors}
