@@ -17,7 +17,7 @@ export const ProductsMain = () => {
       <img src={ellipseImage} alt="" className={`absolute top-[80%] left-0 pointer-events-none w-[350px] h-auto object-contain ${isDark ? 'opacity-30' : 'opacity-100'}`} style={{ zIndex: 0 }} />
       <img src={ellipseImage} alt="" className={`absolute top-[95%] right-0 pointer-events-none w-[350px] h-auto object-contain scale-x-[-1] ${isDark ? 'opacity-30' : 'opacity-100'}`} style={{ zIndex: 0 }} />
 
-      <div className="w-full max-w-[1440px] mx-auto relative z-10 mt-6 px-4">
+      <div className="w-full max-w-[1440px] mx-auto relative z-10 pt-24 md:pt-28 px-4">
         <PromoBannerStrip placement="products_top" />
         <FilterSidebarSection />
       </div>

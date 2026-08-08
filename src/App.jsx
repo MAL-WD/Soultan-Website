@@ -16,6 +16,7 @@ const App = () => {
   const location = useLocation();
   const isAdminPath = location.pathname.startsWith('/admin');
   const isProductsPath = location.pathname === '/products' || location.pathname.startsWith('/product/');
+  const isCollectionsPath = location.pathname === '/collections' || location.pathname.startsWith('/collections/');
 
   useEffect(() => {
     // Apply font family based on language
@@ -39,7 +40,7 @@ const App = () => {
         <Preloader />
         {!isAdminPath && <Header />}
         <main>
-          <div className={isAdminPath ? '' : (['/', '/contact', '/about', '/privacy'].includes(location.pathname) ? 'pb-20 lg:pb-0' : isProductsPath ? 'pt-[100px] pb-20 lg:pb-0' : 'pt-[140px] pb-20 lg:pb-0 bg-[#fafbfc]')}>
+          <div className={isAdminPath ? '' : (['/', '/contact', '/about', '/privacy'].includes(location.pathname) || isCollectionsPath || isProductsPath ? 'pb-20 lg:pb-0' : 'pt-[140px] pb-20 lg:pb-0 bg-[#fafbfc]')}>
             <Outlet />
           </div>
         </main>

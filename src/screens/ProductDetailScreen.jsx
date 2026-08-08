@@ -63,7 +63,7 @@ const ProductDetailScreen = () => {
   );
 
   return (
-    <div className={`min-h-screen ${isDark ? 'bg-gradient-to-b from-[#0a1f0e] via-[#0d2411] to-[#061409]' : 'bg-white'}`}>
+    <div className={`min-h-screen pt-24 md:pt-28 ${isDark ? 'bg-gradient-to-b from-[#0a1f0e] via-[#0d2411] to-[#061409]' : 'bg-white'}`}>
       {product && <BreadcrumbSection product={product} isArabic={isArabic} isDark={isDark} />}
       
       {product && (
