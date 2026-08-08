@@ -49,8 +49,17 @@ export const getProducts = async (req, res) => {
     }
 
     // Search
-    if (req.query.search) {
-      query.$text = { $search: req.query.search };
+    if (req.query.search || req.query.keyword) {
+      const searchTerm = req.query.search || req.query.keyword;
+      const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+      query.$or = [
+        { name_en: { $regex: regex } },
+        { name_ar: { $regex: regex } },
+        { name_fr: { $regex: regex } },
+        { description_en: { $regex: regex } },
+        { description_ar: { $regex: regex } },
+        { description_fr: { $regex: regex } }
+      ];
     }
 
     // Price range
@@ -60,12 +69,21 @@ export const getProducts = async (req, res) => {
       if (req.query.maxPrice) query.price.$lte = parseFloat(req.query.maxPrice);
     }
 
-    // Execute query
+    // Apply sorting based on query parameter
+    let sortOption = { createdAt: -1 }; // default newest first
+    if (req.query.sort === 'price_asc') {
+      sortOption = { price: 1 };
+    } else if (req.query.sort === 'price_desc') {
+      sortOption = { price: -1 };
+    }
+    
+    // Execute query with sorting
     const products = await Product.find(query)
       .populate('category', 'name_en name_ar slug')
-      .sort({ createdAt: -1 })
+      .sort(sortOption)
       .skip(skip)
       .limit(limit);
+
 
     const total = await Product.countDocuments(query);
 

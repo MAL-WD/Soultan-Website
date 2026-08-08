@@ -58,6 +58,9 @@ import OrderListScreen from './screens/admin/OrderListScreen';
 import ProductEditScreen from './screens/admin/ProductEditScreen';
 import UserEditScreen from './screens/admin/UserEditScreen';
 import OffersScreen from './screens/admin/OffersScreen';
+import AdminCollectionsScreen from './screens/admin/AdminCollectionsScreen';
+import CollectionsListScreen from './screens/CollectionsListScreen';
+import CollectionDetailScreen from './screens/CollectionDetailScreen';
 import NotFoundScreen from './screens/NotFoundScreen';
 import QuickCheckoutScreen from './screens/QuickCheckoutScreen';
 import ContactScreen from './screens/ContactScreen';
@@ -78,6 +81,8 @@ const router = createBrowserRouter(
       <Route path="/forgot-password" element={<ForgotPasswordScreen />} />
       <Route path="/search" element={<SearchResultsScreen />} />
       <Route path="/products" element={<ProductsMain />} />
+      <Route path="/collections" element={<CollectionsListScreen />} />
+      <Route path="/collections/:id" element={<CollectionDetailScreen />} />
       <Route path="/product/:id" element={<ProductDetailScreen />} />
 
       <Route path="/cart" element={<CartScreen />} />
@@ -109,6 +114,7 @@ const router = createBrowserRouter(
         <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
         <Route path="/admin/orderlist" element={<OrderListScreen />} />
         <Route path="/admin/offers" element={<OffersScreen />} />
+        <Route path="/admin/collections" element={<AdminCollectionsScreen />} />
       </Route>
       <Route path="*" element={<NotFoundScreen />} />
     </Route>

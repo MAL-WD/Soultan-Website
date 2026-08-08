@@ -200,7 +200,7 @@ const Product = ({ product, layout = 'grid' }) => {
                     )}
                     <span className="truncate">{categoryName || "Uncategorized"}</span>
                   </div>
-                  <h3 className={`${isArabic ? 'font-arabic' : 'font-english'} font-extrabold text-sm sm:text-lg leading-tight relative self-stretch transition-colors line-clamp-2 ${isDark ? 'text-emerald-100 group-hover:text-amber-400' : 'text-font-font-color-head group-hover:text-brand-color-main'}`}>
+                  <h3 className={`${isArabic ? 'font-arabic' : 'font-english'} font-extrabold text-sm sm:text-lg leading-tight relative self-stretch transition-colors line-clamp-2 h-10 sm:h-14 ${isDark ? 'text-emerald-100 group-hover:text-amber-400' : 'text-font-font-color-head group-hover:text-brand-color-main'}`}>
                     {productName}
                   </h3>
                 </div>

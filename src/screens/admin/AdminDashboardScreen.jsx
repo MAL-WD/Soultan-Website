@@ -10,6 +10,7 @@ import {
   ArrowRight,
   TrendingUp,
   Tag,
+  FolderOpen,
 } from 'lucide-react';
 import AdminLayout from '../../components/AdminLayout';
 
@@ -62,6 +63,15 @@ const AdminDashboardScreen = () => {
       gradient: 'from-rose-500 to-pink-600',
       lightBg: 'bg-rose-50',
       lightText: 'text-rose-600',
+    },
+    {
+      name: isArabic ? 'المجموعات' : 'Collections',
+      desc: isArabic ? 'إدارة المجموعات والصفحات المميزة' : 'Manage curated collections and featured groups',
+      path: '/admin/collections',
+      icon: FolderOpen,
+      gradient: 'from-sky-500 to-cyan-600',
+      lightBg: 'bg-sky-50',
+      lightText: 'text-sky-600',
     },
   ];
 

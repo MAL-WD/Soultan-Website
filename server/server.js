@@ -121,6 +121,7 @@ import analyticsRoutes from './routes/analyticsRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
 import bannerRoutes from './routes/bannerRoutes.js';
+import collectionRoutes from './routes/collectionRoutes.js';
 
 // Use routes
 app.use('/api/auth', authRoutes);
@@ -135,6 +136,7 @@ app.use('/api/analytics', analyticsRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/banners', bannerRoutes);
+app.use('/api/collections', collectionRoutes);
 
 // Make uploads folder static
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));

@@ -11,3 +11,4 @@ export const CATEGORIES_URL = '/api/categories';
 export const WISHLIST_URL = '/api/wishlist';
 export const CONTACT_URL = '/api/contact';
 export const BANNERS_URL = '/api/banners';
+export const COLLECTIONS_URL = '/api/collections';

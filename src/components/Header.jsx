@@ -200,6 +200,10 @@ const Header = () => {
               {t('products')}
             </Link>
 
+            <Link to="/collections" className="text-[#fcfcfa] text-sm font-medium hover:opacity-80 transition-opacity whitespace-nowrap">
+              {t('collections')}
+            </Link>
+
             {/* Categories Dropdown */}
             <div
               className="relative"
@@ -333,6 +337,10 @@ const Header = () => {
                 <div className="flex flex-col p-5 gap-4">
                   <Link to="/products" className="text-[#fcfcfa] text-base font-medium" onClick={() => setIsMobileMenuOpen(false)}>
                     {t('products')}
+                  </Link>
+
+                  <Link to="/collections" className="text-[#fcfcfa] text-base font-medium" onClick={() => setIsMobileMenuOpen(false)}>
+                    {t('collections')}
                   </Link>
 
                   {/* Mobile Categories */}
