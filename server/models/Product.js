@@ -117,6 +117,10 @@ const productSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
+    availableSizes: {
+      type: [String],
+      default: [],
+    },
     reference: {
       type: String,
       trim: true,

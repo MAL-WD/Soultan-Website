@@ -76,6 +76,7 @@ const ProductEditScreen = () => {
   const [descriptionAr, setDescriptionAr] = useState('');
   const [descriptionFr, setDescriptionFr] = useState('');
   const [availableColors, setAvailableColors] = useState('');
+  const [availableSizes, setAvailableSizes] = useState('');
   const [reference, setReference] = useState('');
   const [images, setImages] = useState([]);
   const [newImageUrl, setNewImageUrl] = useState('');
@@ -106,6 +107,7 @@ const ProductEditScreen = () => {
       setDescriptionAr(product.description_ar || '');
       setDescriptionFr(product.description_fr || '');
       setAvailableColors(product.availableColors ? product.availableColors.join(', ') : '');
+      setAvailableSizes(product.availableSizes ? product.availableSizes.join(', ') : '');
       setProductOptions(product.productOptions ? product.productOptions.join(', ') : '');
       setReference(product.reference || '');
       setImages(product.images || []);
@@ -139,6 +141,7 @@ const ProductEditScreen = () => {
     }
     try {
       const colorsArray = availableColors.split(',').map((c) => c.trim()).filter(Boolean);
+      const sizesArray = availableSizes.split(',').map((s) => s.trim()).filter(Boolean);
       const optionsArray = productOptions.split(',').map((o) => o.trim()).filter(Boolean);
       const payload = {
         name_en: nameEn,
@@ -153,6 +156,7 @@ const ProductEditScreen = () => {
         description_fr: descriptionFr,
         stock: isInStock ? 100 : 0,
         availableColors: colorsArray,
+        availableSizes: sizesArray,
         productOptions: optionsArray,
         reference,
         images,
@@ -508,6 +512,14 @@ const ProductEditScreen = () => {
                       placeholder="Gold, Green, Silver..."
                       value={availableColors}
                       onChange={(e) => setAvailableColors(e.target.value)}
+                      className="h-11 rounded-xl border-gray-200 focus:border-[#023c12] focus:ring-[#023c12]/20"
+                    />
+                  </FieldInput>
+                  <FieldInput label="المقاسات المتاحة" hint="مفصولة بفاصلة">
+                    <Input
+                      placeholder="S, M, L, XL, XXL..."
+                      value={availableSizes}
+                      onChange={(e) => setAvailableSizes(e.target.value)}
                       className="h-11 rounded-xl border-gray-200 focus:border-[#023c12] focus:ring-[#023c12]/20"
                     />
                   </FieldInput>

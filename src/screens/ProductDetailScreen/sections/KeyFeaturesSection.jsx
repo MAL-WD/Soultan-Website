@@ -255,6 +255,34 @@ export const KeyFeaturesSection = ({
                     </div>
                   )}
 
+                  {/* Available Sizes */}
+                  {product.availableSizes?.length > 0 && (
+                    <div className="flex flex-col max-w-[300px] items-start w-full">
+                        <div className="flex flex-col items-start gap-2 w-full">
+                        <div className="flex items-center gap-2 w-full">
+                            <div className="flex items-start gap-2 flex-1">
+                            <label className={`flex items-center justify-center w-fit mt-[-1.00px] font-form-form-label font-[number:var(--form-form-label-font-weight)] text-[length:var(--form-form-label-font-size)] tracking-[var(--form-form-label-letter-spacing)] leading-[var(--form-form-label-line-height)] whitespace-nowrap [font-style:var(--form-form-label-font-style)] ${isDark ? 'text-emerald-200' : 'text-font-font-color-head'}`}>
+                                {isArabic ? "المقاس" : "Size"}
+                            </label>
+                            </div>
+                        </div>
+
+                        <Select defaultValue={product.availableSizes[0]}>
+                            <SelectTrigger className={`w-full font-form-form-placeholder font-[number:var(--form-form-placeholder-font-weight)] text-[length:var(--form-form-placeholder-font-size)] tracking-[var(--form-form-placeholder-letter-spacing)] leading-[var(--form-form-placeholder-line-height)] [font-style:var(--form-form-placeholder-font-style)] ${
+                                isDark ? 'bg-[#122816] border-emerald-800/40 text-emerald-100' : 'bg-ui-color-ui-01 border-[#dfdfdf] text-font-font-color-head'
+                            }`}>
+                                <SelectValue placeholder={isArabic ? "اختر المقاس" : "Select size"} />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {product.availableSizes.map(size => (
+                                    <SelectItem key={size} value={size}>{size}</SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                        </div>
+                    </div>
+                  )}
+
                   <div className="flex flex-col items-start gap-6 w-full mt-4">
                     <div className="inline-flex flex-col items-start">
                       <div className="inline-flex flex-col items-start gap-2">

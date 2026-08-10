@@ -63,6 +63,15 @@ const parentCategories = [
         icon: '🎁',
         order: 7,
     },
+    {
+        name_en: 'Aprons',
+        name_ar: 'مآزر',
+        slug: 'aprons',
+        description_en: 'School and teacher aprons for boys and girls',
+        description_ar: 'مآزر مدرسية للأساتذة والتلاميذ',
+        icon: '👔',
+        order: 8,
+    },
 ];
 
 // Subcategories - linked via parentSlug
@@ -109,6 +118,10 @@ const subcategoriesData = [
     { name_en: 'Islamic Books', name_ar: 'كتب إسلامية', slug: 'islamic-books', parentSlug: 'books', order: 7 },
     { name_en: 'Self-development Books', name_ar: 'كتب التطوير الذاتي', slug: 'self-development-books', parentSlug: 'books', order: 8 },
 
+    // Aprons (مآزر)
+    { name_en: 'Teacher Aprons', name_ar: 'مآزر أساتذة', slug: 'teacher-aprons', parentSlug: 'aprons', order: 1 },
+    { name_en: 'Girls Student Aprons', name_ar: 'مآزر تلاميذ بنات', slug: 'girls-student-aprons', parentSlug: 'aprons', order: 2 },
+    { name_en: 'Boys Student Aprons', name_ar: 'مآزر تلاميذ أولاد', slug: 'boys-student-aprons', parentSlug: 'aprons', order: 3 },
 
 ];
 

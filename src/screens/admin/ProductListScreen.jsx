@@ -12,6 +12,7 @@ import {
   Tag,
   CheckCircle2,
   XCircle,
+  Eye,
 } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import {
@@ -190,20 +191,24 @@ const ProductListScreen = () => {
                       className="hover:bg-[#023c12]/2 transition-colors"
                     >
                       <td className="px-5 py-3">
-                        {mainImage ? (
-                          <img
-                            src={mainImage}
-                            alt={product.name_en}
-                            className="w-10 h-10 object-cover rounded-xl border border-gray-100"
-                          />
-                        ) : (
-                          <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
-                            <Package className="w-4 h-4 text-gray-400" />
-                          </div>
-                        )}
+                        <Link to={`/product/${product._id}`} target="_blank" rel="noopener noreferrer" className="block group">
+                          {mainImage ? (
+                            <img
+                              src={mainImage}
+                              alt={product.name_en}
+                              className="w-10 h-10 object-cover rounded-xl border border-gray-100 group-hover:scale-105 transition-transform"
+                            />
+                          ) : (
+                            <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
+                              <Package className="w-4 h-4 text-gray-400" />
+                            </div>
+                          )}
+                        </Link>
                       </td>
                       <td className="px-5 py-3">
-                        <p className="font-semibold text-gray-900 truncate max-w-[180px]">{product.name_en}</p>
+                        <Link to={`/product/${product._id}`} target="_blank" rel="noopener noreferrer" className="group">
+                          <p className="font-semibold text-gray-900 group-hover:text-[#023c12] transition-colors truncate max-w-[180px]">{product.name_en}</p>
+                        </Link>
                         <p className="text-[11px] text-gray-400 font-mono">{product._id.slice(-8)}</p>
                       </td>
                       <td className="px-5 py-3">
@@ -232,13 +237,24 @@ const ProductListScreen = () => {
                       </td>
                       <td className="px-5 py-3">
                         <div className="flex items-center gap-2">
-                          <Link to={`/admin/product/${product._id}/edit`}>
+                          <Link 
+                            to={`/product/${product._id}`} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            title="View public product page"
+                          >
+                            <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all">
+                              <Eye className="w-3.5 h-3.5" />
+                            </button>
+                          </Link>
+                          <Link to={`/admin/product/${product._id}/edit`} title="Edit product">
                             <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-[#023c12]/8 text-[#023c12] hover:bg-[#023c12] hover:text-white transition-all">
                               <Edit className="w-3.5 h-3.5" />
                             </button>
                           </Link>
                           <button
                             onClick={() => deleteHandler(product._id)}
+                            title="Delete product"
                             className="w-8 h-8 flex items-center justify-center rounded-lg bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-all"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
