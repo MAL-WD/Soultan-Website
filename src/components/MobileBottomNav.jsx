@@ -199,6 +199,15 @@ const MobileBottomNav = () => {
                           onClick={() => handleCategorySelect(category._id)}
                           className="flex items-center gap-3 flex-1 px-4 py-3 rounded-xl hover:bg-amber-50 transition-colors text-left"
                         >
+                          {category.icon && (
+                            <span className="w-8 h-8 flex items-center justify-center rounded-lg bg-white shadow-sm border border-gray-100 text-lg shrink-0">
+                              {category.icon.startsWith('http') || category.icon.startsWith('/') ? (
+                                <img src={category.icon} alt={name} className="w-5 h-5 object-contain" />
+                              ) : (
+                                category.icon
+                              )}
+                            </span>
+                          )}
                           <span className="font-medium text-gray-800 text-sm">{name}</span>
                         </button>
                         {hasSubcategories && (
