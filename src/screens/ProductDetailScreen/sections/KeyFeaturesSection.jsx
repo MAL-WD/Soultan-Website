@@ -143,11 +143,11 @@ export const KeyFeaturesSection = ({
               </div>
 
               <div className="hidden lg:flex flex-col items-start gap-6 w-full">
-                <h2 className={`w-full font-heading-heading-4 font-[number:var(--heading-heading-4-font-weight)] text-[length:var(--heading-heading-4-font-size)] tracking-[var(--heading-heading-4-letter-spacing)] leading-[var(--heading-heading-4-line-height)] [font-style:var(--heading-heading-4-font-style)] ${isDark ? 'text-emerald-100' : 'text-font-font-color-head'}`}>
+                <h2 className={`w-full font-heading-heading-4 font-sans-ar font-[number:var(--heading-heading-4-font-weight)] text-[length:var(--heading-heading-4-font-size)] tracking-[var(--heading-heading-4-letter-spacing)] leading-[var(--heading-heading-4-line-height)] [font-style:var(--heading-heading-4-font-style)] ${isDark ? 'text-emerald-100' : 'text-font-font-color-head'}`}>
                   {isArabic ? "الوصف" : "Description"}
                 </h2>
 
-                <p className={`font-paragraph-body font-[number:var(--paragraph-body-font-weight)] text-[length:var(--paragraph-body-font-size)] tracking-[var(--paragraph-body-letter-spacing)] leading-[var(--paragraph-body-line-height)] [font-style:var(--paragraph-body-font-style)] ${isDark ? 'text-emerald-200/80' : 'text-font-font-color-body'}`}>
+                <p className={`font-paragraph-body font-sans-ar font-[number:var(--paragraph-body-font-weight)] text-[length:var(--paragraph-body-font-size)] tracking-[var(--paragraph-body-letter-spacing)] leading-[var(--paragraph-body-line-height)] [font-style:var(--paragraph-body-font-style)] ${isDark ? 'text-emerald-200/80' : 'text-font-font-color-body'}`}>
                   {isArabic ? product.description_ar : product.description_en}
                 </p>
               </div>
@@ -162,7 +162,7 @@ export const KeyFeaturesSection = ({
 
                   {(product.reference || product.sku) && (
                     <div className="inline-flex items-center gap-4">
-                      <p className={`w-fit mt-[-1.00px] font-paragraph-body font-[number:var(--paragraph-body-font-weight)] text-[length:var(--paragraph-body-font-size)] tracking-[var(--paragraph-body-letter-spacing)] leading-[var(--paragraph-body-line-height)] whitespace-nowrap [font-style:var(--paragraph-body-font-style)] ${isDark ? 'text-emerald-400/60' : 'text-font-font-color-body'}`}>
+                      <p className={`w-fit mt-[-1.00px] font-paragraph-body font-sans-ar font-[number:var(--paragraph-body-font-weight)] text-[length:var(--paragraph-body-font-size)] tracking-[var(--paragraph-body-letter-spacing)] leading-[var(--paragraph-body-line-height)] whitespace-nowrap [font-style:var(--paragraph-body-font-style)] ${isDark ? 'text-emerald-400/60' : 'text-font-font-color-body'}`}>
                         {isArabic ? "المرجع:" : "Reference:"} {product.reference || product.sku}
                       </p>
                     </div>
@@ -190,10 +190,10 @@ export const KeyFeaturesSection = ({
 
               {/* Mobile Description */}
               <div className="flex lg:hidden flex-col items-start gap-4 w-full">
-                <h2 className={`w-full font-heading-heading-4 font-bold text-2xl ${isDark ? 'text-emerald-100' : 'text-font-font-color-head'}`}>
+                <h2 className={`w-full font-heading-heading-4 font-sans-ar font-bold text-2xl ${isDark ? 'text-emerald-100' : 'text-font-font-color-head'}`}>
                   {isArabic ? "الوصف" : "Description"}
                 </h2>
-                <p className={`font-paragraph-body text-base leading-relaxed ${isDark ? 'text-emerald-200/80' : 'text-font-font-color-body'}`}>
+                <p className={`font-paragraph-body font-sans-ar text-base leading-relaxed ${isDark ? 'text-emerald-200/80' : 'text-font-font-color-body'}`}>
                   {isArabic ? product.description_ar : product.description_en}
                 </p>
               </div>
@@ -261,7 +261,7 @@ export const KeyFeaturesSection = ({
                         <div className="flex flex-col items-start gap-2 w-full">
                         <div className="flex items-center gap-2 w-full">
                             <div className="flex items-start gap-2 flex-1">
-                            <label className={`flex items-center justify-center w-fit mt-[-1.00px] font-form-form-label font-[number:var(--form-form-label-font-weight)] text-[length:var(--form-form-label-font-size)] tracking-[var(--form-form-label-letter-spacing)] leading-[var(--form-form-label-line-height)] whitespace-nowrap [font-style:var(--form-form-label-font-style)] ${isDark ? 'text-emerald-200' : 'text-font-font-color-head'}`}>
+                            <label className={`flex items-center justify-center w-fit mt-[-1.00px] font-form-form-label font-sans-ar font-[number:var(--form-form-label-font-weight)] text-sm sm:text-base tracking-[var(--form-form-label-letter-spacing)] leading-[var(--form-form-label-line-height)] whitespace-nowrap [font-style:var(--form-form-label-font-style)] ${isDark ? 'text-emerald-200' : 'text-font-font-color-head'}`}>
                                 {isArabic ? "المقاس" : "Size"}
                             </label>
                             </div>
@@ -287,7 +287,7 @@ export const KeyFeaturesSection = ({
                     <div className="inline-flex flex-col items-start">
                       <div className="inline-flex flex-col items-start gap-2">
                         <div className="inline-flex items-center gap-2">
-                          <label className={`flex items-center justify-center w-fit mt-[-1.00px] font-form-form-label font-[number:var(--form-form-label-font-weight)] text-[length:var(--form-form-label-font-size)] tracking-[var(--form-form-label-letter-spacing)] leading-[var(--form-form-label-line-height)] whitespace-nowrap [font-style:var(--form-form-label-font-style)] ${isDark ? 'text-emerald-200' : 'text-font-font-color-head'}`}>
+                          <label className={`flex items-center justify-center w-fit mt-[-1.00px] font-form-form-label font-sans-ar font-[number:var(--form-form-label-font-weight)] text-sm sm:text-base tracking-[var(--form-form-label-letter-spacing)] leading-[var(--form-form-label-line-height)] whitespace-nowrap [font-style:var(--form-form-label-font-style)] ${isDark ? 'text-emerald-200' : 'text-font-font-color-head'}`}>
                             {isArabic ? "الكمية" : "Quantity"}
                           </label>
                         </div>

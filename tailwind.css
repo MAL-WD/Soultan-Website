@@ -402,6 +402,10 @@ body {
 .font-inter-important {
   font-family: 'Inter', sans-serif !important;
 }
+.font-sans-ar {
+  font-family: 'Onest', 'Archivo', Arial, sans-serif !important;
+}
+
 
 html, body {
   max-width: 100% !important;
