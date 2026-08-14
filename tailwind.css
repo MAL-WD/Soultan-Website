@@ -1,6 +1,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'Onest', sans-serif;
+}
+
 @layer components {
   .all-\[unset\] {
     all: unset;
@@ -12,7 +16,7 @@
   --brand-color-accent: rgba(212, 175, 55, 1);
   --brand-color-accent-hover-light: rgba(212, 175, 55, 0.06);
   --brand-color-main-hover-light: rgba(2, 60, 18, 0.06);
-  --button-button-default-font-family: "DM Sans", Helvetica;
+  --button-button-default-font-family: "Onest", "DM Sans", Helvetica;
   --button-button-default-font-size: 14px;
   --button-button-default-font-style: normal;
   --button-button-default-font-weight: 700;

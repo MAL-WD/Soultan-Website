@@ -103,6 +103,7 @@ module.exports = {
           "var(--paragraph-form-form-placeholder-font-family)",
         "paragraph-UI-ui-tooltip": "var(--paragraph-UI-ui-tooltip-font-family)",
         sans: [
+          "Onest",
           "ui-sans-serif",
           "system-ui",
           "sans-serif",
@@ -112,7 +113,8 @@ module.exports = {
           '"Noto Color Emoji"',
         ],
         arabic: ['ThmanyahSerifDisplay', 'ThmanyahSerifText', 'Arial', 'sans-serif'],
-        english: ['Satoshi', 'Inter', 'sans-serif'],
+        english: ['Onest', 'Satoshi', 'Inter', 'sans-serif'],
+        onest: ['Onest', 'sans-serif'],
       },
       boxShadow: { "shadow-shadow-level-1": "var(--shadow-shadow-level-1)" },
       keyframes: {
