@@ -405,6 +405,13 @@ body {
 .font-sans-ar {
   font-family: 'Onest', 'Archivo', Arial, sans-serif !important;
 }
+.font-serif-ar {
+  font-family: 'ThmanyahSerifText', Arial, serif !important;
+}
+.font-serif-ar-bold {
+  font-family: 'ThmanyahSerifDisplay', Arial, serif !important;
+}
+
 
 
 html, body {

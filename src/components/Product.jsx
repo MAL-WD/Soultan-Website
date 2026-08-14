@@ -124,7 +124,7 @@ const Product = ({ product, layout = 'grid' }) => {
                 disabled={isOutOfStock}
                 className="h-8 sm:h-9 px-2.5 sm:px-3 rounded-lg sm:rounded-xl border border-solid border-brand-color-main hover:bg-brand-color-main hover:text-white transition-colors text-brand-color-main text-xs shrink-0"
               >
-                 <span className="whitespace-nowrap font-sans-ar">
+                 <span className="whitespace-nowrap font-serif-ar-bold">
                   {isArabic ? "أضف للسلة" : "Add to cart"}
                 </span>
               </Button>
@@ -136,7 +136,7 @@ const Product = ({ product, layout = 'grid' }) => {
                   isDark ? 'bg-transparent border-emerald-800/40 hover:bg-[#1a3620] text-emerald-100' : 'bg-white border-gray-200 hover:bg-gray-50 text-gray-600'
                 }`}
               >
-                <span className="whitespace-nowrap font-sans-ar">
+                <span className="whitespace-nowrap font-serif-ar-bold">
                   {isArabic ? "المزيد من التفاصيل" : "Details"}
                 </span>
               </Button>
@@ -237,7 +237,7 @@ const Product = ({ product, layout = 'grid' }) => {
                   disabled={isOutOfStock}
                   className="flex-1 min-h-8 sm:min-h-10 items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-[11px] relative rounded-xl sm:rounded-[14px] border border-solid border-brand-color-main hover:bg-brand-color-main hover:text-white transition-colors text-brand-color-main group/cart"
                 >
-                   <span className="relative flex items-center justify-center w-fit font-button-button-default font-sans-ar text-xs sm:text-[length:var(--button-button-default-font-size)] whitespace-nowrap">
+                   <span className="relative flex items-center justify-center w-fit font-button-button-default font-serif-ar-bold text-xs sm:text-[length:var(--button-button-default-font-size)] whitespace-nowrap">
                     {isArabic ? "أضف للسلة" : "Add to cart"}
                   </span>
                 </Button>
@@ -249,7 +249,7 @@ const Product = ({ product, layout = 'grid' }) => {
                     isDark ? 'bg-transparent border-emerald-800/40 hover:bg-[#1a3620] text-emerald-100' : 'bg-white border-gray-200 hover:bg-gray-50 text-gray-600'
                   }`}
                 >
-                  <span className="relative flex items-center justify-center w-fit font-button-button-default font-sans-ar text-xs sm:text-[length:var(--button-button-default-font-size)] whitespace-nowrap">
+                  <span className="relative flex items-center justify-center w-fit font-button-button-default font-serif-ar-bold text-xs sm:text-[length:var(--button-button-default-font-size)] whitespace-nowrap">
                     {isArabic ? "المزيد من التفاصيل" : "Details"}
                   </span>
                 </Button>
