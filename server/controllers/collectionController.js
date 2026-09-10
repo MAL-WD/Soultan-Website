@@ -100,3 +100,60 @@ export const deleteCollection = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
+// @desc    Get active back-to-school collection for a specific school level
+// @route   GET /api/collections/school/:level
+// @access  Public
+export const getCollectionBySchoolLevel = async (req, res) => {
+  try {
+    const { level } = req.params;
+    const { gender } = req.query;
+    
+    let query = { isBackToSchool: true, schoolLevel: level, isActive: true };
+    
+    let collection = null;
+    if (gender) {
+      collection = await Collection.findOne({ ...query, targetGender: gender })
+        .populate({
+          path: 'versions.products.product',
+          select: 'name_en name_ar name_fr price images',
+        });
+    }
+    
+    // Fallback to unisex if specific gender kit not found
+    if (!collection) {
+      collection = await Collection.findOne({ ...query, targetGender: 'any' })
+        .populate({
+          path: 'versions.products.product',
+          select: 'name_en name_ar name_fr price images',
+        });
+    }
+
+    if (!collection) {
+      return res.status(404).json({ success: false, message: 'No active back to school collection found for this level' });
+    }
+
+    res.json({ success: true, data: collection });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+    const collection = await Collection.findOne({
+      isBackToSchool: true,
+      schoolLevel: level,
+      isActive: true,
+    }).populate('versions.products.product');
+
+    if (!collection) {
+      return res.status(404).json({
+        success: false,
+        message: `No active school collection found for level: ${level}`,
+      });
+    }
+
+    res.json({ success: true, data: collection });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};

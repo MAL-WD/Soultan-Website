@@ -16,6 +16,7 @@ import {
 import { useGetCollectionByIdQuery } from '../slices/collectionsApiSlice';
 import { addToCart } from '../slices/cartSlice';
 import Loader from '../components/Loader';
+import GovernmentDocBadge from '../components/GovernmentDocBadge';
 
 const CollectionDetailScreen = () => {
   const { id } = useParams();
@@ -176,6 +177,16 @@ const CollectionDetailScreen = () => {
               ))}
             </div>
           </div>
+        )}
+
+        {/* Government Document Proof — only for school collections */}
+        {collection.isBackToSchool && (
+          <GovernmentDocBadge
+            images={collection.governmentDocImages || []}
+            isArabic={isArabic}
+            isFrench={isFrench}
+            schoolYear="2026/2027"
+          />
         )}
 
         {/* Products Grid */}

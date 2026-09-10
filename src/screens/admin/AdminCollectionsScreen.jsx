@@ -97,6 +97,11 @@ const AdminCollectionsScreen = () => {
   const [image, setImage] = useState('');
   const [isActive, setIsActive] = useState(true);
   const [order, setOrder] = useState(0);
+  const [isBackToSchool, setIsBackToSchool] = useState(false);
+  const [targetGender, setTargetGender] = useState('any');
+  const [schoolLevel, setSchoolLevel] = useState('');
+  const [governmentDocImages, setGovernmentDocImages] = useState([]);
+  const [uploadingDoc, setUploadingDoc] = useState(false);
   
   // Versions state
   const defaultVersion = { name_en: 'Standard', name_ar: 'الأساسية', name_fr: '', products: [] };
@@ -112,6 +117,7 @@ const AdminCollectionsScreen = () => {
     setNameEn(''); setNameAr(''); setNameFr('');
     setDescEn(''); setDescAr(''); setDescFr('');
     setImage(''); setIsActive(true); setOrder(0);
+    setIsBackToSchool(false); setTargetGender('any'); setSchoolLevel(''); setGovernmentDocImages([]);
     setVersions([defaultVersion]); 
     setActiveVersionIndex(0);
     setEditingId(null);
@@ -133,6 +139,10 @@ const AdminCollectionsScreen = () => {
     setImage(col.image || '');
     setIsActive(col.isActive);
     setOrder(col.order || 0);
+    setIsBackToSchool(col.isBackToSchool || false);
+    setTargetGender(col.targetGender || 'any');
+    setSchoolLevel(col.schoolLevel || '');
+    setGovernmentDocImages(col.governmentDocImages || []);
     
     if (col.versions && col.versions.length > 0) {
       setVersions(col.versions.map(v => ({
@@ -165,6 +175,28 @@ const AdminCollectionsScreen = () => {
   };
 
   // ─── Version Handlers ───
+  
+  const handleGovDocUpload = async (e) => {
+    const files = Array.from(e.target.files);
+    if (!files.length) return;
+    setUploadingDoc(true);
+    const urls = [];
+    for (const file of files) {
+      const formData = new FormData();
+      formData.append('image', file);
+      try {
+        const res = await uploadImage(formData).unwrap();
+        urls.push(res.filePath);
+      } catch (err) {}
+    }
+    setGovernmentDocImages((prev) => [...prev, ...urls]);
+    setUploadingDoc(false);
+  };
+
+  const removeGovDoc = (idx) => {
+    setGovernmentDocImages((prev) => prev.filter((_, i) => i !== idx));
+  };
+
   const addVersion = () => {
     setVersions([...versions, { name_en: 'New Version', name_ar: 'نسخة جديدة', name_fr: '', products: [] }]);
     setActiveVersionIndex(versions.length);
@@ -238,6 +270,10 @@ const AdminCollectionsScreen = () => {
       image,
       isActive,
       order,
+      isBackToSchool,
+      schoolLevel: isBackToSchool ? schoolLevel : '',
+      targetGender: isBackToSchool ? targetGender : 'any',
+      governmentDocImages: isBackToSchool ? governmentDocImages : [],
       versions: versions.map(v => ({
         name_en: v.name_en,
         name_ar: v.name_ar,
@@ -439,6 +475,72 @@ const AdminCollectionsScreen = () => {
           </div>
 
           <div className="border-t border-gray-100 my-4" />
+
+          
+          <div className="border-t border-gray-100 my-4" />
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h4 className="text-sm font-black text-amber-900">🎒 Back to School Collection</h4>
+                <p className="text-xs text-amber-600 mt-0.5">Link this collection to a government school level</p>
+              </div>
+              <button type="button" onClick={() => setIsBackToSchool(!isBackToSchool)} className={`relative w-11 h-6 rounded-full transition-colors ${isBackToSchool ? 'bg-amber-500' : 'bg-gray-300'}`}>
+                <div className={`absolute top-1 w-4 h-4 rounded-full bg-white shadow transition-all ${isBackToSchool ? 'left-6' : 'left-1'}`} />
+              </button>
+            </div>
+            {isBackToSchool && (
+              <>
+                <div>
+                  <label className="text-xs font-semibold text-amber-800 uppercase tracking-wide block mb-2">School Level *</label>
+                  <select value={schoolLevel} onChange={(e) => setSchoolLevel(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-amber-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-400/30">
+                    <option value="">-- Select Level --</option>
+                    <optgroup label="تحضيري"><option value="preparatory">تحضيري (Preparatory)</option></optgroup>
+                    <optgroup label="ابتدائي (Primary)">
+                      <option value="primary_1">السنة الأولى ابتدائي</option>
+                      <option value="primary_2">السنة الثانية ابتدائي</option>
+                      <option value="primary_3">السنة الثالثة ابتدائي</option>
+                      <option value="primary_4">السنة الرابعة ابتدائي</option>
+                      <option value="primary_5">السنة الخامسة ابتدائي</option>
+                    </optgroup>
+                    <optgroup label="متوسط (Middle)">
+                      <option value="middle_1">السنة الأولى متوسط</option>
+                      <option value="middle_2">السنة الثانية متوسط</option>
+                      <option value="middle_3">السنة الثالثة متوسط</option>
+                      <option value="middle_4">السنة الرابعة متوسط</option>
+                    </optgroup>
+                    <optgroup label="ثانوي (High School)">
+                      <option value="high_1">السنة الأولى ثانوي</option>
+                      <option value="high_2">السنة الثانية ثانوي</option>
+                      <option value="high_3">السنة الثالثة ثانوي (باك)</option>
+                    </optgroup>
+                    <optgroup label="جامعي / أستاذ">
+                      <option value="university">طالب جامعي</option>
+                      <option value="teacher">أستاذ</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-amber-800 uppercase tracking-wide block mb-2">Official MEN Document Images</label>
+                  {governmentDocImages.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {governmentDocImages.map((img, idx) => (
+                        <div key={idx} className="relative w-16 h-20 rounded-xl overflow-hidden border border-amber-300 bg-white shadow-sm group">
+                          <img src={img} alt="Doc" className="w-full h-full object-cover" />
+                          <button type="button" onClick={() => removeGovDoc(idx)} className="absolute top-0.5 right-0.5 w-5 h-5 rounded-full bg-red-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <X className="w-3 h-3" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  <label className="cursor-pointer inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-dashed border-amber-400 text-sm text-amber-700 hover:bg-amber-100 transition-colors">
+                    <Upload className="w-4 h-4" /> {uploadingDoc ? 'Uploading...' : 'Upload Document Pages'}
+                    <input type="file" accept="image/*" multiple onChange={handleGovDocUpload} className="hidden" disabled={uploadingDoc} />
+                  </label>
+                </div>
+              </>
+            )}
+          </div>
 
           {/* Versions Manager */}
           <div>

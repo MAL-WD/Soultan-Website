@@ -72,6 +72,32 @@ const collectionSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    // Back to School fields
+    isBackToSchool: {
+      type: Boolean,
+      default: false,
+    },
+    targetGender: {
+      type: String,
+      enum: ['boy', 'girl', 'any'],
+      default: 'any'
+    },
+    schoolLevel: {
+      type: String,
+      enum: [
+        'preparatory',
+        'primary_1', 'primary_2', 'primary_3', 'primary_4', 'primary_5',
+        'middle_1', 'middle_2', 'middle_3', 'middle_4',
+        'high_1', 'high_2', 'high_3',
+        'university', 'teacher',
+        '',
+      ],
+      default: '',
+    },
+    governmentDocImages: {
+      type: [String], // Array of Cloudinary image URLs (official MEN proof documents)
+      default: [],
+    },
   },
   {
     timestamps: true,

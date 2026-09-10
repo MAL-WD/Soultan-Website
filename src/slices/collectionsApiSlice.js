@@ -46,6 +46,12 @@ export const collectionsApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['Collection'],
     }),
+    getCollectionBySchoolLevel: builder.query({
+      query: (level) => ({
+        url: `${COLLECTIONS_URL}/school/${level}`,
+      }),
+      keepUnusedDataFor: 60,
+    }),
   }),
 });
 
@@ -53,6 +59,7 @@ export const {
   useGetCollectionsQuery,
   useGetActiveCollectionsQuery,
   useGetCollectionByIdQuery,
+  useGetCollectionBySchoolLevelQuery,
   useCreateCollectionMutation,
   useUpdateCollectionMutation,
   useDeleteCollectionMutation,

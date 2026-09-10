@@ -147,7 +147,7 @@ productSchema.methods.calculateAverageRating = function () {
   }
 };
 
-// Index for search
+// Full-text index for search functionality
 productSchema.index({ 
   name_en: 'text', 
   name_ar: 'text', 
@@ -156,6 +156,14 @@ productSchema.index({
   description_ar: 'text',
   description_fr: 'text'
 });
+
+// Compound indexes for common query patterns in getProducts controller.
+// These eliminate full collection scans and make the homepage load fast.
+productSchema.index({ isActive: 1, createdAt: -1 }); // default homepage query
+productSchema.index({ isActive: 1, category: 1, createdAt: -1 }); // category filter
+productSchema.index({ isActive: 1, featured: 1, createdAt: -1 }); // featured filter
+productSchema.index({ isActive: 1, price: 1 }); // price_asc sort
+productSchema.index({ isActive: 1, price: -1 }); // price_desc sort
 
 const Product = mongoose.model('Product', productSchema);
 

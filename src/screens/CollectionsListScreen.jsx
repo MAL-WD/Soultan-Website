@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Package, Sparkles, Layers, ChevronLeft, ChevronRight, FolderCheck } from 'lucide-react';
 import { useGetActiveCollectionsQuery } from '../slices/collectionsApiSlice';
 import Loader from '../components/Loader';
+import BackToSchoolModal from '../components/BackToSchoolModal';
 
 const CollectionsListScreen = () => {
   const { t, i18n } = useTranslation();
@@ -49,6 +50,7 @@ const CollectionsListScreen = () => {
 
   return (
     <div className="min-h-screen bg-[#fafbfc]">
+      <BackToSchoolModal />
       {/* Premium Hero Banner */}
       <div className="relative overflow-hidden bg-gradient-to-b from-[#012b0d] via-[#023c12] to-[#01240b] text-white pt-28 md:pt-36 pb-20 md:pb-28 mb-12 shadow-2xl">
         {/* Background Ambient Glows */}
