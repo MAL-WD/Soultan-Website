@@ -139,21 +139,27 @@ const BackToSchoolModal = () => {
             {/* Gender Selector (Boy / Girl) */}
             {selectedGrade && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                <h3 className="text-sm font-bold text-gray-500 mb-3">{t('3. تلميذ أم تلميذة؟', '3. Garçon ou Fille?', '3. Boy or Girl?')}</h3>
+                <h3 className="text-sm font-bold text-gray-500 mb-3">
+                  {selectedGrade === 'teacher'
+                    ? t('3. أستاذ أم أستاذة؟', '3. Professeur ou Professeure?', '3. Male or Female Teacher?')
+                    : selectedGrade === 'university'
+                    ? t('3. طالب أم طالبة؟', '3. Étudiant ou Étudiante?', '3. Male or Female Student?')
+                    : t('3. تلميذ أم تلميذة؟', '3. Garçon ou Fille?', '3. Boy or Girl?')}
+                </h3>
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() => setSelectedGender('boy')}
                     className={`flex items-center justify-center gap-3 py-3.5 px-4 rounded-xl border-2 font-bold transition-all ${selectedGender === 'boy' ? 'border-blue-600 bg-blue-50 text-blue-700 shadow-sm' : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
                   >
-                    <span className="text-xl">👦</span>
-                    <span>{t('ولد (بنين)', 'Garçon', 'Boy')}</span>
+                    <span className="text-xl">{selectedGrade === 'teacher' ? '👨‍🏫' : selectedGrade === 'university' ? '👨‍🎓' : '👦'}</span>
+                    <span>{selectedGrade === 'teacher' ? t('أستاذ', 'Professeur', 'Male Teacher') : selectedGrade === 'university' ? t('طالب', 'Étudiant', 'Male Student') : t('ولد (بنين)', 'Garçon', 'Boy')}</span>
                   </button>
                   <button
                     onClick={() => setSelectedGender('girl')}
                     className={`flex items-center justify-center gap-3 py-3.5 px-4 rounded-xl border-2 font-bold transition-all ${selectedGender === 'girl' ? 'border-pink-500 bg-pink-50 text-pink-700 shadow-sm' : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
                   >
-                    <span className="text-xl">👧</span>
-                    <span>{t('بنت (بنات)', 'Fille', 'Girl')}</span>
+                    <span className="text-xl">{selectedGrade === 'teacher' ? '👩‍🏫' : selectedGrade === 'university' ? '👩‍🎓' : '👧'}</span>
+                    <span>{selectedGrade === 'teacher' ? t('أستاذة', 'Professeure', 'Female Teacher') : selectedGrade === 'university' ? t('طالبة', 'Étudiante', 'Female Student') : t('بنت (بنات)', 'Fille', 'Girl')}</span>
                   </button>
                 </div>
               </motion.div>
