@@ -139,21 +139,3 @@ export const getCollectionBySchoolLevel = async (req, res) => {
   }
 };
 
-    const collection = await Collection.findOne({
-      isBackToSchool: true,
-      schoolLevel: level,
-      isActive: true,
-    }).populate('versions.products.product');
-
-    if (!collection) {
-      return res.status(404).json({
-        success: false,
-        message: `No active school collection found for level: ${level}`,
-      });
-    }
-
-    res.json({ success: true, data: collection });
-  } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
-  }
-};
