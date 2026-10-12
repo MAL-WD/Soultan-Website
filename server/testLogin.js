@@ -12,7 +12,7 @@ const testLogin = async () => {
     const user = await User.findOne({ email: 'admin@example.com' }).select('+password');
     console.log('Found user:', user.name, 'Role:', user.role);
     
-    const isPasswordMatch = await user.comparePassword('123456');
+    const isPasswordMatch = await user.comparePassword('Soltane@Admin#2026!SecKey');
     console.log('Password matches:', isPasswordMatch);
     
     // Simulate what the login controller returns

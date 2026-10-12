@@ -1,8 +1,6 @@
-  // Handle uncaught exceptions first to catch any startup issues
+// Handle uncaught exceptions first to catch any startup issues
 process.on('uncaughtException', (err) => {
-  console.error('🔥 UNCAUGHT EXCEPTION! Shutting down...');
-  console.error(err.name, err.message);
-  if (err.stack) console.error(err.stack);
+  console.error('🔥 UNCAUGHT EXCEPTION! Shutting down...', err);
   process.exit(1);
 });
 
@@ -15,12 +13,17 @@ dns.setDefaultResultOrder('ipv4first');
 import dotenv from 'dotenv';
 import cors from 'cors';
 import morgan from 'morgan';
-import helmet from 'helmet';
-import rateLimit from 'express-rate-limit';
 import mongoSanitize from 'express-mongo-sanitize';
 import hpp from 'hpp';
 import compression from 'compression';
 import connectDB from './config/db.js';
+import logger, { morganStream } from './utils/logger.js';
+import {
+  apiLimiter,
+  helmetSecurity,
+  securityHeaders,
+  sanitizeInputs
+} from './middleware/security.js';
 
 // Load environment variables
 dotenv.config();
@@ -28,41 +31,34 @@ dotenv.config();
 // Initialize Express app
 const app = express();
 
+// Trust reverse proxy (important for rate limiting and logging correct client IPs behind proxies)
+app.set('trust proxy', 1);
+
 // Connect to MongoDB
 connectDB();
 
 // Middlewares
-// 1. Security HTTP Headers (configured to allow cross-origin resource sharing for static files)
-app.use(helmet({
-  crossOriginResourcePolicy: { policy: 'cross-origin' },
-  // Required for Google Sign-In popup to communicate via window.postMessage
-  crossOriginOpenerPolicy: { policy: 'same-origin-allow-popups' },
-}));
+// 1. Security HTTP Headers & Permissions Policy
+app.use(helmetSecurity);
+app.use(securityHeaders);
 
-// 2. Rate Limiting for API routes
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 200, // limit each IP to 200 requests per windowMs
-  standardHeaders: true,
-  legacyHeaders: false,
-  message: {
-    success: false,
-    message: 'Too many requests from this IP, please try again after 15 minutes'
-  }
-});
-app.use('/api', limiter);
+// 2. DDoS & Rate Limiting for all API routes
+app.use('/api', apiLimiter);
 
-// 3. Prevent NoSQL Query Injection
+// 3. Prevent NoSQL Query Injection & HTTP Parameter Pollution
 app.use(mongoSanitize());
-
-// 4. Prevent HTTP Parameter Pollution
 app.use(hpp());
+
+// 4. Input Sanitization against XSS & script tags
+app.use(sanitizeInputs);
 
 // 5. Gzip Compression for payloads
 app.use(compression());
 
-// 6. Request Logging
-app.use(morgan('dev')); 
+// 6. Request Logging through Winston
+app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev', {
+  stream: morganStream
+}));
 
 // 7. CORS Configuration
 app.use(cors({
@@ -78,19 +74,9 @@ app.use(cors({
   credentials: true
 }));
 
-// 8. Body Parsers
-app.use(express.json({ limit: '10kb' })); // limit body size to prevent DDoS
+// 8. Body Parsers with Strict Size Limits against DDoS Payload Floods
+app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
-
-// Custom Response Logging Middleware (Optional but helpful)
-app.use((req, res, next) => {
-  const originalSend = res.send;
-  res.send = function (body) {
-    console.log(`[Response] ${req.method} ${req.url} - Status: ${res.statusCode}`);
-    return originalSend.apply(res, arguments);
-  };
-  next();
-});
 
 // Routes
 app.get('/', (req, res) => {
@@ -143,7 +129,14 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-  console.error("🔥 GLOBAL HTTP ERROR:", err);
+  logger.error("🔥 GLOBAL HTTP ERROR:", {
+    message: err.message,
+    stack: err.stack,
+    url: req.originalUrl,
+    method: req.method,
+    ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress
+  });
+  
   const statusCode = err.statusCode || 500;
   res.status(statusCode).json({
     success: false,
@@ -163,16 +156,20 @@ app.use((req, res) => {
 // Start server
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`📱 Client URL: ${process.env.CLIENT_URL || 'http://localhost:5173'}`);
+  logger.info(`🚀 Server running on port ${PORT}`);
+  logger.info(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+  logger.info(`📱 Client URL: ${process.env.CLIENT_URL || 'http://localhost:5173'}`);
 });
+
+// Slowloris & HTTP Connection DDoS Protection Timeouts
+// Prevents attackers from tying up connection slots with slow headers or idle streams
+server.headersTimeout = 65000; // 65 seconds
+server.keepAliveTimeout = 61000; // 61 seconds (slightly greater than standard reverse proxy keepalive)
+server.requestTimeout = 30000; // 30 seconds max to receive complete client request
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {
-  console.error('🔥 UNHANDLED REJECTION! Shutting down...');
-  console.error(err.name, err.message);
-  if (err.stack) console.error(err.stack);
+  logger.error('🔥 UNHANDLED REJECTION! Shutting down...', { error: err.message, stack: err.stack });
   server.close(() => {
     process.exit(1);
   });

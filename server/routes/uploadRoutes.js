@@ -4,6 +4,7 @@ import { v2 as cloudinary } from 'cloudinary';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
 import dotenv from 'dotenv';
 import { protect } from '../middleware/authMiddleware.js';
+import { uploadLimiter } from '../middleware/security.js';
 
 dotenv.config();
 
@@ -45,7 +46,7 @@ const upload = multer({
 // @desc    Upload single image
 // @route   POST /api/upload
 // @access  Private
-router.post('/', protect, upload.single('image'), (req, res) => {
+router.post('/', protect, uploadLimiter, upload.single('image'), (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ success: false, message: 'No file uploaded' });

@@ -1,8 +1,10 @@
 import express from 'express';
 import { submitContactMessage } from '../controllers/contactController.js';
 
+import { contactLimiter } from '../middleware/security.js';
+
 const router = express.Router();
 
-router.post('/', submitContactMessage);
+router.post('/', contactLimiter, submitContactMessage);
 
 export default router;

@@ -1,6 +1,7 @@
 import User from '../models/User.js';
 import { generateToken } from '../utils/generateToken.js';
 import crypto from 'crypto';
+import { logSecurityEvent } from '../utils/logger.js';
 
 // @desc    Register new user
 // @route   POST /api/auth/register
@@ -79,6 +80,12 @@ export const login = async (req, res) => {
     const user = await User.findOne({ email: email.toLowerCase().trim() }).select('+password');
 
     if (!user) {
+      logSecurityEvent({
+        req,
+        type: 'AUTH_FAILED',
+        message: 'Login failed: User not found',
+        details: { email: email.toLowerCase().trim() }
+      });
       return res.status(401).json({
         success: false,
         message: 'Invalid email or password',
@@ -89,11 +96,24 @@ export const login = async (req, res) => {
     const isPasswordMatch = await user.comparePassword(password);
 
     if (!isPasswordMatch) {
+      logSecurityEvent({
+        req,
+        type: 'AUTH_FAILED',
+        message: 'Login failed: Incorrect password',
+        details: { email: email.toLowerCase().trim(), userId: user._id }
+      });
       return res.status(401).json({
         success: false,
         message: 'Invalid email or password',
       });
     }
+
+    logSecurityEvent({
+      req,
+      type: 'AUTH_SUCCESS',
+      message: 'User logged in successfully',
+      details: { email: user.email, userId: user._id, role: user.role }
+    });
 
     res.json({
       success: true,
