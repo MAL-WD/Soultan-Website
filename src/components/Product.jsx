@@ -52,7 +52,7 @@ const Product = ({ product, layout = 'grid' }) => {
             <div
               className={`absolute inset-0 w-full h-full bg-cover bg-[50%_50%] transition-transform duration-500 ease-in-out group-hover:scale-110 ${isDark ? 'bg-[#1a3620]' : 'bg-gray-50'}`}
               style={{
-                backgroundImage: `url(${product.images?.[0]?.url || '/placeholder.jpg'})`,
+                backgroundImage: `url(${product.images?.[0]?.url || '/placeholder.svg'})`,
               }}
             />
             
@@ -162,7 +162,7 @@ const Product = ({ product, layout = 'grid' }) => {
             <div
               className={`absolute inset-0 w-full h-full bg-cover bg-[50%_50%] transition-transform duration-500 ease-in-out group-hover:scale-110 ${isDark ? 'bg-[#1a3620]' : 'bg-gray-50'}`}
               style={{
-                backgroundImage: `url(${product.images?.[0]?.url || '/placeholder.jpg'})`,
+                backgroundImage: `url(${product.images?.[0]?.url || '/placeholder.svg'})`,
               }}
             />
             
