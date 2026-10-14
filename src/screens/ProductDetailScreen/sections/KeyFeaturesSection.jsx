@@ -28,8 +28,9 @@ export const KeyFeaturesSection = ({
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
-  const images = product.images?.length > 0 ? product.images : [{ url: product.image || "/placeholder.jpg" }];
+  const images = (product.images && product.images.length > 0)
+    ? product.images.filter(img => img && img.url)
+    : (product.image ? [{ url: product.image }] : []);
 
   const handleImageClick = (index) => {
     setLightboxIndex(index);
@@ -67,77 +68,83 @@ export const KeyFeaturesSection = ({
                 <div className="flex items-start justify-center gap-[25px] flex-1">
                   <div className="flex flex-col items-center gap-6 flex-1 w-full">
                     <div 
-                      className={`relative w-full h-[400px] lg:h-[609px] border border-solid rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer group ${
+                      className={`relative w-full h-[400px] lg:h-[609px] border border-solid rounded-3xl overflow-hidden transition-all duration-500 group flex items-center justify-center ${
                         isDark ? 'border-emerald-800/40 bg-[#122816]' : 'border-[#dfdfdf] bg-white'
-                      }`}
-                      onClick={() => handleImageClick(selectedImage)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => e.key === 'Enter' && handleImageClick(selectedImage)}
+                      } ${images.length > 0 ? 'cursor-pointer' : ''}`}
+                      onClick={() => images.length > 0 && handleImageClick(selectedImage)}
+                      role={images.length > 0 ? "button" : undefined}
+                      tabIndex={images.length > 0 ? 0 : undefined}
+                      onKeyDown={(e) => e.key === 'Enter' && images.length > 0 && handleImageClick(selectedImage)}
                     >
-                      {/* Glassmorphism Background */}
-                      <div className="absolute inset-0 z-0 overflow-hidden">
-                        <img 
-                          src={images[selectedImage]?.url} 
-                          alt="" 
-                          className="w-full h-full object-cover blur-3xl scale-125 opacity-50" 
-                        />
-                        <div className={`absolute inset-0 ${isDark ? 'bg-black/50' : 'bg-white/50'} backdrop-blur-xl`}></div>
-                      </div>
-                      
-                      {/* Main Image */}
-                      <img 
-                        src={images[selectedImage]?.url} 
-                        alt={isArabic ? product.name_ar : product.name_en} 
-                        className="relative z-10 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                      />
+                      {images.length > 0 && images[selectedImage]?.url ? (
+                        <>
+                          {/* Glassmorphism Background */}
+                          <div className="absolute inset-0 z-0 overflow-hidden">
+                            <img 
+                              src={images[selectedImage]?.url} 
+                              alt="" 
+                              className="w-full h-full object-cover blur-3xl scale-125 opacity-50" 
+                            />
+                            <div className={`absolute inset-0 ${isDark ? 'bg-black/50' : 'bg-white/50'} backdrop-blur-xl`}></div>
+                          </div>
+                          
+                          {/* Main Image */}
+                          <img 
+                            src={images[selectedImage]?.url} 
+                            alt={isArabic ? product.name_ar : product.name_en} 
+                            className="relative z-10 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </>
+                      ) : null}
                     </div>
 
-                    <div className="flex items-center justify-between w-full">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="w-10 h-10 rounded-full p-0"
-                        onClick={() => setSelectedImage(prev => prev > 0 ? prev - 1 : images.length - 1)}
-                      >
-                        <ChevronLeftIcon className={`w-[17px] h-[17px] ${isArabic ? 'rotate-180' : ''} ${isDark ? 'text-emerald-400' : 'text-brand-color-main'}`} />
-                      </Button>
+                    {images.length > 1 && (
+                      <div className="flex items-center justify-between w-full">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="w-10 h-10 rounded-full p-0"
+                          onClick={() => setSelectedImage(prev => prev > 0 ? prev - 1 : images.length - 1)}
+                        >
+                          <ChevronLeftIcon className={`w-[17px] h-[17px] ${isArabic ? 'rotate-180' : ''} ${isDark ? 'text-emerald-400' : 'text-brand-color-main'}`} />
+                        </Button>
 
-                      <div className="flex items-center gap-2 overflow-x-auto pb-2">
-                        {images.map((img, index) => (
-                          <div
-                            key={index}
-                            onClick={() => {
-                              setSelectedImage(index);
-                              handleImageClick(index);
-                            }}
-                            className={`w-[60px] h-[60px] bg-contain bg-no-repeat bg-center cursor-pointer transition-all rounded-lg ${
-                              selectedImage === index
-                                ? (isDark ? "border-2 border-solid border-amber-400" : "border-2 border-solid border-brand-color-accent")
-                                : (isDark ? "border border-emerald-800/40 opacity-70 hover:opacity-100" : "border border-transparent opacity-70 hover:opacity-100")
-                            } ${isDark && selectedImage !== index ? 'bg-[#122816]' : ''}`}
-                            style={{ backgroundImage: `url(${img.url})` }}
-                            role="button"
-                            tabIndex={0}
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter') {
+                        <div className="flex items-center gap-2 overflow-x-auto pb-2">
+                          {images.map((img, index) => (
+                            <div
+                              key={index}
+                              onClick={() => {
                                 setSelectedImage(index);
                                 handleImageClick(index);
-                              }
-                            }}
-                          />
-                        ))}
-                      </div>
+                              }}
+                              className={`w-[60px] h-[60px] bg-contain bg-no-repeat bg-center cursor-pointer transition-all rounded-lg ${
+                                selectedImage === index
+                                  ? (isDark ? "border-2 border-solid border-amber-400" : "border-2 border-solid border-brand-color-accent")
+                                  : (isDark ? "border border-emerald-800/40 opacity-70 hover:opacity-100" : "border border-transparent opacity-70 hover:opacity-100")
+                              } ${isDark && selectedImage !== index ? 'bg-[#122816]' : ''}`}
+                              style={{ backgroundImage: `url(${img.url})` }}
+                              role="button"
+                              tabIndex={0}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                  setSelectedImage(index);
+                                  handleImageClick(index);
+                                }
+                              }}
+                            />
+                          ))}
+                        </div>
 
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className={`w-10 h-10 rounded-full p-0 ${isDark ? 'bg-emerald-900/40 hover:bg-emerald-800/60' : 'bg-brand-color-main-hover-light'}`}
-                        onClick={() => setSelectedImage(prev => prev < images.length - 1 ? prev + 1 : 0)}
-                      >
-                        <ChevronRightIcon className={`w-[17px] h-[17px] ${isArabic ? 'rotate-180' : ''} ${isDark ? 'text-emerald-400' : 'text-brand-color-main'}`} />
-                      </Button>
-                    </div>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className={`w-10 h-10 rounded-full p-0 ${isDark ? 'bg-emerald-900/40 hover:bg-emerald-800/60' : 'bg-brand-color-main-hover-light'}`}
+                          onClick={() => setSelectedImage(prev => prev < images.length - 1 ? prev + 1 : 0)}
+                        >
+                          <ChevronRightIcon className={`w-[17px] h-[17px] ${isArabic ? 'rotate-180' : ''} ${isDark ? 'text-emerald-400' : 'text-brand-color-main'}`} />
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

@@ -151,7 +151,7 @@ const CartScreen = () => {
                 <div className="divide-y divide-gray-100">
                   <AnimatePresence>
                     {cartItems.map((item) => {
-                      const image = item.images?.[0]?.url || item.images?.[0] || '/placeholder.jpg';
+                      const image = item.images?.[0]?.url || item.images?.[0] || '';
                       const itemTotal = item.price * item.quantity;
 
                       return (
@@ -166,13 +166,15 @@ const CartScreen = () => {
                           {/* Image */}
                           <Link 
                             to={`/product/${item._id}`}
-                            className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gray-50 border border-gray-100 overflow-hidden shrink-0 group relative p-2"
+                            className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gray-50 border border-gray-100 overflow-hidden shrink-0 group relative p-2 flex items-center justify-center"
                           >
-                            <img
-                              src={image}
-                              alt={getName(item)}
-                              className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                            />
+                            {image && (
+                              <img
+                                src={image}
+                                alt={getName(item)}
+                                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                              />
+                            )}
                           </Link>
 
                           {/* Info & Actions */}

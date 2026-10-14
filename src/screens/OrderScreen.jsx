@@ -158,11 +158,13 @@ const OrderScreen = () => {
                 <div className="space-y-4">
                   {order.items.map((item, index) => (
                     <div key={index} className="flex items-center gap-4 border-b pb-4 last:border-0 last:pb-0">
-                      <img
-                        src={item.image || '/placeholder.jpg'}
-                        alt={item.name_en}
-                        className="w-16 h-16 object-cover rounded"
-                      />
+                      {item.image && (
+                        <img
+                          src={item.image}
+                          alt={item.name_en}
+                          className="w-16 h-16 object-cover rounded"
+                        />
+                      )}
                       <div className="flex-1">
                         <Link to={`/product/${item.product}`} className="font-medium hover:underline">
                           {item.name_en}

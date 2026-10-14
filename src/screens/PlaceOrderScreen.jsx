@@ -106,11 +106,13 @@ const PlaceOrderScreen = () => {
                 <div className="space-y-4">
                   {cart.cartItems.map((item, index) => (
                     <div key={index} className="flex items-center gap-4 border-b pb-4 last:border-0 last:pb-0">
-                      <img
-                        src={item.images[0]?.url || '/placeholder.jpg'}
-                        alt={item.name_en}
-                        className="w-16 h-16 object-cover rounded"
-                      />
+                      {item.images?.[0]?.url && (
+                        <img
+                          src={item.images[0].url}
+                          alt={item.name_en}
+                          className="w-16 h-16 object-cover rounded"
+                        />
+                      )}
                       <div className="flex-1">
                         <Link to={`/product/${item._id}`} className="font-medium hover:underline">
                           {item.name_en}
