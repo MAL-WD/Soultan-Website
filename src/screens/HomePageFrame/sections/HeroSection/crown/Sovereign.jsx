@@ -73,7 +73,7 @@ const buildSleeve = (s) => {
   for (let i = 0; i <= segs; i++) {
     const u = i / segs;
     const centre = curve.getPointAt(u);
-    const widen = 0.92 + 0.12 * Math.sin(u * Math.PI) + THREE.MathUtils.smoothstep(u, 0.6, 1) * 0.42;
+    const widen = 0.92 + 0.12 * Math.sin(u * Math.PI) + THREE.MathUtils.smoothstep(u, 0.6, 1) * 0.22;
     for (let j = 0; j <= radial; j++) {
       const k = i * (radial + 1) + j;
       v.fromBufferAttribute(pos, k).sub(centre).multiplyScalar(widen).add(centre);
@@ -83,12 +83,12 @@ const buildSleeve = (s) => {
   geo.computeVertexNormals();
   const end = curve.getPointAt(1);
   const tangent = curve.getTangentAt(1);
-  return { geo, end, cuffQ: new THREE.Quaternion().setFromUnitVectors(V3(0, 0, 1), tangent), cuffR: 0.1 * 1.34 };
+  return { geo, end, cuffQ: new THREE.Quaternion().setFromUnitVectors(V3(0, 0, 1), tangent), cuffR: 0.1 * 1.14 };
 };
 
 // Mantle over the shoulders: one smooth lathed piece, so there are no joints.
 const MANTLE_PROFILE = [
-  [0.105, 0], [0.16, -0.03], [0.29, -0.1], [0.41, -0.21], [0.465, -0.34], [0.48, -0.47],
+  [0.105, 0], [0.17, -0.03], [0.3, -0.075], [0.4, -0.14], [0.445, -0.22], [0.45, -0.27],
 ];
 const archShape = (w, h) => {
   const s = new THREE.Shape();
@@ -190,8 +190,8 @@ export const Sovereign = ({ headRef, chestRef }) => {
       <group ref={chestRef} position={[0, 0, -0.12]}>
         <mesh geometry={shapes.torso} material={m.robe} position={[0, 1.0, -0.01]} rotation-x={-0.05} scale={[1.3, 1.14, 0.78]} castShadow receiveShadow />
         <mesh geometry={shapes.mantle} material={m.robe} position={[0, 2.26, 0]} scale={[1, 1, 0.64]} castShadow receiveShadow />
-        <mesh material={m.gold} position={[0, 1.79, 0]} rotation-x={Math.PI / 2} scale={[1, 0.64, 1]} castShadow>
-          <torusGeometry args={[0.48, 0.011, 10, 96]} />
+        <mesh material={m.gold} position={[0, 1.99, 0]} rotation-x={Math.PI / 2} scale={[1, 0.64, 1]} castShadow>
+          <torusGeometry args={[0.45, 0.009, 10, 96]} />
         </mesh>
         <mesh material={m.gold} position={[0, 2.255, 0]} rotation-x={Math.PI / 2} scale={[1, 0.64, 1]}>
           <torusGeometry args={[0.107, 0.012, 10, 48]} />
@@ -202,7 +202,7 @@ export const Sovereign = ({ headRef, chestRef }) => {
         <group key={i}>
           <mesh geometry={sl.geo} material={m.robe} castShadow receiveShadow />
           <mesh material={m.gold} position={sl.end} quaternion={sl.cuffQ}>
-            <torusGeometry args={[sl.cuffR, 0.011, 10, 48]} />
+            <torusGeometry args={[sl.cuffR, 0.007, 8, 48]} />
           </mesh>
         </group>
       ))}
@@ -219,7 +219,7 @@ export const Sovereign = ({ headRef, chestRef }) => {
         </group>
       ))}
       <mesh material={m.skin} position={[0, 2.33, -0.1]} castShadow>
-        <cylinderGeometry args={[0.083, 0.095, 0.26, 32]} />
+        <cylinderGeometry args={[0.092, 0.11, 0.26, 32]} />
       </mesh>      {/* Faceless head */}
       {/* Pivots at the base of the skull so it can look up */}
       <group ref={headRef} position={[HEAD.x, HEAD.y, HEAD.z]}>
