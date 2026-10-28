@@ -129,15 +129,21 @@ export const CrownHero = () => {
               lang="ar"
               className={`font-serif-ar-bold text-[#fffef0] leading-[1.2] ${
                 isSmall
-                  ? "absolute inset-x-0 bottom-[190px] px-6 text-center text-[2.7rem]"
-                  : "absolute inset-x-[5vw] top-[30%] flex justify-between items-baseline text-[clamp(3rem,6.2vw,6.5rem)]"
+                  ? "absolute inset-x-0 bottom-[190px] px-4 text-center text-[3.3rem]"
+                  : "absolute inset-x-[3vw] top-[28%] flex justify-between items-baseline text-[clamp(3.6rem,7.4vw,8.5rem)]"
               }`}
-              style={{ textShadow: "0 2px 30px rgba(0,0,0,0.45)" }}
+              style={{
+                // Gold outline drawn behind the letters (paint-order keeps Arabic joins clean);
+                // the dark glow underneath keeps it readable over the bright book spines
+                WebkitTextStroke: "0.07em #f2c161",
+                paintOrder: "stroke fill",
+                textShadow: "0 0 24px rgba(3,20,14,0.9), 0 6px 40px rgba(0,0,0,0.6)",
+              }}
             >
               {/* Read right to left: "the customer" on one side of the throne, "is the Sultan" on the other */}
-              <span className="whitespace-nowrap">« الزبون</span>
+              <span className="whitespace-nowrap">الزبون</span>
               {isSmall ? " " : null}
-              <span className="whitespace-nowrap inline-block">هو السلطان »</span>
+              <span className="whitespace-nowrap inline-block">هو السلطان</span>
             </h1>
             <div
               className={`absolute inset-x-0 flex flex-col items-center text-center gap-3 px-6 ${

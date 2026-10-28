@@ -86,10 +86,13 @@ const shared = {
 const build = (set) => Object.fromEntries(Object.entries(set).map(([k, v]) => [k, monotone(P, v)]));
 const curves = { desktop: build({ ...desktop, ...shared }), mobile: build({ ...mobile, ...shared }) };
 
-export const track = (p, { isSmall }) => {
+export const track = (p, { isSmall, aspect = 1.6 }) => {
   const c = isSmall ? curves.mobile : curves.desktop;
+  // Squarer desktop windows (tablets, 4:3 laptops) need the camera further
+  // back at the end so the crown clears the header.
+  const back = isSmall ? 1 : 1 + Math.max(0, 1.6 / aspect - 1) * 0.6 * smoothstep(0.5, 0.9, p);
   return {
-    cam: [c.camX(p), c.camY(p), c.camZ(p)],
+    cam: [c.camX(p), c.camY(p), c.camZ(p) * back],
     look: [0, c.lookY(p), c.lookZ(p)],
     fov: c.fov(p),
     crownY: c.crownY(p), // the landing bounce comes from the crown's spring, see CrownScene

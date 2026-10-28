@@ -87,6 +87,15 @@ export const createMaterials = () => {
       clearcoat: 0.5,
       clearcoatRoughness: 0.12,
     }),
+    // Mirror-polished, faceted gold for the set jewels so they sparkle against the band
+    goldPolished: new THREE.MeshPhysicalMaterial({
+      color: "#f0bd5c",
+      metalness: 1,
+      roughness: 0.08,
+      flatShading: true,
+      clearcoat: 1,
+      clearcoatRoughness: 0.04,
+    }),
     goldBand: new THREE.MeshPhysicalMaterial({
       color: "#e2ad55",
       metalness: 1,
@@ -241,6 +250,8 @@ export const buildCrown = (m) => {
   const largeGeo = extrude(large.shape);
   const smallGeo = extrude(small.shape);
   const tipGeo = new THREE.SphereGeometry(0.034, 24, 16);
+  const jewelGeo = new THREE.OctahedronGeometry(1, 0);
+  const beadGeo = new THREE.SphereGeometry(1, 20, 14);
   for (let i = 0; i < 8; i++) {
     const a = (i / 8) * Math.PI * 2;
     const isLarge = i % 2 === 0;
@@ -252,6 +263,18 @@ export const buildCrown = (m) => {
     const lean = 0.14; // outwards, towards the holder's local +z
     prong.rotation.x = lean;
     holder.add(prong);
+    // Gold jewel set in each window, as in the logo: a faceted diamond in the
+    // large prongs, a bead in the small ones. Children of the prong, so they lean with it.
+    const jewel = new THREE.Mesh(isLarge ? jewelGeo : beadGeo, m.goldPolished);
+    if (isLarge) {
+      jewel.position.set(0, large.height * 0.46, 0);
+      jewel.scale.set(0.054, 0.086, 0.036);
+    } else {
+      jewel.position.set(0, small.height * 0.38, 0);
+      jewel.scale.set(0.026, 0.04, 0.022);
+    }
+    jewel.castShadow = true;
+    prong.add(jewel);
     if (isLarge) {
       const tip = new THREE.Mesh(tipGeo, m.pearl);
       tip.position.set(0, large.height * Math.cos(lean) + 0.03, large.height * Math.sin(lean));

@@ -154,7 +154,7 @@ const Rig = ({ store, overlay, isSmall, reduce }) => {
     if (!moving) ps.snap(store.target);
     const p = (store.current = Math.min(1, Math.max(0, ps.value)));
 
-    const s = track(p, { isSmall });
+    const s = track(p, { isSmall, aspect: camera.aspect });
     const lx = springs.lookX.step(pointer.x, dt);
     const ly = springs.lookY.step(pointer.y, dt);
     if (!springs.lookX.atRest(pointer.x) || !springs.lookY.atRest(pointer.y)) moving = true;
