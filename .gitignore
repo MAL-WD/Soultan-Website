@@ -26,4 +26,6 @@ dist-ssr
 # Environment variables — NEVER commit these
 .env
 .env.*
-server/.env
+server/.env
+# Temporary scraped / downloaded assets
+downloaded_products_ordered/

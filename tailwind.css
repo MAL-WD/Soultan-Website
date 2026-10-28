@@ -400,6 +400,46 @@ body {
 .animate-scroll-right-slow {
   animation: scroll-right 60s linear infinite;
 }
+
+/* Parallax hero: gentle idle float for the stationery outlines */
+@keyframes hero-float {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--hero-rot, 0deg));
+  }
+  50% {
+    transform: translateY(-10px) rotate(calc(var(--hero-rot, 0deg) + 4deg));
+  }
+}
+
+.hero-float {
+  transform: rotate(var(--hero-rot, 0deg));
+  animation: hero-float 7s ease-in-out infinite;
+}
+
+/* Arch hero: paper grain and the scroll cue's travelling line */
+.hero-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.04 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+@keyframes hero-cue {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.hero-cue-line {
+  animation: hero-cue 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cue-line,
+  .hero-float,
+  .hero-marquee {
+    animation: none !important;
+  }
+}
 .font-inter-important {
   font-family: 'Inter', sans-serif !important;
 }
@@ -418,5 +458,7 @@ body {
 html, body {
   max-width: 100% !important;
   overflow-x: hidden !important;
+  /* clip, unlike hidden, doesn't turn body into a scroll container, so position: sticky keeps working */
+  overflow-x: clip !important;
   position: relative;
 }

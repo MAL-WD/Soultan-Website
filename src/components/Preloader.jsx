@@ -43,6 +43,9 @@ const Preloader = () => {
       setTimeout(() => {
         setLoading(false);
         document.body.style.overflow = ''; // Restore scrolling
+        // Lets the home hero start its entrance once the page is actually visible
+        window.__soltanePreloaded = true;
+        window.dispatchEvent(new Event('soltane:preloaded'));
       }, 600); // Wait a bit after 100% before fading out
     }
   }, [progress]);

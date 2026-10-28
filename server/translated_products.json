@@ -1,0 +1,2221 @@
+[
+  {
+    "id": "6974ee610a2402ab551937c8",
+    "name_ar": "مصحف القلم القارئ – كوفري",
+    "name_en": "Qalam Reader’s Qur’an - Kufri",
+    "name_fr": "Coran du lecteur Qalam - Kufri",
+    "price": 13800
+  },
+  {
+    "id": "697b91168c5c914289f9f128",
+    "name_ar": "المراجعة الشاملة في المحاسبة – BAC",
+    "name_en": "Comprehensive audit in accounting - BAC",
+    "name_fr": "Audit global en comptabilité - BAC",
+    "price": 1500
+  },
+  {
+    "id": "698e13b980ad8515279f7c05",
+    "name_ar": "كراس المعلوماتية – الرابعة متوسط (4AM)",
+    "name_en": "Informatics Workbook - Fourth Intermediate (4AM)",
+    "name_fr": "Cahier d'exercices informatiques - Quatrième intermédiaire (4h du matin)",
+    "price": 200
+  },
+  {
+    "id": "6990e52780ad8515279f7f0a",
+    "name_ar": "كراس القسم (Cahier de classe): فرنسية – الثالثة ابتدائي (3AP)",
+    "name_en": "Department booklet (Cahier de classe): French - third year of primary school (3AP)",
+    "name_fr": "Livret départemental (Cahier de classe) : Français - troisième année primaire (3AP)",
+    "price": 200
+  },
+  {
+    "id": "6990e59180ad8515279f7f25",
+    "name_ar": "كراس القسم في الإنجليزية: The Class Copybook of English – الثالثة ابتدائي (3PS)",
+    "name_en": "Department booklet in English: The Class Copybook of English – Third Primary School (3PS)",
+    "name_fr": "Livret départemental en anglais : The Class Copybook of English – Third Primary School (3PS)",
+    "price": 200
+  },
+  {
+    "id": "6990e61b80ad8515279f7f40",
+    "name_ar": "كراس القسم في اللغة الإنجليزية: My Class Copybook – الثالثة ابتدائي (3ap)",
+    "name_en": "Department booklet in the English language: My Class Copybook – third primary (3ap)",
+    "name_fr": "Livret du département en langue anglaise : My Class Copybook – troisième primaire (3ap)",
+    "price": 250
+  },
+  {
+    "id": "6990e68380ad8515279f7f5b",
+    "name_ar": "كراس القسم في اللغة الإنجليزية: My Class Copybook – الثالثة ابتدائي (3rd Year)",
+    "name_en": "Department booklet in the English language: My Class Copybook – third year of primary school (3rd year)",
+    "name_fr": "Livret du département en langue anglaise : My Class Copybook – troisième année du primaire (3ème année)",
+    "price": 170
+  },
+  {
+    "id": "6990e75f80ad8515279f7f91",
+    "name_ar": "سلسلة البصمة الذهبية: كراس القسم (Cahier de classe) – الثالثة ابتدائي (3AP)",
+    "name_en": "Golden Imprint Series: Department Booklet (Cahier de classe) – Third Primary School (3AP)",
+    "name_fr": "Série Empreinte Dorée : Cahier de classe – Troisième École Primaire (3AP)",
+    "price": 200
+  },
+  {
+    "id": "6990e7c480ad8515279f7fac",
+    "name_ar": "سلسلة المعين: كراس القسم (My Class Copybook) – الثالثة ابتدائي (3AP)",
+    "name_en": "Al-Ma'in Series: Department Booklet (My Class Copybook) - Third Primary School (3AP)",
+    "name_fr": "Série Al-Ma'in : Livret du département (Cahier de ma classe) - Troisième école primaire (3AP)",
+    "price": 160
+  },
+  {
+    "id": "6990e84980ad8515279f7fc7",
+    "name_ar": "كراس القسم (Cahier de classe): فرنسية – السنة الثالثة ابتدائي (3AP)",
+    "name_en": "Department booklet (Cahier de classe): French – third year of primary school (3AP)",
+    "name_fr": "Livret départemental (Cahier de classe) : Français – troisième année primaire (3AP)",
+    "price": 200
+  },
+  {
+    "id": "6990e8f780ad8515279f7ffc",
+    "name_ar": "سلسلة كنز النجاح: كراس القسم (Cahier de classe) – الثالثة ابتدائي (3AP)",
+    "name_en": "Najah Treasure Series: Department Booklet (Cahier de classe) – Third Primary School (3AP)",
+    "name_fr": "Série Trésor Najah : Cahier de classe – Troisième école primaire (3AP)",
+    "price": 150
+  },
+  {
+    "id": "6990e96a80ad8515279f8017",
+    "name_ar": "كراس القسم (Cahier de classe): فرنسية – السنة الثالثة ابتدائي (3AP)",
+    "name_en": "Department booklet (Cahier de classe): French – third year of primary school (3AP)",
+    "name_fr": "Livret départemental (Cahier de classe) : Français – troisième année primaire (3AP)",
+    "price": 200
+  },
+  {
+    "id": "6990e9d180ad8515279f8032",
+    "name_ar": "سلسلة البصمة الذهبية: كراس القسم (Cahier de classe) – الثالثة ابتدائي (3AP)",
+    "name_en": "Golden Imprint Series: Department Booklet (Cahier de classe) – Third Primary School (3AP)",
+    "name_fr": "Série Empreinte Dorée : Cahier de classe – Troisième École Primaire (3AP)",
+    "price": 200
+  },
+  {
+    "id": "6990ea4580ad8515279f804d",
+    "name_ar": "كراس المعلوماتية (Informatique) – الأولى متوسط (1AM)",
+    "name_en": "Informatique Workbook – First Intermediate (1AM)",
+    "name_fr": "Cahier Informatique – Premier Intermédiaire (1AM)",
+    "price": 200
+  },
+  {
+    "id": "69919b6680ad8515279f81da",
+    "name_ar": "كراس المعلوماتية (Informatique) – الثانية متوسط (2AM)",
+    "name_en": "Informatique notebook - second intermediate (2AM)",
+    "name_fr": "Cahier informatique - deuxième intermédiaire (2h du matin)",
+    "price": 200
+  },
+  {
+    "id": "6991a4f1162ed3825b38f466",
+    "name_ar": "كراس المعلوماتية (Informatique) – الثالثة متوسط (3AM)",
+    "name_en": "Informatique notebook – third intermediate (3AM)",
+    "name_fr": "Cahier informatique – troisième intermédiaire (3h du matin)",
+    "price": 200
+  },
+  {
+    "id": "6991bc3b162ed3825b38f758",
+    "name_ar": "سلسلة الاجتهاد واصل في اللغة الفرنسية: حلول دفتر الأنشطة – 5AP",
+    "name_en": "Ijtihad Wasel series in the French language: Solutions to the activity book - 5AP",
+    "name_fr": "Série Ijtihad Wasel en langue française : Solutions au cahier d'activités - 5AP",
+    "price": 270
+  },
+  {
+    "id": "6991bca7162ed3825b38f774",
+    "name_ar": "سلسلة \"Mes cahiers\": كراس القسم في اللغة الفرنسية – 5AP",
+    "name_en": "“Mes cahiers” series: Department booklet in the French language – 5AP",
+    "name_fr": "Série « Mes cahiers » : Livret départemental en langue française – 5AP",
+    "price": 230
+  },
+  {
+    "id": "6991bcfa162ed3825b38f7a8",
+    "name_ar": "سلسلة كنز النجاح: كراس القسم في اللغة الفرنسية – 5AP",
+    "name_en": "Najah Treasure Series: Department Chair in the French Language - 5AP",
+    "name_fr": "Série Trésor Najah : Directeur du département de langue française - 5AP",
+    "price": 230
+  },
+  {
+    "id": "6991bf85162ed3825b38f82c",
+    "name_ar": "كراس القسم لجميع المواد – السنة الخامسة ابتدائي (5AP)",
+    "name_en": "Department chairs for all subjects - fifth year of primary school (5AP)",
+    "name_fr": "Chaires de département toutes matières - cinquième année primaire (5AP)",
+    "price": 240
+  },
+  {
+    "id": "6991c1ef162ed3825b38f95f",
+    "name_ar": "سلسلة دار البدر: كراس القسم في اللغة الفرنسية – 4AP",
+    "name_en": "Dar Al-Badr Series: Department Manual in the French Language - 4AP",
+    "name_fr": "Série Dar Al-Badr : Manuel du département en langue française - 4AP",
+    "price": 250
+  },
+  {
+    "id": "6991c355162ed3825b38f9c8",
+    "name_ar": "سلسلة \"My copybooks\": كراس القسم في اللغة الإنجليزية – 4th Year Primary",
+    "name_en": "“My copybooks” series: Department Chairs in English – 4th Year Primary",
+    "name_fr": "Série « Mes cahiers » : Chaires de département d'anglais – 4e primaire",
+    "price": 230
+  },
+  {
+    "id": "6991c443162ed3825b38fa5e",
+    "name_ar": "سلسلة المتميز: كراس القسم في اللغة الفرنسية – 4AP",
+    "name_en": "Distinguished Series: Department Chair in French Language - 4AP",
+    "name_fr": "Série distinguée : Chaire de département de langue française - 4AP",
+    "price": 250
+  },
+  {
+    "id": "699249402241d0585aecd3be",
+    "name_ar": "كراس الألعاب الرياضياتية – السنة الثانية ابتدائي (2AP)",
+    "name_en": "Mathematics Games Workbook - Second Year of Primary School (2AP)",
+    "name_fr": "Cahier d'exercices de jeux mathématiques - Deuxième année primaire (2AP)",
+    "price": 150
+  },
+  {
+    "id": "699249b32241d0585aecd3d9",
+    "name_ar": "سلسلة الأستاذ حمزة: كراس القسم – السنة الثانية ابتدائي (2)",
+    "name_en": "Professor Hamza Series: Department Chair - Second Year of Primary School (2)",
+    "name_fr": "Série Professeur Hamza : Directeur de Département - Deuxième Année Primaire (2)",
+    "price": 300
+  },
+  {
+    "id": "69924b712241d0585aecd42a",
+    "name_ar": "سلسلة البصمة الذهبية: كراس القسم للرياضيات والتربية العلمية – 2AP",
+    "name_en": "Golden Imprint Series: Department Headbook for Mathematics and Scientific Education - 2AP",
+    "name_fr": "Série Golden Imprint : Manuel du département de mathématiques et d'enseignement scientifique - 2AP",
+    "price": 150
+  },
+  {
+    "id": "69924c862241d0585aecd460",
+    "name_ar": "سلسلة المعين: كراس القسم – السنة الثانية ابتدائي (2AP)",
+    "name_en": "Maeen Series: Department Chair - Second Year of Primary School (2AP)",
+    "name_fr": "Série Maeen : Directeur de département - Deuxième année primaire (2AP)",
+    "price": 160
+  },
+  {
+    "id": "699250cd2241d0585aecd5a7",
+    "name_ar": "سلسلة الكامل الشامل: كراس القسم – 2 ابتدائي (2AP)",
+    "name_en": "Al-Kamil Al-Shameel Series: Department Manual – 2nd Primary (2AP)",
+    "name_fr": "Série Al-Kamil Al-Shameel : Manuel du département – ​​2e primaire (2AP)",
+    "price": 250
+  },
+  {
+    "id": "699348622241d0585aecd82c",
+    "name_ar": "كراسي في التخطيط: لمستوى التحضيري ورياض الأطفال (3-4 سنوات)",
+    "name_en": "Chairs in planning: for preparatory and kindergarten levels (3-4 years)",
+    "name_fr": "Chaires en planification : pour les niveaux préparatoire et maternelle (3-4 ans)",
+    "price": 250
+  },
+  {
+    "id": "699348d12241d0585aecd865",
+    "name_ar": "كراسي في التفتح: لمستوى التحضيري ورياض الأطفال (3-4 سنوات)",
+    "name_en": "Chairs in bloom: for preparatory and kindergarten levels (3-4 years)",
+    "name_fr": "Chaises fleuries : pour les niveaux préparatoire et maternelle (3-4 ans)",
+    "price": 350
+  },
+  {
+    "id": "699349a52241d0585aecd89b",
+    "name_ar": "كراس الكتابة: الخطاط الصغير – المستوى الثاني (4 إلى 6 سنوات)",
+    "name_en": "Writing Pad: Little Calligrapher – Level 2 (4 to 6 years)",
+    "name_fr": "Bloc-notes : Petit Calligraphe – Niveau 2 (4 à 6 ans)",
+    "price": 200
+  },
+  {
+    "id": "69934b7a2241d0585aecd907",
+    "name_ar": "أنشطة إنمائية: لمستوى 5-6 سنوات",
+    "name_en": "Developmental activities: for the level of 5-6 years",
+    "name_fr": "Activités de développement : pour le niveau 5-6 ans",
+    "price": 300
+  },
+  {
+    "id": "69934c5f2241d0585aecd922",
+    "name_ar": "كراس الخط: سلسلة الخطاط الصغير – المستوى 1",
+    "name_en": "Calligraphy booklet: The Little Calligrapher Series – Level 1",
+    "name_fr": "Livret de calligraphie : Série Le Petit Calligraphe – Niveau 1",
+    "price": 60
+  },
+  {
+    "id": "69934d232241d0585aecd958",
+    "name_ar": "سلسلة كراساتي: كراس الأنشطة (4 سنوات فما فوق)",
+    "name_en": "My Notebooks Series: Activity Notebooks (4 years and above)",
+    "name_fr": "Série Mes Cahiers : Cahiers d'activités (4 ans et plus)",
+    "price": 80
+  },
+  {
+    "id": "69934d872241d0585aecd973",
+    "name_ar": "سلسلة كراساتي: كراس الكتابة (5 سنوات فما فوق)",
+    "name_en": "My Notebook Series: Writing Notebook (5 years and above)",
+    "name_fr": "Série My Notebook : Carnet d'écriture (5 ans et plus)",
+    "price": 80
+  },
+  {
+    "id": "69934dd72241d0585aecd98e",
+    "name_ar": "كراس الخط: للمبتدئين والناشئة",
+    "name_en": "Calligraphy booklet: for beginners and young adults",
+    "name_fr": "Livret de calligraphie : pour débutants et jeunes adultes",
+    "price": 150
+  },
+  {
+    "id": "69934fdd2241d0585aecda15",
+    "name_ar": "كراسي في تعلم الحروف مع جميع الحركات والمدود (كتاب 3)",
+    "name_en": "Chairs in learning letters with all the movements and lengths (Book 3)",
+    "name_fr": "Chaises en apprentissage des lettres avec tous les mouvements et longueurs (Livre 3)",
+    "price": 250
+  },
+  {
+    "id": "699350362241d0585aecda30",
+    "name_ar": "كراسي في التحضير للمرحلة التمهيدية (المستوى الأول)",
+    "name_en": "Chairs in preparation for the preliminary stage (first level)",
+    "name_fr": "Chaises en préparation à l'étape préliminaire (premier niveau)",
+    "price": 250
+  },
+  {
+    "id": "699357e32241d0585aecdbe1",
+    "name_ar": "كراس الكتابة (سلسلة الكاتب الشاب)",
+    "name_en": "Writing Notebook (Young Writer Series)",
+    "name_fr": "Cahier d'écriture (série Jeune écrivain)",
+    "price": 60
+  },
+  {
+    "id": "6993584b2241d0585aecdbfc",
+    "name_ar": "دفتر الكتابة باللغة الإنجليزية",
+    "name_en": "Writing notebook in English",
+    "name_fr": "Cahier d'écriture en anglais",
+    "price": 100
+  },
+  {
+    "id": "69944a542241d0585aecddb2",
+    "name_ar": "كراس التربية العلمية والتكنولوجية",
+    "name_en": "Scientific and technological education chairs",
+    "name_fr": "Chaires d'enseignement scientifique et technologique",
+    "price": 180
+  },
+  {
+    "id": "699450542241d0585aecde6a",
+    "name_ar": "كراس الأرقام",
+    "name_en": "Numbers booklet",
+    "name_fr": "Livret de chiffres",
+    "price": 250
+  },
+  {
+    "id": "699455fb2241d0585aecdf7f",
+    "name_ar": "كراس الأرقام - المستوى الثاني (سلسلة الخطاط الصغير)",
+    "name_en": "Book of Numbers - Level Two (Little Calligrapher Series)",
+    "name_fr": "Livre des nombres - Niveau deux (série Little Calligrapher)",
+    "price": 200
+  },
+  {
+    "id": "699456602241d0585aecdf9a",
+    "name_ar": "كراس الأرقام (سلسلة المبدع الصغير)",
+    "name_en": "Book of Numbers (Little Creator Series)",
+    "name_fr": "Livre des nombres (série Little Creator)",
+    "price": 150
+  },
+  {
+    "id": "69945df02241d0585aecdfd0",
+    "name_ar": "كراسي في تعلم الأرقام",
+    "name_en": "Chairs in learning numbers",
+    "name_fr": "Chaises d'apprentissage des nombres",
+    "price": 100
+  },
+  {
+    "id": "69945e652241d0585aecdfeb",
+    "name_ar": "كراس الأرقام والحساب (المستوى الثاني)",
+    "name_en": "Numbers and Arithmetic Book (Second Level)",
+    "name_fr": "Livre de nombres et d'arithmétique (deuxième niveau)",
+    "price": 150
+  },
+  {
+    "id": "699461322241d0585aece022",
+    "name_ar": "كراس القسم (للأقسام التحضيرية)",
+    "name_en": "Department chair (for preparatory departments)",
+    "name_fr": "Directeur de département (pour les départements préparatoires)",
+    "price": 400
+  },
+  {
+    "id": "699462fe6ef774d20b3fe500",
+    "name_ar": "كراس كتابتي",
+    "name_en": "My writing desk",
+    "name_fr": "Mon bureau",
+    "price": 250
+  },
+  {
+    "id": "699466246ef774d20b3fe5a2",
+    "name_ar": "كراسي في تعلم تحليل وتركيب الكلمات (العدد 4)",
+    "name_en": "Chairs for learning to analyze and synthesize words (Issue 4)",
+    "name_fr": "Chaises pour apprendre à analyser et synthétiser des mots (numéro 4)",
+    "price": 250
+  },
+  {
+    "id": "699468316ef774d20b3fe5be",
+    "name_ar": "كراس الخط (للمبتدئين والناشئة)",
+    "name_en": "Calligraphy booklet (for beginners and young adults)",
+    "name_fr": "Livret de calligraphie (pour débutants et jeunes adultes)",
+    "price": 150
+  },
+  {
+    "id": "69aa161624972cfdd1ec6e8d",
+    "name_ar": "ورق ملاحظات لاصق",
+    "name_en": "Sticky notes",
+    "name_fr": "Notes autocollantes",
+    "price": 350
+  },
+  {
+    "id": "69aa188124972cfdd1ec6ea8",
+    "name_ar": "ورق ملاحظات لاصق - سلسلة الباندا",
+    "name_en": "Sticky Notes - Panda Series",
+    "name_fr": "Notes autocollantes - Série Panda",
+    "price": 290
+  },
+  {
+    "id": "69aa1cf724972cfdd1ec6ef9",
+    "name_ar": "ورق ملون للطباعة أوفست",
+    "name_en": "Color paper for offset printing",
+    "name_fr": "Papier couleur pour impression offset",
+    "price": 5
+  },
+  {
+    "id": "69aa1dbb24972cfdd1ec6f14",
+    "name_ar": "الورق النشاف",
+    "name_en": "Blotting paper",
+    "name_fr": "Papier buvard",
+    "price": 40
+  },
+  {
+    "id": "69aa1e6724972cfdd1ec6f2f",
+    "name_ar": "ورق لاصق ملون",
+    "name_en": "Colored sticky paper",
+    "name_fr": "Papier collant coloré",
+    "price": 200
+  },
+  {
+    "id": "69aa1f2e24972cfdd1ec6f4a",
+    "name_ar": "ورق لاصق ملون",
+    "name_en": "Colored sticky paper",
+    "name_fr": "Papier collant coloré",
+    "price": 120
+  },
+  {
+    "id": "69aa1ffd24972cfdd1ec6f65",
+    "name_ar": "ورق لاصق ملون",
+    "name_en": "Colored sticky paper",
+    "name_fr": "Papier collant coloré",
+    "price": 350
+  },
+  {
+    "id": "69aa208424972cfdd1ec6f80",
+    "name_ar": "ورق ملاحظات لاصق",
+    "name_en": "Sticky notes",
+    "name_fr": "Notes autocollantes",
+    "price": 650
+  },
+  {
+    "id": "69aa59df24972cfdd1ec6fb3",
+    "name_ar": "مكعب ورق ملاحظات ملون",
+    "name_en": "Colored note paper cube",
+    "name_fr": "Cube de papier à lettres coloré",
+    "price": 250
+  },
+  {
+    "id": "69aa5ae024972cfdd1ec6fce",
+    "name_ar": "مكعب ورق ملاحظات ملون",
+    "name_en": "Colored note paper cube",
+    "name_fr": "Cube de papier à lettres coloré",
+    "price": 420
+  },
+  {
+    "id": "69aa5b5824972cfdd1ec6fe9",
+    "name_ar": "مكعب ورق ملاحظات مع حامل",
+    "name_en": "Note paper cube with stand",
+    "name_fr": "Cube de papier à notes avec support",
+    "price": 380
+  },
+  {
+    "id": "69aa5cb924972cfdd1ec7020",
+    "name_ar": "ورق ملاحظات لاصق شفاف ومقاوم للماء",
+    "name_en": "Transparent, waterproof sticky notes",
+    "name_fr": "Notes autocollantes transparentes et imperméables",
+    "price": 240
+  },
+  {
+    "id": "69aa5d0524972cfdd1ec7059",
+    "name_ar": "ورق ملاحظات لاصق شفاف ومقاوم للماء",
+    "name_en": "Transparent, waterproof sticky notes",
+    "name_fr": "Notes autocollantes transparentes et imperméables",
+    "price": 240
+  },
+  {
+    "id": "69aa5e9124972cfdd1ec708f",
+    "name_ar": "ورق ملاحظات لاصق",
+    "name_en": "Sticky notes",
+    "name_fr": "Notes autocollantes",
+    "price": 220
+  },
+  {
+    "id": "69ab99e98cac899607ff14ae",
+    "name_ar": "ورق ملاحظات لاصق",
+    "name_en": "Sticky notes",
+    "name_fr": "Notes autocollantes",
+    "price": 190
+  },
+  {
+    "id": "69ab9a758cac899607ff14e7",
+    "name_ar": "ورق ملاحظات لاصق",
+    "name_en": "Sticky notes",
+    "name_fr": "Notes autocollantes",
+    "price": 120
+  },
+  {
+    "id": "69ab9b0c8cac899607ff1502",
+    "name_ar": "ورق ملاحظات لاصق دائري",
+    "name_en": "Circular sticky notes",
+    "name_fr": "Notes autocollantes circulaires",
+    "price": 120
+  },
+  {
+    "id": "69ab9fb78cac899607ff15b7",
+    "name_ar": "ورق مينيستر أبيض مربعات",
+    "name_en": "Minster white square paper",
+    "name_fr": "Papier carré blanc Minster",
+    "price": 10
+  },
+  {
+    "id": "69aba00d8cac899607ff15d2",
+    "name_ar": "ورق مقوى بريستول ملون",
+    "name_en": "Colored Bristol cardboard",
+    "name_fr": "Carton Bristol coloré",
+    "price": 120
+  },
+  {
+    "id": "69aba0af8cac899607ff15ed",
+    "name_ar": "ورق رسم ملون",
+    "name_en": "Colored drawing paper",
+    "name_fr": "Papier à dessin coloré",
+    "price": 70
+  },
+  {
+    "id": "69aba2198cac899607ff163e",
+    "name_ar": "أوراق رسم ملونة",
+    "name_en": "Colored drawing papers",
+    "name_fr": "Papiers à dessin colorés",
+    "price": 70
+  },
+  {
+    "id": "69aba2978cac899607ff1659",
+    "name_ar": "عجينة تشكيل تجف في الهواء",
+    "name_en": "Air-dry modeling paste",
+    "name_fr": "Pâte à modeler séchée à l'air",
+    "price": 1200
+  },
+  {
+    "id": "69aba3138cac899607ff1674",
+    "name_ar": "عجينة صلصال زيتية ملونة",
+    "name_en": "Colored oil clay dough",
+    "name_fr": "Pâte d'argile colorée à l'huile",
+    "price": 80
+  },
+  {
+    "id": "69aba37c8cac899607ff168f",
+    "name_ar": "عجينة صلصال زيتية ملونة",
+    "name_en": "Colored oil clay dough",
+    "name_fr": "Pâte d'argile colorée à l'huile",
+    "price": 250
+  },
+  {
+    "id": "69aba8b78cac899607ff179c",
+    "name_ar": "ألوان مائية كريا-كولور",
+    "name_en": "Crea-Color watercolours",
+    "name_fr": "Aquarelles Créa-Color",
+    "price": 2100
+  },
+  {
+    "id": "69abaad78cac899607ff1808",
+    "name_ar": "طقم فرش رسم فنية ملونة",
+    "name_en": "Colorful art brush set",
+    "name_fr": "Ensemble de pinceaux d'art coloré",
+    "price": 250
+  },
+  {
+    "id": "69abab3a8cac899607ff1823",
+    "name_ar": "طقم ألوان مائية باستيل",
+    "name_en": "Pastel watercolor set",
+    "name_fr": "Ensemble aquarelle pastel",
+    "price": 380
+  },
+  {
+    "id": "69ababf88cac899607ff183e",
+    "name_ar": "طقم ألوان مائية صلبة",
+    "name_en": "Solid watercolor set",
+    "name_fr": "Ensemble aquarelle solide",
+    "price": 390
+  },
+  {
+    "id": "69abac6b8cac899607ff1859",
+    "name_ar": "طقم ألوان مائية صلبة احترافي",
+    "name_en": "Professional solid watercolor set",
+    "name_fr": "Ensemble d'aquarelle solide professionnel",
+    "price": 480
+  },
+  {
+    "id": "69abacb98cac899607ff1874",
+    "name_ar": "طقم ألوان مائية صلبة مع باليت",
+    "name_en": "Solid watercolor set with palette",
+    "name_fr": "Ensemble aquarelle solide avec palette",
+    "price": 350
+  },
+  {
+    "id": "69abad138cac899607ff188f",
+    "name_ar": "طقم ألوان مائية صلبة 18 لوناً",
+    "name_en": "Solid watercolor set 18 colors",
+    "name_fr": "Set aquarelle solide 18 couleurs",
+    "price": 580
+  },
+  {
+    "id": "69abad868cac899607ff18aa",
+    "name_ar": "طقم ألوان مائية \"كولوريس\" 21 لوناً",
+    "name_en": "Coloris watercolor set, 21 colours",
+    "name_fr": "Ensemble aquarelle Coloris, 21 couleurs",
+    "price": 390
+  },
+  {
+    "id": "69abae568cac899607ff18e0",
+    "name_ar": "طقم ألوان مائية بي كلوب",
+    "name_en": "Bee Club Watercolor Set",
+    "name_fr": "Ensemble aquarelle Bee Club",
+    "price": 300
+  },
+  {
+    "id": "69abaea58cac899607ff18fb",
+    "name_ar": "طقم ألوان مائية 16 لوناً",
+    "name_en": "Watercolor set 16 colors",
+    "name_fr": "Set aquarelle 16 couleurs",
+    "price": 250
+  },
+  {
+    "id": "69abaeea8cac899607ff1916",
+    "name_ar": "طقم ألوان مائية مدمج",
+    "name_en": "Compact watercolor set",
+    "name_fr": "Ensemble aquarelle compact",
+    "price": 220
+  },
+  {
+    "id": "69abb0938cac899607ff194c",
+    "name_ar": "ألوان مائية",
+    "name_en": "Watercolours",
+    "name_fr": "Aquarelles",
+    "price": 280
+  },
+  {
+    "id": "69abb0d78cac899607ff1967",
+    "name_ar": "لوحة رسم بلاستيكية",
+    "name_en": "Plastic drawing board",
+    "name_fr": "Planche à dessin en plastique",
+    "price": 80
+  },
+  {
+    "id": "69abb4248cac899607ff1a11",
+    "name_ar": "ورق شفاف",
+    "name_en": "Tracing paper",
+    "name_fr": "Papier calque",
+    "price": 15
+  },
+  {
+    "id": "69b81eb293a6dea3320c7aa1",
+    "name_ar": "حافظة أوراق بلاستيكية بمطاط",
+    "name_en": "Plastic folder with rubber",
+    "name_fr": "Dossier en plastique avec caoutchouc",
+    "price": 150
+  },
+  {
+    "id": "69b8201593a6dea3320c7abd",
+    "name_ar": "حافظة أوراق بلاستيكية",
+    "name_en": "Plastic folder",
+    "name_fr": "Dossier en plastique",
+    "price": 180
+  },
+  {
+    "id": "69b820b793a6dea3320c7ad9",
+    "name_ar": "حافظة أوراق كرتونية",
+    "name_en": "Cardboard folder",
+    "name_fr": "Dossier en carton",
+    "price": 100
+  },
+  {
+    "id": "69b8221b93a6dea3320c7af5",
+    "name_ar": "حافظة أوراق كرتونية - A5",
+    "name_en": "Cardboard folder - A5",
+    "name_fr": "Chemise cartonnée - A5",
+    "price": 60
+  },
+  {
+    "id": "69b825bd93a6dea3320c7b11",
+    "name_ar": "حافظة أوراق شبكية بسحاب ومقبض",
+    "name_en": "Mesh folder with zipper and handle",
+    "name_fr": "Dossier en filet avec fermeture éclair et poignée",
+    "price": 250
+  },
+  {
+    "id": "69b8263993a6dea3320c7b2d",
+    "name_ar": "حافظة أوراق بلاستيكية بزر كبس",
+    "name_en": "Plastic folder with snap button",
+    "name_fr": "Dossier en plastique avec bouton pression",
+    "price": 120
+  },
+  {
+    "id": "69b82c5593a6dea3320c7b49",
+    "name_ar": "حافظة أوراق بلاستيكية فاخرة",
+    "name_en": "Luxury plastic portfolio",
+    "name_fr": "Portefeuille plastique de luxe",
+    "price": 380
+  },
+  {
+    "id": "69b82e5793a6dea3320c7b81",
+    "name_ar": "حافظة أوراق مدرسية بسحاب",
+    "name_en": "Zippered school folder",
+    "name_fr": "Dossier scolaire zippé",
+    "price": 290
+  },
+  {
+    "id": "69b82eeb93a6dea3320c7b9c",
+    "name_ar": "حافظة مستندات بلاستيكية بزر كبس",
+    "name_en": "Plastic document holder with snap button",
+    "name_fr": "Porte-documents en plastique avec bouton pression",
+    "price": 70
+  },
+  {
+    "id": "69b830ec93a6dea3320c7bd2",
+    "name_ar": "حافظة ملفات أكورديون متعددة الأقسام",
+    "name_en": "Multi-section accordion file folder",
+    "name_fr": "Dossier accordéon multi-sections",
+    "price": 1200
+  },
+  {
+    "id": "69b8314593a6dea3320c7bef",
+    "name_ar": "حافظة أوراق بلاستيكية بمطاط",
+    "name_en": "Plastic folder with rubber",
+    "name_fr": "Dossier en plastique avec caoutchouc",
+    "price": 180
+  },
+  {
+    "id": "69b96956cdd1a176add72b7a",
+    "name_ar": "حافظة مستندات بلاستيكية",
+    "name_en": "Plastic document folder",
+    "name_fr": "Chemise à documents en plastique",
+    "price": 280
+  },
+  {
+    "id": "69c3687c3063d66c54caa236",
+    "name_ar": "مدور تقني احترافي",
+    "name_en": "Professional technical rounder",
+    "name_fr": "Rondeur technique professionnel",
+    "price": 590
+  },
+  {
+    "id": "69c36b4f3063d66c54caa2de",
+    "name_ar": "مدور تقني احترافي",
+    "name_en": "Professional technical rounder",
+    "name_fr": "Rondeur technique professionnel",
+    "price": 1390
+  },
+  {
+    "id": "69c36c033063d66c54caa2fa",
+    "name_ar": "مدور مدرسي عملي",
+    "name_en": "Practical school roundabout",
+    "name_fr": "Rond-point scolaire pratique",
+    "price": 350
+  },
+  {
+    "id": "69c36c893063d66c54caa316",
+    "name_ar": "مدور تورنيدو المدرسي",
+    "name_en": "Tornado school round",
+    "name_fr": "Tournée scolaire Tornado",
+    "price": 490
+  },
+  {
+    "id": "69c36cf73063d66c54caa332",
+    "name_ar": "طقم مدور مدرسي",
+    "name_en": "School round set",
+    "name_fr": "Ensemble rond d'école",
+    "price": 350
+  },
+  {
+    "id": "69c36d5b3063d66c54caa34e",
+    "name_ar": "قلم رصاص فيرتكس \"سوبر هيرو\"",
+    "name_en": "Vertex Pencil \"Super Hero\"",
+    "name_fr": "Crayon Vertex \"Super Héros\"",
+    "price": 40
+  },
+  {
+    "id": "69c36da63063d66c54caa36a",
+    "name_ar": "قلم رصاص",
+    "name_en": "lead pencil",
+    "name_fr": "crayon à mine",
+    "price": 40
+  },
+  {
+    "id": "69c36def3063d66c54caa386",
+    "name_ar": "قلم رصاص",
+    "name_en": "lead pencil",
+    "name_fr": "crayon à mine",
+    "price": 40
+  },
+  {
+    "id": "69c36e683063d66c54caa3a1",
+    "name_ar": "قلم رصاص",
+    "name_en": "lead pencil",
+    "name_fr": "crayon à mine",
+    "price": 40
+  },
+  {
+    "id": "69c36ea93063d66c54caa3bc",
+    "name_ar": "قلم رصاص",
+    "name_en": "lead pencil",
+    "name_fr": "crayon à mine",
+    "price": 40
+  },
+  {
+    "id": "69c36ee83063d66c54caa3d7",
+    "name_ar": "قلم رصاص",
+    "name_en": "lead pencil",
+    "name_fr": "crayon à mine",
+    "price": 40
+  },
+  {
+    "id": "69c36fb73063d66c54caa40d",
+    "name_ar": "ممحاة ناعمة عالية الجودة",
+    "name_en": "High quality soft eraser",
+    "name_fr": "Gomme souple de haute qualité",
+    "price": 70
+  },
+  {
+    "id": "69c370353063d66c54caa428",
+    "name_ar": "ممحاة هنتر",
+    "name_en": "Eraser Hunter",
+    "name_fr": "Chasseur de gomme",
+    "price": 0
+  },
+  {
+    "id": "69c371a73063d66c54caa479",
+    "name_ar": "مذكرة بغلاف خشبي \"تصميم القطة\"",
+    "name_en": "Wooden cover notebook \"Cat design\"",
+    "name_fr": "Carnet couverture en bois \"Design chat\"",
+    "price": 680
+  },
+  {
+    "id": "69c3727a3063d66c54caa4af",
+    "name_ar": "دفتر ملاحظات",
+    "name_en": "Notebook",
+    "name_fr": "Carnet de notes",
+    "price": 390
+  },
+  {
+    "id": "69c372d33063d66c54caa4ca",
+    "name_ar": "دفتر ملاحظات",
+    "name_en": "Notebook",
+    "name_fr": "Carnet de notes",
+    "price": 280
+  },
+  {
+    "id": "69c377dc3063d66c54caa587",
+    "name_ar": "مذكرة رائد الفضاء والآلة الحاسبة",
+    "name_en": "Astronaut notebook and calculator",
+    "name_fr": "Carnet et calculatrice d'astronaute",
+    "price": 1450
+  },
+  {
+    "id": "69c3785f3063d66c54caa5a2",
+    "name_ar": "دفتر الملاحظات \"الفراشة المخملي\"",
+    "name_en": "Butterfly Velvet Notebook",
+    "name_fr": "Carnet de Velours Papillon",
+    "price": 1100
+  },
+  {
+    "id": "69c379d43063d66c54caa5bd",
+    "name_ar": "دفتر ملاحظات \"ستيتش\" المخملي مع جيب",
+    "name_en": "Stitch velvet notebook with pocket",
+    "name_fr": "Carnet Stitch en velours avec pochette",
+    "price": 1150
+  },
+  {
+    "id": "69c37a4d3063d66c54caa5d8",
+    "name_ar": "دفتر ملاحظات \"بلوم فلاورز\" المخطط",
+    "name_en": "Bloom Flowers planner notebook",
+    "name_fr": "Carnet de planification Bloom Flowers",
+    "price": 180
+  },
+  {
+    "id": "69c37baf3063d66c54caa629",
+    "name_ar": "دفتر ملاحظات \"في مزاج جيد\" ذو الحلقات الملونة",
+    "name_en": "\"In the Mood\" notebook with colorful rings",
+    "name_fr": "Carnet \"In the Mood\" aux anneaux colorés",
+    "price": 0
+  },
+  {
+    "id": "69c37c1c3063d66c54caa644",
+    "name_ar": "دفتر ملاحظات \"تروبيكال\" الصغير",
+    "name_en": "Tropical mini notebook",
+    "name_fr": "Mini carnet tropical",
+    "price": 250
+  },
+  {
+    "id": "69c37e103063d66c54caa6eb",
+    "name_ar": "دفتر ملاحظات \"هوب\" بنمط الرخام",
+    "name_en": "Hope Marble Pattern Notebook",
+    "name_fr": "Carnet Motif de marbre Hope",
+    "price": 250
+  },
+  {
+    "id": "69c37e643063d66c54caa708",
+    "name_ar": "دفتر ملاحظات \"هلال\" بنقوش الأزهار",
+    "name_en": "Hilal notebook with floral patterns",
+    "name_fr": "Carnet Hilal à motifs floraux",
+    "price": 0
+  },
+  {
+    "id": "69c37f293063d66c54caa77b",
+    "name_ar": "ملصقات الملونة للكتابة",
+    "name_en": "Colorful stickers for writing",
+    "name_fr": "Autocollants colorés pour écrire",
+    "price": 80
+  },
+  {
+    "id": "69c380123063d66c54caa7f1",
+    "name_ar": "ورق كريبون",
+    "name_en": "Crepe paper",
+    "name_fr": "Papier crépon",
+    "price": 180
+  },
+  {
+    "id": "69c380753063d66c54caa80f",
+    "name_ar": "ورق فوم ذاتي اللصق",
+    "name_en": "Self-adhesive foam paper",
+    "name_fr": "Papier mousse autocollant",
+    "price": 50
+  },
+  {
+    "id": "69c380d03063d66c54caa82d",
+    "name_ar": "مسطرة لخط الحروف والأرقام",
+    "name_en": "Ruler for writing letters and numbers",
+    "name_fr": "Règle pour écrire des lettres et des chiffres",
+    "price": 600
+  },
+  {
+    "id": "69c3812f3063d66c54caa84b",
+    "name_ar": "مسطرة لتصميم المنحنيات والأشكال",
+    "name_en": "A ruler for designing curves and shapes",
+    "name_fr": "Une règle pour dessiner des courbes et des formes",
+    "price": 650
+  },
+  {
+    "id": "69c3818c3063d66c54caa869",
+    "name_ar": "آلة حاسبة كاسيو العلمية",
+    "name_en": "Casio scientific calculator",
+    "name_fr": "Calculatrice scientifique Casio",
+    "price": 2500
+  },
+  {
+    "id": "69c381e53063d66c54caa887",
+    "name_ar": "آلة حاسبة إلكترونية",
+    "name_en": "Electronic calculator",
+    "name_fr": "Calculatrice électronique",
+    "price": 150
+  },
+  {
+    "id": "69c382483063d66c54caa8a5",
+    "name_ar": "آلة حاسبة كيوس كاندي كالك",
+    "name_en": "QOS Candy Calculator",
+    "name_fr": "Calculateur de bonbons QOS",
+    "price": 280
+  },
+  {
+    "id": "69c382f63063d66c54caa8c3",
+    "name_ar": "آلة حاسبة كيوس العلمية",
+    "name_en": "QOS scientific calculator",
+    "name_fr": "Calculatrice scientifique QOS",
+    "price": 350
+  },
+  {
+    "id": "69c385913063d66c54caa9d3",
+    "name_ar": "قلم تصحيح",
+    "name_en": "Correction pen",
+    "name_fr": "Stylo correcteur",
+    "price": 80
+  },
+  {
+    "id": "69c385da3063d66c54caa9f1",
+    "name_ar": "قلم تصحيح",
+    "name_en": "Correction pen",
+    "name_fr": "Stylo correcteur",
+    "price": 90
+  },
+  {
+    "id": "69c3861b3063d66c54caaa0d",
+    "name_ar": "قلم تصحيح",
+    "name_en": "Correction pen",
+    "name_fr": "Stylo correcteur",
+    "price": 90
+  },
+  {
+    "id": "69c386a23063d66c54caaa29",
+    "name_ar": "قلم تصحيح",
+    "name_en": "Correction pen",
+    "name_fr": "Stylo correcteur",
+    "price": 80
+  },
+  {
+    "id": "69c386ec3063d66c54caaa45",
+    "name_ar": "قلم تصحيح",
+    "name_en": "Correction pen",
+    "name_fr": "Stylo correcteur",
+    "price": 40
+  },
+  {
+    "id": "69c3bc3b3063d66c54caab6e",
+    "name_ar": "مقلمة بتصميم القطة",
+    "name_en": "Cat-themed pencil case",
+    "name_fr": "Trousse sur le thème du chat",
+    "price": 1480
+  },
+  {
+    "id": "69c3bc813063d66c54caab89",
+    "name_ar": "مقلمة \"ستيتش\" الصلبة",
+    "name_en": "Stitch solid pencil case",
+    "name_fr": "Trousse solide Stitch",
+    "price": 980
+  },
+  {
+    "id": "69c3bd133063d66c54caaba4",
+    "name_ar": "مقلمة \"ستيتش\" ذات المقبض",
+    "name_en": "Stitch pencil case with handle",
+    "name_fr": "Trousse Stitch avec poignée",
+    "price": 1100
+  },
+  {
+    "id": "69c3bf5f3063d66c54caabbf",
+    "name_ar": "مقلمة \"أجواء ركوب الأمواج\"",
+    "name_en": "\"Surfing Atmosphere\" Pencil Case",
+    "name_fr": "Trousse \"Ambiance Surf\"",
+    "price": 1380
+  },
+  {
+    "id": "69c3c0103063d66c54caabda",
+    "name_ar": "مقلمة تصميم كرة القدم",
+    "name_en": "Football design pencil case",
+    "name_fr": "Trousse design football",
+    "price": 1650
+  },
+  {
+    "id": "69c3c0663063d66c54caabf5",
+    "name_ar": "مقلمة وحيد القرن اللامعة",
+    "name_en": "Glitter unicorn pencil case",
+    "name_fr": "Trousse licorne pailletée",
+    "price": 950
+  },
+  {
+    "id": "69c3c0ee3063d66c54caac10",
+    "name_ar": "مقلمة \"كورومي\"",
+    "name_en": "Kuromi pencil case",
+    "name_fr": "Trousse à crayons Kuromi",
+    "price": 980
+  },
+  {
+    "id": "69c3c17b3063d66c54caac42",
+    "name_ar": "مقلمة باربي ذات الهيكل الصلب",
+    "name_en": "Barbie steel case pencil case",
+    "name_fr": "Trousse à crayons Barbie en acier",
+    "price": 980
+  },
+  {
+    "id": "69c3c1d93063d66c54caac5d",
+    "name_ar": "مقلمة \"فروزن\" الذكية متعددة الوظائف",
+    "name_en": "Frozen multi-functional smart pencil case",
+    "name_fr": "Trousse intelligente multifonctionnelle La Reine des Neiges",
+    "price": 850
+  },
+  {
+    "id": "69c3c2263063d66c54caac78",
+    "name_ar": "مقلمة \"الأميرات\" الذكية",
+    "name_en": "Smart \"Princesses\" pencil case",
+    "name_fr": "Trousse astucieuse \"Princesses\"",
+    "price": 850
+  },
+  {
+    "id": "69c3c2fe3063d66c54caac93",
+    "name_ar": "مقلمة الفضاء الخارجي ثلاثية الأبعاد",
+    "name_en": "3D outer space pencil case",
+    "name_fr": "Trousse à crayons espace extra-atmosphérique modèle 3D",
+    "price": 1150
+  },
+  {
+    "id": "69c3c3693063d66c54caacae",
+    "name_ar": "مقلمة ديناصور \"تيركس\" ثلاثية الأبعاد",
+    "name_en": "Terex 3D dinosaur pencil case",
+    "name_fr": "Trousse Terex dinosaure 3D",
+    "price": 1150
+  },
+  {
+    "id": "69c3c3d73063d66c54caacc9",
+    "name_ar": "مقلمة ديناصور \"تيركس\" العصرية",
+    "name_en": "Trendy Terex dinosaur pencil case",
+    "name_fr": "Trousse tendance dinosaure Terex",
+    "price": 1480
+  },
+  {
+    "id": "69c3c43d3063d66c54caace4",
+    "name_ar": "مقلمة الأسطوانية",
+    "name_en": "Cylindrical pencil case",
+    "name_fr": "Trousse cylindrique",
+    "price": 1450
+  },
+  {
+    "id": "69c3c4e83063d66c54caacff",
+    "name_ar": "مقلمة \"ماكوين\" الذكية متعددة الوظائف",
+    "name_en": "McQueen multi-functional smart pencil case",
+    "name_fr": "Trousse intelligente multifonctionnelle McQueen",
+    "price": 380
+  },
+  {
+    "id": "69c3c56e3063d66c54caad1a",
+    "name_ar": "مقلمة \"أفنجرز\" الذكية متعددة الوظائف",
+    "name_en": "The Avengers smart multi-functional pencil case",
+    "name_fr": "Trousse multifonction intelligente The Avengers",
+    "price": 650
+  },
+  {
+    "id": "69c3c5c93063d66c54caad35",
+    "name_ar": "مقلمة سبايدرمان الذكية متعددة المهام",
+    "name_en": "Spiderman Smart Multitasking Pencil Case",
+    "name_fr": "Trousse multitâche intelligente Spiderman",
+    "price": 850
+  },
+  {
+    "id": "69c3c60d3063d66c54caad50",
+    "name_ar": "مقلمة \"ألغو\" القماشية العمودية",
+    "name_en": "Algo vertical fabric pencil case",
+    "name_fr": "Trousse verticale en tissu Algo",
+    "price": 1380
+  },
+  {
+    "id": "69c3c64f3063d66c54caad6b",
+    "name_ar": "مقلمة \"ألغو\" الرياضية متعددة الألوان",
+    "name_en": "Algo multi-colour sports pencil case",
+    "name_fr": "Trousse de sport multicolore Algo",
+    "price": 1250
+  },
+  {
+    "id": "69c3d0053063d66c54cab011",
+    "name_ar": "ورق واجهة بلاستيكي ملون",
+    "name_en": "Colored plastic interface paper",
+    "name_fr": "Papier d'interface en plastique coloré",
+    "price": 900
+  },
+  {
+    "id": "69c41f07bae079a93ce8557e",
+    "name_ar": "طقم أقلام تلوين مائية احترافي (6+1 قطع)",
+    "name_en": "Professional Water Color Pencil Set (6+1 Pieces)",
+    "name_fr": "Ensemble de crayons de couleur aquarelle professionnels (6 + 1 pièces)",
+    "price": 1100
+  },
+  {
+    "id": "69c4243bbae079a93ce8563e",
+    "name_ar": "طقم أقلام تظليل ملونة (6 ألوان)",
+    "name_en": "Colored highlighter pencil set (6 colors)",
+    "name_fr": "Ensemble de crayons surligneurs de couleur (6 couleurs)",
+    "price": 1290
+  },
+  {
+    "id": "69c4288bbae079a93ce85774",
+    "name_ar": "طقم أزرار مغناطيسية دائرية ملونة",
+    "name_en": "Colorful round magnetic buttons set",
+    "name_fr": "Ensemble de boutons magnétiques ronds colorés",
+    "price": 750
+  },
+  {
+    "id": "69c428f3bae079a93ce85792",
+    "name_ar": "غراء أبيض سائل - Giant",
+    "name_en": "Liquid white glue - Giant",
+    "name_fr": "Colle blanche liquide - Géante",
+    "price": 150
+  },
+  {
+    "id": "69c42a24bae079a93ce857e3",
+    "name_ar": "غراء أبيض سائل (40 غرام)",
+    "name_en": "Liquid white glue (40 g)",
+    "name_fr": "Colle blanche liquide (40 g)",
+    "price": 60
+  },
+  {
+    "id": "69c42aebbae079a93ce85819",
+    "name_ar": "لوحة بيضاء تعليمية للأطفال (Ardoise)",
+    "name_en": "Educational whiteboard for children (Ardoise)",
+    "name_fr": "Tableau blanc pédagogique pour enfants (Ardoise)",
+    "price": 350
+  },
+  {
+    "id": "69c42b3cbae079a93ce85834",
+    "name_ar": "غراء الفوري السائل - 3 غرام",
+    "name_en": "Liquid instant glue - 3 grams",
+    "name_fr": "Colle instantanée liquide - 3 grammes",
+    "price": 100
+  },
+  {
+    "id": "69c42c46bae079a93ce8586a",
+    "name_ar": "غراء ستيك  - FABS",
+    "name_en": "Stick glue - FABS",
+    "name_fr": "Colle en bâton - FABS",
+    "price": 100
+  },
+  {
+    "id": "69c42caebae079a93ce85885",
+    "name_ar": "لوحة تعليمية مزدوجة للأطفال (Ardoise Magique) - Vertex",
+    "name_en": "Double Learning Board for Kids (Ardoise Magique) - Vertex",
+    "name_fr": "Planche d'apprentissage double pour enfants (Ardoise Magique) - Vertex",
+    "price": 200
+  },
+  {
+    "id": "69c42dafbae079a93ce858a2",
+    "name_ar": "لوحة تعليمية مزدوجة \"Blaze\" للأطفال - Techno",
+    "name_en": "\"Blaze\" double learning board for kids - Techno",
+    "name_fr": "Planche d'apprentissage double \"Blaze\" pour enfants - Techno",
+    "price": 290
+  },
+  {
+    "id": "69c7fd6c2ef859524b9f894b",
+    "name_ar": "ممسحة سبورة",
+    "name_en": "Chalkboard mop",
+    "name_fr": "Vadrouille à tableau",
+    "price": 80
+  },
+  {
+    "id": "69c7fe852ef859524b9f8978",
+    "name_ar": "ممسحة سبورة فيرتكس ميني",
+    "name_en": "Vertex Mini Whiteboard Mop",
+    "name_fr": "Mini vadrouille pour tableau blanc Vertex",
+    "price": 30
+  },
+  {
+    "id": "69c801272ef859524b9f89d5",
+    "name_ar": "ممحاة سبورة تكنو",
+    "name_en": "Techno whiteboard eraser",
+    "name_fr": "Gomme à tableau blanc Techno",
+    "price": 70
+  },
+  {
+    "id": "69cab233c6561707dbd83518",
+    "name_ar": "ثاقبة ورق احترافية",
+    "name_en": "Professional paper puncher",
+    "name_fr": "Perforateur de papier professionnel",
+    "price": 300
+  },
+  {
+    "id": "69cbf726315641b42a52c111",
+    "name_ar": "ثاقبة الورق  الاحترافية",
+    "name_en": "Professional paper puncher",
+    "name_fr": "Perforateur de papier professionnel",
+    "price": 3800
+  },
+  {
+    "id": "69cd43fa6e0dc604d7f5fe84",
+    "name_ar": "لوحة حفظ الأوراق A4",
+    "name_en": "A4 filing board",
+    "name_fr": "Tableau de classement A4",
+    "price": 550
+  },
+  {
+    "id": "69cd44746e0dc604d7f5feb1",
+    "name_ar": "لوحة مسند أوراق",
+    "name_en": "Paper pad",
+    "name_fr": "Bloc de papier",
+    "price": 390
+  },
+  {
+    "id": "69cd46706e0dc604d7f5fedd",
+    "name_ar": "سبورة بيضاء مغناطيسية مسطرة",
+    "name_en": "Ruled magnetic whiteboard",
+    "name_fr": "Tableau blanc magnétique ligné",
+    "price": 390
+  },
+  {
+    "id": "69cd49006e0dc604d7f60081",
+    "name_ar": "حافظة وثائق فيرتكس",
+    "name_en": "Vertex document folder",
+    "name_fr": "Dossier de documents Sommet",
+    "price": 750
+  },
+  {
+    "id": "69cd49f46e0dc604d7f6009d",
+    "name_ar": "حافظة وثائق",
+    "name_en": "Document folder",
+    "name_fr": "Dossier de documents",
+    "price": 590
+  },
+  {
+    "id": "69cd4b6d6e0dc604d7f600b9",
+    "name_ar": "حافظة وثائق فيرتكس",
+    "name_en": "Vertex document folder",
+    "name_fr": "Dossier de documents Sommet",
+    "price": 750
+  },
+  {
+    "id": "69d21e2836fce934c984cd01",
+    "name_ar": "دفتر وصولات طلبات",
+    "name_en": "Order receipt book",
+    "name_fr": "Carnet de reçus de commande",
+    "price": 320
+  },
+  {
+    "id": "69d21ec036fce934c984cd1d",
+    "name_ar": "دفتر مانيفولد",
+    "name_en": "Manifold notebook",
+    "name_fr": "Carnet collecteur",
+    "price": 580
+  },
+  {
+    "id": "69d2217836fce934c984cd8f",
+    "name_ar": "دفتر \"Bon Pour Plus\"",
+    "name_en": "Bon Pour Plus notebook",
+    "name_fr": "Carnet Bon Pour Plus",
+    "price": 190
+  },
+  {
+    "id": "69d22ee336fce934c984cf65",
+    "name_ar": "مشابك ورق",
+    "name_en": "Paper clips",
+    "name_fr": "Trombones",
+    "price": 320
+  },
+  {
+    "id": "69d2e2d5323835927e6b27a1",
+    "name_ar": "دبابيس ضغط ملونة - فيرتكس",
+    "name_en": "Colorful push pins - Vertex",
+    "name_fr": "Punaises colorées - Vertex",
+    "price": 150
+  },
+  {
+    "id": "69d2e360323835927e6b27be",
+    "name_ar": "مشابك ورق ملونة - فيرتكس",
+    "name_en": "Colored paper clips - Vertex",
+    "name_fr": "Trombones colorés - Vertex",
+    "price": 120
+  },
+  {
+    "id": "69d2e46d323835927e6b27da",
+    "name_ar": "دبابيس ورق - كيوس 24/6",
+    "name_en": "Paper Clips - QOS 24/6",
+    "name_fr": "Trombones - QOS 24/6",
+    "price": 50
+  },
+  {
+    "id": "69d2e517323835927e6b27f6",
+    "name_ar": "دبابيس ورق تكنو 24/6",
+    "name_en": "Techno Paper Clips 24/6",
+    "name_fr": "Trombones Techno 24h/24 et 6j/7",
+    "price": 90
+  },
+  {
+    "id": "69d2e59d323835927e6b2812",
+    "name_ar": "دبابيس ورق تكنو 23/25",
+    "name_en": "Techno paper clips 23/25",
+    "name_fr": "Trombones techno 23/25",
+    "price": 280
+  },
+  {
+    "id": "69d2e73d323835927e6b284a",
+    "name_ar": "دبابيس ضغط ملونة",
+    "name_en": "Colorful push pins",
+    "name_fr": "Punaises colorées",
+    "price": 170
+  },
+  {
+    "id": "69d2e89a323835927e6b2882",
+    "name_ar": "دبابيس ملونة برأس دائري - غولدن فذر",
+    "name_en": "Colorful Round Head Pins - Golden Father",
+    "name_fr": "Épingles à tête ronde colorées - Golden Father",
+    "price": 40
+  },
+  {
+    "id": "69d2ee87323835927e6b28bb",
+    "name_ar": "ورق صور لاصق للطابعات النفاثة - إقلو",
+    "name_en": "Adhesive photo paper for inkjet printers - Iqlo",
+    "name_fr": "Papier photo adhésif pour imprimantes jet d'encre - Iqlo",
+    "price": 1200
+  },
+  {
+    "id": "69d568e47189af29388815f5",
+    "name_ar": "ورق صور مزدوج الوجه للطابعات النفاثة - إقلو",
+    "name_en": "Double-sided photo paper for inkjet printers - Iqlo",
+    "name_fr": "Papier photo double face pour imprimantes jet d'encre - Iqlo",
+    "price": 1850
+  },
+  {
+    "id": "69d56a3c7189af2938881611",
+    "name_ar": "ورق صور للطابعات النفاثة - إقلو",
+    "name_en": "Photo Paper for Inkjet Printers - Iqlo",
+    "name_fr": "Papier photo pour imprimantes jet d'encre - Iqlo",
+    "price": 1200
+  },
+  {
+    "id": "69d56aa87189af293888162d",
+    "name_ar": "ورق صور لامع ولاصق - تكنو",
+    "name_en": "Glossy and adhesive photo paper - Techno",
+    "name_fr": "Papier photo brillant et adhésif - Techno",
+    "price": 740
+  },
+  {
+    "id": "69d56bd37189af2938881649",
+    "name_ar": "ورق بطاقات عمل للطابعات النفاثة - جوجو",
+    "name_en": "Business card paper for inkjet printers - Gojo",
+    "name_fr": "Papier pour cartes de visite pour imprimantes jet d'encre - Gojo",
+    "price": 1550
+  },
+  {
+    "id": "69d56d7b7189af2938881665",
+    "name_ar": "ورق لاصق شفاف - إقلو",
+    "name_en": "Transparent adhesive paper - Iqlo",
+    "name_fr": "Papier adhésif transparent - Iqlo",
+    "price": 1100
+  },
+  {
+    "id": "69d56dea7189af2938881681",
+    "name_ar": "ورق لاصق أبيض لامع - إقلو",
+    "name_en": "Glossy White Sticker Paper - Iqlo",
+    "name_fr": "Papier autocollant blanc brillant - Iqlo",
+    "price": 1050
+  },
+  {
+    "id": "69d581677189af29388817b4",
+    "name_ar": "ورق لاصق ملون للطباعة - سامبارا",
+    "name_en": "Colored sticker paper for printing - Sampara",
+    "name_fr": "Papier autocollant coloré pour impression - Sampara",
+    "price": 0
+  },
+  {
+    "id": "69d582017189af29388817d1",
+    "name_ar": "ورق طباعة كوشي لامع - تافيري",
+    "name_en": "Glossy Kochi Printing Paper - Tafiri",
+    "name_fr": "Papier d'impression Kochi brillant - Tafiri",
+    "price": 390
+  },
+  {
+    "id": "69d583067189af29388817ed",
+    "name_ar": "ورق فاخر بريزما - تكنو",
+    "name_en": "Prisma luxury paper - Techno",
+    "name_fr": "Papier de luxe Prisma - Techno",
+    "price": 1150
+  },
+  {
+    "id": "69d584397189af2938881809",
+    "name_ar": "دفتر رسم (ورق أسود) - تكنو",
+    "name_en": "Sketchbook (black paper) - Techno",
+    "name_fr": "Carnet de croquis (papier noir) - Techno",
+    "price": 1350
+  },
+  {
+    "id": "69d584a57189af2938881825",
+    "name_ar": "دفتر رسم كرافت - تكنو",
+    "name_en": "Craft Sketchbook - Techno",
+    "name_fr": "Carnet de croquis artisanal - Techno",
+    "price": 950
+  },
+  {
+    "id": "69d5853e7189af2938881841",
+    "name_ar": "دفتر رسم بريزما - تكنو",
+    "name_en": "Prisma Sketchbook - Techno",
+    "name_fr": "Carnet de croquis Prisma - Techno",
+    "price": 750
+  },
+  {
+    "id": "69d587c97189af293888185d",
+    "name_ar": "دفتر رسم أبيض - تكنو",
+    "name_en": "White drawing book - Techno",
+    "name_fr": "Carnet de dessins blanc - Techno",
+    "price": 1450
+  },
+  {
+    "id": "69d5882e7189af2938881879",
+    "name_ar": "دفتر رسم الوسائط المتعددة - تكنو",
+    "name_en": "Multimedia Sketchbook - Techno",
+    "name_fr": "Carnet de croquis multimédia - Techno",
+    "price": 890
+  },
+  {
+    "id": "69d589187189af2938881895",
+    "name_ar": "أوراق رسم ملونة - تكنو",
+    "name_en": "Colored drawing papers - Techno",
+    "name_fr": "Papiers à dessin colorés - Techno",
+    "price": 300
+  },
+  {
+    "id": "69d58a597189af29388818b1",
+    "name_ar": "دفتر رسم كرافت - تكنو",
+    "name_en": "Craft Sketchbook - Techno",
+    "name_fr": "Carnet de croquis artisanal - Techno",
+    "price": 590
+  },
+  {
+    "id": "69d58b777189af29388818cd",
+    "name_ar": "دفتر رسم للماركر - تكنو",
+    "name_en": "Marker drawing book - Techno",
+    "name_fr": "Carnet de dessin au feutre - Techno",
+    "price": 850
+  },
+  {
+    "id": "69d58c5c7189af2938881908",
+    "name_ar": "دفتر رسم كرافت - تكنو",
+    "name_en": "Craft Sketchbook - Techno",
+    "name_fr": "Carnet de croquis artisanal - Techno",
+    "price": 450
+  },
+  {
+    "id": "69d58d627189af2938881924",
+    "name_ar": "دفاتر الرسم بالورق الأسود",
+    "name_en": "Black paper drawing notebooks",
+    "name_fr": "Carnets de dessin en papier noir",
+    "price": 490
+  },
+  {
+    "id": "69d594167189af293888198d",
+    "name_ar": "دفتر رسم للماركر - تكنو",
+    "name_en": "Marker drawing book - Techno",
+    "name_fr": "Carnet de dessin au feutre - Techno",
+    "price": 590
+  },
+  {
+    "id": "69d8147b6c5f4651883f8269",
+    "name_ar": "أوراق رسم مائية بيضاء - تكنو",
+    "name_en": "White watercolor drawing papers - Techno",
+    "name_fr": "Papiers à dessin aquarelle blancs - Techno",
+    "price": 480
+  },
+  {
+    "id": "69d815006c5f4651883f8287",
+    "name_ar": "ورق بريستول أبيض - تكنو",
+    "name_en": "Bristol white paper - techno",
+    "name_fr": "Livre blanc Bristol - techno",
+    "price": 450
+  },
+  {
+    "id": "69d81aa56c5f4651883f82c3",
+    "name_ar": "مغلف ورق رسم أبيض - الهلال",
+    "name_en": "White drawing paper envelope - Al Hilal",
+    "name_fr": "Enveloppe en papier à dessin blanc - Al Hilal",
+    "price": 100
+  },
+  {
+    "id": "69d81fdb6c5f4651883f8335",
+    "name_ar": "ورق رسم كونسون - تكنو",
+    "name_en": "Conson Drawing Paper - Techno",
+    "name_fr": "Papier à Dessin Conson - Techno",
+    "price": 440
+  },
+  {
+    "id": "69d8204c6c5f4651883f8353",
+    "name_ar": "أوراق رسم ملونة - تكنو",
+    "name_en": "Colored drawing papers - Techno",
+    "name_fr": "Papiers à dessin colorés - Techno",
+    "price": 590
+  },
+  {
+    "id": "69d827496c5f4651883f83f5",
+    "name_ar": "دفتر قماشة الرسم - تكنو",
+    "name_en": "Sketchpad Notebook - Techno",
+    "name_fr": "Carnet de croquis - Techno",
+    "price": 1450
+  },
+  {
+    "id": "69d828b16c5f4651883f8412",
+    "name_ar": "دفتر قماشة الرسم من تكنو",
+    "name_en": "Techno Sketchbook",
+    "name_fr": "Carnet de croquis techno",
+    "price": 1150
+  },
+  {
+    "id": "69dacf926c5f4651883f85c1",
+    "name_ar": "لوحة مفاتيح وفأرة لاسلكية Taziri TZ0924",
+    "name_en": "Taziri TZ0924 wireless keyboard and mouse",
+    "name_fr": "Clavier et souris sans fil Taziri TZ0924",
+    "price": 2900
+  },
+  {
+    "id": "69dad1676c5f4651883f865b",
+    "name_ar": "Taziri TZ0923 DARKFLASH (لوحة مفاتيح وفأرة مضيئة للألعاب)",
+    "name_en": "Taziri TZ0923 DARKFLASH (Luminous Gaming Keyboard and Mouse)",
+    "name_fr": "Taziri TZ0923 DARKFLASH (Clavier et souris de jeu lumineux)",
+    "price": 2700
+  },
+  {
+    "id": "69dad2026c5f4651883f8679",
+    "name_ar": "لوحة مفاتيح الكمبيوتر Taziri TZ0434",
+    "name_en": "Taziri TZ0434 computer keyboard",
+    "name_fr": "Clavier d'ordinateur Taziri TZ0434",
+    "price": 580
+  },
+  {
+    "id": "69dad3ae6c5f4651883f86f0",
+    "name_ar": "لوحة مفاتيح مرنة مصنوعة من السيليكون (Flexible Keyboard)",
+    "name_en": "Flexible Keyboard",
+    "name_fr": "Clavier flexible",
+    "price": 1450
+  },
+  {
+    "id": "69dada986c5f4651883f8809",
+    "name_ar": "لوحة مفاتيح رقمية صغيرة",
+    "name_en": "Small numeric keyboard",
+    "name_fr": "Petit clavier numérique",
+    "price": 2600
+  },
+  {
+    "id": "69dadaf66c5f4651883f8825",
+    "name_ar": "لوحة مفاتيح Taziri TZ0928 اللاسلكية",
+    "name_en": "Taziri TZ0928 Wireless Keyboard",
+    "name_fr": "Clavier sans fil Taziri TZ0928",
+    "price": 3300
+  },
+  {
+    "id": "69f1edba8ab2bbcf283cd5e6",
+    "name_ar": "ثاقبة ورق فنية",
+    "name_en": "Art paper puncher",
+    "name_fr": "Perforateur de papier d'art",
+    "price": 1290
+  },
+  {
+    "id": "69f1ef0b8ab2bbcf283cd605",
+    "name_ar": "ثاقبة ورق فنية",
+    "name_en": "Art paper puncher",
+    "name_fr": "Perforateur de papier d'art",
+    "price": 1100
+  },
+  {
+    "id": "69f20ec38ab2bbcf283cd696",
+    "name_ar": "ثاقبة ورق فنية",
+    "name_en": "Art paper puncher",
+    "name_fr": "Perforateur de papier d'art",
+    "price": 550
+  },
+  {
+    "id": "69f24213f24752a67e6d1d81",
+    "name_ar": "ثاقبة ورق احترافية بـ 3 ثقوب",
+    "name_en": "Professional 3 hole paper puncher",
+    "name_fr": "Perforateur de papier professionnel à 3 trous",
+    "price": 2200
+  },
+  {
+    "id": "69f251faf24752a67e6d214a",
+    "name_ar": "خرطوشة طابعة ليزر ملونة عالية السعة",
+    "name_en": "High capacity color laser printer cartridge",
+    "name_fr": "Cartouche d'imprimante laser couleur haute capacité",
+    "price": 3350
+  },
+  {
+    "id": "69f25350f24752a67e6d2192",
+    "name_ar": "خرطوشة طابعة ليزر ملونة عالية السعة",
+    "name_en": "High capacity color laser printer cartridge",
+    "name_fr": "Cartouche d'imprimante laser couleur haute capacité",
+    "price": 2600
+  },
+  {
+    "id": "69f2539ef24752a67e6d21b6",
+    "name_ar": "خرطوشة طابعة ليزر ملونة عالية السعة",
+    "name_en": "High capacity color laser printer cartridge",
+    "name_fr": "Cartouche d'imprimante laser couleur haute capacité",
+    "price": 3350
+  },
+  {
+    "id": "69f25dbef24752a67e6d22ef",
+    "name_ar": "خرطوشة طابعة ليزر ملونة عالية السعة",
+    "name_en": "High capacity color laser printer cartridge",
+    "name_fr": "Cartouche d'imprimante laser couleur haute capacité",
+    "price": 3600
+  },
+  {
+    "id": "6a08b3547a61c558ec3eec67",
+    "name_ar": "لوحة الرسم المغناطيسية",
+    "name_en": "Magnetic drawing board",
+    "name_fr": "Planche à dessin magnétique",
+    "price": 2700
+  },
+  {
+    "id": "6a08b4127a61c558ec3eecfb",
+    "name_ar": "أحجية فرز الكرات المغناطيسية الملونة",
+    "name_en": "Colored magnetic ball sorting puzzle",
+    "name_fr": "Puzzle de tri de boules magnétiques colorées",
+    "price": 3300
+  },
+  {
+    "id": "6a09b6da5d6b09d48e74611e",
+    "name_ar": "لوحة أحجية الأشكال الهندسية والأرقام الخشبية",
+    "name_en": "Wooden geometric shapes and numbers puzzle board",
+    "name_fr": "Tableau de puzzle de formes géométriques et de nombres en bois",
+    "price": 390
+  },
+  {
+    "id": "6a09b8dc5d6b09d48e74616e",
+    "name_ar": "لوحة البراغي والصواميل التعليمية التفاعلية",
+    "name_en": "Interactive educational bolts and nuts board",
+    "name_fr": "Tableau éducatif interactif sur les boulons et les écrous",
+    "price": 2600
+  },
+  {
+    "id": "6a09c3fe5d6b09d48e746265",
+    "name_ar": "لوحة متاهة مطابقة الحروف الإنجليزية والكلمات",
+    "name_en": "Maze board matching English letters and words",
+    "name_fr": "Tableau labyrinthe correspondant aux lettres et aux mots anglais",
+    "price": 450
+  },
+  {
+    "id": "6a09ca6b5d6b09d48e746292",
+    "name_ar": "لوحة أحجية الحروف الإنجليزية والكلمات",
+    "name_en": "English letters and words puzzle board",
+    "name_fr": "Tableau de puzzle de lettres et de mots anglais",
+    "price": 390
+  },
+  {
+    "id": "6a09cad95d6b09d48e7462bf",
+    "name_ar": "لوحة أحجية الحروف الفرنسية والكلمات",
+    "name_en": "French letters and words puzzle board",
+    "name_fr": "Tableau de puzzle de lettres et de mots français",
+    "price": 390
+  },
+  {
+    "id": "6a0b04577130307fdd7763f1",
+    "name_ar": "لوحة أحجية الأرقام والعد",
+    "name_en": "Numbers and counting puzzle board",
+    "name_fr": "Tableau de puzzle de nombres et de comptage",
+    "price": 450
+  },
+  {
+    "id": "6a0b04c87130307fdd77641f",
+    "name_ar": "لوحة أحجية الحروف العربية والكلمات",
+    "name_en": "Arabic letters and words puzzle board",
+    "name_fr": "Tableau de puzzle de lettres et de mots arabes",
+    "price": 450
+  },
+  {
+    "id": "6a0b06387130307fdd77644d",
+    "name_ar": "لوحة مطابقة الصور",
+    "name_en": "Picture matching board",
+    "name_fr": "Tableau de correspondance d'images",
+    "price": 2300
+  },
+  {
+    "id": "6a0b06f67130307fdd77647b",
+    "name_ar": "لوحة متاهة فرز",
+    "name_en": "Sorting maze board",
+    "name_fr": "Tableau de labyrinthe de tri",
+    "price": 550
+  },
+  {
+    "id": "6a35ab73460f10d6c37a4bf5",
+    "name_ar": "لوحة السوروبان التعليمية للحساب الذهني",
+    "name_en": "Soroban educational board for mental arithmetic",
+    "name_fr": "Tableau pédagogique Soroban pour le calcul mental",
+    "price": 180
+  },
+  {
+    "id": "6a404c51ef3bac5f245b3e8b",
+    "name_ar": "لوحة التركيب الفنية بكرات القطن",
+    "name_en": "Art mounting plate with cotton balls",
+    "name_fr": "Plaque de montage artistique avec boules de coton",
+    "price": 1480
+  },
+  {
+    "id": "6a404e90ef3bac5f245b3eac",
+    "name_ar": "لوحة التركيب الفنية بكرات القطن",
+    "name_en": "Art mounting plate with cotton balls",
+    "name_fr": "Plaque de montage artistique avec boules de coton",
+    "price": 1480
+  },
+  {
+    "id": "6a40520a7a7cf365f157fb60",
+    "name_ar": "لوحة التركيب الفنية بكرات القطن",
+    "name_en": "Art mounting plate with cotton balls",
+    "name_fr": "Plaque de montage artistique avec boules de coton",
+    "price": 1480
+  },
+  {
+    "id": "6a40586f7a7cf365f157fb80",
+    "name_ar": "لوحة التركيب الفنية بكرات القطن",
+    "name_en": "Art mounting plate with cotton balls",
+    "name_fr": "Plaque de montage artistique avec boules de coton",
+    "price": 1480
+  },
+  {
+    "id": "6a40590d7a7cf365f157fba1",
+    "name_ar": "لوحة التركيب الفنية بكرات القطن",
+    "name_en": "Art mounting plate with cotton balls",
+    "name_fr": "Plaque de montage artistique avec boules de coton",
+    "price": 1480
+  },
+  {
+    "id": "6a40596c7a7cf365f157fbc3",
+    "name_ar": "لوحة التركيب الفنية بكرات القطن",
+    "name_en": "Art mounting plate with cotton balls",
+    "name_fr": "Plaque de montage artistique avec boules de coton",
+    "price": 1480
+  },
+  {
+    "id": "6a4059e17a7cf365f157fbe6",
+    "name_ar": "لوحة التزيين بالكريستال والألماس",
+    "name_en": "Crystal and diamond decoration plate",
+    "name_fr": "Assiette de décoration en cristal et diamants",
+    "price": 850
+  },
+  {
+    "id": "6a4060787a7cf365f157fc2f",
+    "name_ar": "لوحة التزيين بالكريستال والألماس",
+    "name_en": "Crystal and diamond decoration plate",
+    "name_fr": "Assiette de décoration en cristal et diamants",
+    "price": 850
+  },
+  {
+    "id": "6a4060f37a7cf365f157fc55",
+    "name_ar": "لوحة التزيين بالكريستال والألماس",
+    "name_en": "Crystal and diamond decoration plate",
+    "name_fr": "Assiette de décoration en cristal et diamants",
+    "price": 850
+  },
+  {
+    "id": "6a4062097a7cf365f157fc7b",
+    "name_ar": "لوحة التزيين بالكريستال والألماس",
+    "name_en": "Crystal and diamond decoration plate",
+    "name_fr": "Assiette de décoration en cristal et diamants",
+    "price": 850
+  },
+  {
+    "id": "6a4063c77a7cf365f157fca2",
+    "name_ar": "لوحة التزيين بالكريستال والألماس",
+    "name_en": "Crystal and diamond decoration plate",
+    "name_fr": "Assiette de décoration en cristal et diamants",
+    "price": 850
+  },
+  {
+    "id": "6a40647e7a7cf365f157fcca",
+    "name_ar": "لوحة التزيين بالكريستال والألماس",
+    "name_en": "Crystal and diamond decoration plate",
+    "name_fr": "Assiette de décoration en cristal et diamants",
+    "price": 850
+  },
+  {
+    "id": "6a4064dd7a7cf365f157fcf3",
+    "name_ar": "لوحة التركيب الفنية بكرات القطن",
+    "name_en": "Art mounting plate with cotton balls",
+    "name_fr": "Plaque de montage artistique avec boules de coton",
+    "price": 1480
+  },
+  {
+    "id": "6a4065347a7cf365f157fd1a",
+    "name_ar": "لوحة التركيب الفنية بكرات القطن",
+    "name_en": "Art mounting plate with cotton balls",
+    "name_fr": "Plaque de montage artistique avec boules de coton",
+    "price": 1480
+  },
+  {
+    "id": "6a4065cf7a7cf365f157fd43",
+    "name_ar": "لوحة التزيين بالكريستال والألماس",
+    "name_en": "Crystal and diamond decoration plate",
+    "name_fr": "Assiette de décoration en cristal et diamants",
+    "price": 850
+  },
+  {
+    "id": "6a46e3a51b725f0a0b102dd7",
+    "name_ar": "حافظة الطعام",
+    "name_en": "Food container",
+    "name_fr": "Récipient alimentaire",
+    "price": 150
+  },
+  {
+    "id": "6a6f9fff43a3b17a5e549b24",
+    "name_ar": "دفتر سلك جامعي فيرتكس 5 المواضيع - 175 ورقة (20×27 سم)",
+    "name_en": "Vertex 5 Subject College Notebook - 175 Sheets (20x27 cm)",
+    "name_fr": "Cahier universitaire Vertex 5 sujets - 175 feuilles (20x27 cm)",
+    "price": 1250
+  },
+  {
+    "id": "6a6fa11f43a3b17a5e549b39",
+    "name_ar": "دفتر سلك إكسال 2 في 1 فاخر",
+    "name_en": "Excel 2 in 1 deluxe wire notebook",
+    "name_fr": "Carnet filaire de luxe Excel 2 en 1",
+    "price": 300
+  },
+  {
+    "id": "6a6fa23c43a3b17a5e549b4d",
+    "name_ar": "دفتر سلك إكسال 5 في 1 فاخر",
+    "name_en": "Excel 5 in 1 deluxe wire notebook",
+    "name_fr": "Carnet filaire de luxe Excel 5 en 1",
+    "price": 980
+  },
+  {
+    "id": "6a6fa37043a3b17a5e549b61",
+    "name_ar": "دفتر سلك إكسال 10 في 1 فاخر",
+    "name_en": "Excel 10 in 1 deluxe wire notebook",
+    "name_fr": "Carnet filaire de luxe Excel 10 en 1",
+    "price": 1750
+  },
+  {
+    "id": "6a6fa4a343a3b17a5e549b75",
+    "name_ar": "دفتر سلك إكسال 2 في 1",
+    "name_en": "Excel wire notebook 2 in 1",
+    "name_fr": "Cahier filaire Excel 2 en 1",
+    "price": 490
+  },
+  {
+    "id": "6a6fa59943a3b17a5e549b89",
+    "name_ar": "دفتر سلك جامعي فيرتكس",
+    "name_en": "Vertex college wire notebook",
+    "name_fr": "Cahier de fil Vertex College",
+    "price": 1450
+  },
+  {
+    "id": "6a6fa75443a3b17a5e549b9d",
+    "name_ar": "دفتر سلك إكسال 3 في 1 فاخر",
+    "name_en": "Excel 3 in 1 deluxe wire notebook",
+    "name_fr": "Carnet filaire de luxe Excel 3 en 1",
+    "price": 690
+  },
+  {
+    "id": "6a70c810df489b21ec3664fd",
+    "name_ar": "دفتر مدرسي ريان  - 96 صفحة",
+    "name_en": "Rayyan school notebook - 96 pages",
+    "name_fr": "Cahier d'écolier Rayyan - 96 pages",
+    "price": 40
+  },
+  {
+    "id": "6a70c939df489b21ec366511",
+    "name_ar": "دفتر سلك إكسال 8 في 1 فاخر",
+    "name_en": "Excel 8 in 1 deluxe wire notebook",
+    "name_fr": "Carnet filaire de luxe Excel 8 en 1",
+    "price": 1480
+  },
+  {
+    "id": "6a70ca4edf489b21ec366535",
+    "name_ar": "دفتر مدرسي الهلال - 96 صفحة (70غ)",
+    "name_en": "Al Hilal School Notebook - 96 pages (70g)",
+    "name_fr": "Cahier scolaire Al Hilal - 96 pages (70g)",
+    "price": 45
+  },
+  {
+    "id": "6a73537552340bce1eac6ab5",
+    "name_ar": "دفتر مدرسي تكنو تشالنج  - 120 صفحة",
+    "name_en": "Techno Challenge school notebook - 120 pages",
+    "name_fr": "Cahier scolaire Techno Challenge - 120 pages",
+    "price": 70
+  },
+  {
+    "id": "6a735ae217290daf260d514c",
+    "name_ar": "دفتر مدرسي أقيموباب - 96 صفحة",
+    "name_en": "Akimubab school notebook - 96 pages",
+    "name_fr": "Cahier scolaire Akimubab - 96 pages",
+    "price": 40
+  },
+  {
+    "id": "6a735bcb17290daf260d5160",
+    "name_ar": "دفتر مدرسي ريان بتصميم حافلة القلم والأرقام - 32 صفحة",
+    "name_en": "Rayyan school notebook with pen and numbers bus design - 32 pages",
+    "name_fr": "Cahier d'écolier Rayyan avec stylo et chiffres design bus - 32 pages",
+    "price": 30
+  },
+  {
+    "id": "6a735d7017290daf260d5174",
+    "name_ar": "دفتر مدرسي ريان بتصميم الغزال اللطيف - 48 صفحة",
+    "name_en": "Rayan's school notebook with cute deer design - 48 pages",
+    "name_fr": "Cahier d'écolier de Rayan avec un joli motif de cerf - 48 pages",
+    "price": 35
+  },
+  {
+    "id": "6a73602d17290daf260d5188",
+    "name_ar": "دفتر مدرسي ريان - 64 صفحة",
+    "name_en": "Rayyan school notebook - 64 pages",
+    "name_fr": "Cahier d'écolier Rayyan - 64 pages",
+    "price": 35
+  },
+  {
+    "id": "6a73613117290daf260d519c",
+    "name_ar": "كراس الموسيقى تكنو - 32 صفحة (17×22 سم)",
+    "name_en": "Techno Music Notebook - 32 Pages (17x22 cm)",
+    "name_fr": "Carnet de Musique Techno - 32 Pages (17x22 cm)",
+    "price": 100
+  },
+  {
+    "id": "6a7361fb17290daf260d51b0",
+    "name_ar": "كراس الموسيقى تكنو - 32 صفحة (21×29.7 سم)",
+    "name_en": "Techno Music Notebook - 32 pages (21 x 29.7 cm)",
+    "name_fr": "Carnet Techno Musique - 32 pages (21 x 29,7 cm)",
+    "price": 180
+  },
+  {
+    "id": "6a73632517290daf260d51c4",
+    "name_ar": "كراس أعمال تطبيقية تكنو - 120 صفحة",
+    "name_en": "Techno practical workbook - 120 pages",
+    "name_fr": "Cahier pratique techno - 120 pages",
+    "price": 150
+  },
+  {
+    "id": "6a7363e317290daf260d51d8",
+    "name_ar": "كراس أعمال تطبيقية تكنو - 192 صفحة",
+    "name_en": "Techno applied workbook - 192 pages",
+    "name_fr": "Cahier d'exercices techno appliqué - 192 pages",
+    "price": 200
+  },
+  {
+    "id": "6a73663317290daf260d5220",
+    "name_ar": "دفتر مدرسي تكنو تشالنج - 64 صفحة",
+    "name_en": "Techno Challenge school notebook - 64 pages",
+    "name_fr": "Cahier scolaire Techno Challenge - 64 pages",
+    "price": 50
+  },
+  {
+    "id": "6a7366d117290daf260d5253",
+    "name_ar": "كراس أعمال تطبيقية تكنو - 64 صفحة",
+    "name_en": "Techno applied workbook - 64 pages",
+    "name_fr": "Cahier d'exercices techno appliqué - 64 pages",
+    "price": 50
+  },
+  {
+    "id": "6a73676b17290daf260d5267",
+    "name_ar": "دفتر مدرسي الهلال - 64 صفحة",
+    "name_en": "Al Hilal school notebook - 64 pages",
+    "name_fr": "Cahier scolaire Al Hilal - 64 pages",
+    "price": 45
+  },
+  {
+    "id": "6a73682c17290daf260d527b",
+    "name_ar": "دفتر مدرسي الهلال - 48 صفحة",
+    "name_en": "Al Hilal school notebook - 48 pages",
+    "name_fr": "Cahier scolaire Al Hilal - 48 pages",
+    "price": 55
+  },
+  {
+    "id": "6a7368c417290daf260d528f",
+    "name_ar": "دفتر مدرسي الهلال - 32 صفحة",
+    "name_en": "Al Hilal school notebook - 32 pages",
+    "name_fr": "Cahier scolaire Al Hilal - 32 pages",
+    "price": 40
+  },
+  {
+    "id": "6a736ae717290daf260d52a3",
+    "name_ar": "دفتر مدرسي تكنو تشالنج - 96 صفحة",
+    "name_en": "Techno Challenge school notebook - 96 pages",
+    "name_fr": "Cahier scolaire Techno Challenge - 96 pages",
+    "price": 60
+  },
+  {
+    "id": "6a736bcc17290daf260d52d5",
+    "name_ar": "دفتر مدرسي حلزوني الهلال - 288 صفحة",
+    "name_en": "Al-Hilal spiral school notebook - 288 pages",
+    "name_fr": "Cahier d'écolier à spirale Al-Hilal - 288 pages",
+    "price": 340
+  },
+  {
+    "id": "6a736ca217290daf260d5317",
+    "name_ar": "دفتر مدرسي الهلال - 192 صفحة (70غ)",
+    "name_en": "Al Hilal School Notebook - 192 pages (70g)",
+    "name_fr": "Cahier scolaire Al Hilal - 192 pages (70g)",
+    "price": 170
+  },
+  {
+    "id": "6a736dd317290daf260d532b",
+    "name_ar": "دفتر مدرسي ريان - 288 صفحة",
+    "name_en": "Rayan's school notebook - 288 pages",
+    "name_fr": "Cahier d'écolier de Rayan - 288 pages",
+    "price": 290
+  },
+  {
+    "id": "6a736f3d17290daf260d533f",
+    "name_ar": "دفتر مدرسي ريان ديزاين - 192 صفحة",
+    "name_en": "Ryan Design school notebook - 192 pages",
+    "name_fr": "Cahier d'écolier Ryan Design - 192 pages",
+    "price": 220
+  },
+  {
+    "id": "6a739a3dae11e1d1751278dc",
+    "name_ar": "دفتر مدرسي تكنو شخصيات كرتونية - 96 صفحة",
+    "name_en": "Techno school notebook with cartoon characters - 96 pages",
+    "name_fr": "Cahier d'écolier techno avec personnages de dessins animés - 96 pages",
+    "price": 60
+  },
+  {
+    "id": "6a739af5ae11e1d1751278f0",
+    "name_ar": "دفتر مدرسي تكنو شخصيات كرتونية - 120 صفحة",
+    "name_en": "Techno school notebook with cartoon characters - 120 pages",
+    "name_fr": "Cahier d'écolier techno avec personnages de dessins animés - 120 pages",
+    "price": 70
+  },
+  {
+    "id": "6a777f6a29520034e0d4310b",
+    "name_ar": "دفتر مدرسي حلزوني الهلال - 288 صفحة (17×22 سم)",
+    "name_en": "Al Hilal spiral school notebook - 288 pages (17 x 22 cm)",
+    "name_fr": "Cahier scolaire à spirale Al Hilal - 288 pages (17 x 22 cm)",
+    "price": 370
+  },
+  {
+    "id": "6a7785ee29520034e0d4316a",
+    "name_ar": "دفتر مدرسي حلزوني فيرتكس للطلاب",
+    "name_en": "Vertex spiral notebook for students",
+    "name_fr": "Cahier à spirale Vertex pour étudiants",
+    "price": 620
+  },
+  {
+    "id": "6a779f174e4d543884233d11",
+    "name_ar": "كراس المواد حلزوني تكنو جو نوت 3 في 1 - 150 صفحة (A4)",
+    "name_en": "Techno Go Note 3 in 1 spiral notebook - 150 pages (A4)",
+    "name_fr": "Cahier à spirale Techno Go Note 3 en 1 - 150 pages (A4)",
+    "price": 750
+  },
+  {
+    "id": "6a789b6cb0b4c5d3b4af3c3a",
+    "name_ar": "مفكرة ورقية حلزونية بلوك نوت (A4)",
+    "name_en": "Block Note Spiral Paper Notebook (A4)",
+    "name_fr": "Bloc-notes en papier à spirale Block Note (A4)",
+    "price": 180
+  },
+  {
+    "id": "6a7dca1f6c582d91b5ffe48b",
+    "name_ar": "مفكرة ورقية مقبسة بلوك نوت (A4)",
+    "name_en": "Block Note Paper Notebook (A4)",
+    "name_fr": "Bloc-notes en papier (A4)",
+    "price": 160
+  },
+  {
+    "id": "6a7dcadc6c582d91b5ffe49f",
+    "name_ar": "دفتر ملاحظات حلزوني علوي تكنو بلوجي بلس - 100 صفحة (A4)",
+    "name_en": "Techno Blog Plus Spiral Notebook - 100 Pages (A4)",
+    "name_fr": "Techno Blog Plus Cahier à spirales – 100 pages (A4)",
+    "price": 390
+  },
+  {
+    "id": "6a7dd0dba98cffb6011ba8aa",
+    "name_ar": "دفتر ملاحظات حلزوني علوي إكسيليس بلوك نوت - 70 صفحة (A4)",
+    "name_en": "Excelis Block Note Spiral Notebook - 70 Pages (A4)",
+    "name_fr": "Cahier à spirale Excelis Block Note - 70 pages (A4)",
+    "price": 220
+  },
+  {
+    "id": "6a7dd1aea98cffb6011ba8be",
+    "name_ar": "دفتر ملاحظات إكسيليس بلوك نوت - 70 صفحة (A4)",
+    "name_en": "Excelis Block Note Notebook - 70 Pages (A4)",
+    "name_fr": "Carnet de notes Excelis Block - 70 pages (A4)",
+    "price": 220
+  },
+  {
+    "id": "6a7dd2c3a98cffb6011ba91e",
+    "name_ar": "دفتر ملاحظات إكسيليس بلوك نوت - 70 صفحة (A5)",
+    "name_en": "Excelis Block Note Notebook - 70 Pages (A5)",
+    "name_fr": "Carnet de notes Excelis Block - 70 pages (A5)",
+    "price": 120
+  },
+  {
+    "id": "6a7dd38da98cffb6011ba941",
+    "name_ar": "دفتر ملاحظات ميداني حلزوني علوي إكسيليس - 140 صفحة (A4)",
+    "name_en": "Excelis spiral bound field notebook - 140 pages (A4)",
+    "name_fr": "Carnet de terrain Excelis à spirales - 140 pages (A4)",
+    "price": 480
+  },
+  {
+    "id": "6a7dd703a98cffb6011ba969",
+    "name_ar": "كراس النصوص حلزوني مقسم تكنو (Cahier De Textes)",
+    "name_en": "Techno Divider Spiral Textbook (Cahier De Textes)",
+    "name_fr": "Techno Divider Spiral Textbook (Cahier De Textes)",
+    "price": 390
+  },
+  {
+    "id": "6a7df2fde04d1324e343bcb6",
+    "name_ar": "مئزر مدرسي بدون أكمام فيرتكس بقماش مختلط مع مسطرة هدية",
+    "name_en": "Mixed fabric Vertex sleeveless school apron with ruler as a gift",
+    "name_fr": "Tablier d'école sans manches Vertex en tissu mixte avec règle en cadeau",
+    "price": 2300
+  },
+  {
+    "id": "6a80313339c855f617048932",
+    "name_ar": "مئزر مدرسي بدون أكمام فيرتكس بقماش مختلط مع مسطرة هدية",
+    "name_en": "Mixed fabric Vertex sleeveless school apron with ruler as a gift",
+    "name_fr": "Tablier d'école sans manches Vertex en tissu mixte avec règle en cadeau",
+    "price": 2300
+  },
+  {
+    "id": "6a97d32708bd856d2239942c",
+    "name_ar": "مقلمة مدرسية",
+    "name_en": "School pencil case",
+    "name_fr": "Trousse d'école",
+    "price": 950
+  },
+  {
+    "id": "6a97d3bd08bd856d2239946e",
+    "name_ar": "مقلمة مدرسية لطيفة",
+    "name_en": "Cute school pencil case",
+    "name_fr": "Jolie trousse d'école",
+    "price": 950
+  },
+  {
+    "id": "6a97d42f08bd856d22399485",
+    "name_ar": "مقلمة مدرسية حماسية للأولاد",
+    "name_en": "Enthusiastic school pencil case for boys",
+    "name_fr": "Trousse d'école enthousiaste pour garçons",
+    "price": 1100
+  },
+  {
+    "id": "6a97d53608bd856d2239949c",
+    "name_ar": "مقلمة مدرسية حماسية للأولاد",
+    "name_en": "Enthusiastic school pencil case for boys",
+    "name_fr": "Trousse d'école enthousiaste pour garçons",
+    "price": 950
+  },
+  {
+    "id": "6a97d5d108bd856d223994b3",
+    "name_ar": "مقلمة مدرسية لطيفة وعصرية",
+    "name_en": "Cute and fashionable school pencil case",
+    "name_fr": "Trousse d'école mignonne et tendance.",
+    "price": 1100
+  },
+  {
+    "id": "6a97d71408bd856d223994ca",
+    "name_ar": "مقلمة مدرسية شفافة وعصرية",
+    "name_en": "Transparent and modern school pencil case",
+    "name_fr": "Trousse scolaire transparente et moderne",
+    "price": 1100
+  },
+  {
+    "id": "6a97d86708bd856d223994e1",
+    "name_ar": "مقلمة مدرسية عصرية ولطيفة",
+    "name_en": "Fashionable and cute school pencil case",
+    "name_fr": "Trousse d'école tendance et mignonne.",
+    "price": 950
+  },
+  {
+    "id": "6a97d96c08bd856d223994f8",
+    "name_ar": "مقلمة مدرسية لطيفة وعملية",
+    "name_en": "Cute and practical school pencil case",
+    "name_fr": "Trousse scolaire mignonne et pratique",
+    "price": 1100
+  },
+  {
+    "id": "6a97da2d08bd856d2239950f",
+    "name_ar": "مقلمة مدرسية عملية وعصرية بتصميم عمودي قائم",
+    "name_en": "Practical and modern school pencil case with upright vertical design",
+    "name_fr": "Trousse scolaire pratique et moderne au design vertical vertical",
+    "price": 1850
+  },
+  {
+    "id": "6a97dc3608bd856d22399525",
+    "name_ar": "مقلمة مدرسية عملية وأنيقة بتصميم عمودي قائم",
+    "name_en": "Practical and elegant school pencil case with upright vertical design",
+    "name_fr": "Trousse scolaire pratique et élégante au design vertical vertical",
+    "price": 1850
+  },
+  {
+    "id": "6a97dca808bd856d2239953a",
+    "name_ar": "مقلمة مدرسية مميزة وعصرية",
+    "name_en": "A distinctive and modern school pencil case",
+    "name_fr": "Une trousse scolaire distinctive et moderne",
+    "price": 950
+  },
+  {
+    "id": "6a97dd1b08bd856d2239954f",
+    "name_ar": "مقلمة مدرسية لطيفة وعصرية",
+    "name_en": "Cute and fashionable school pencil case",
+    "name_fr": "Trousse d'école mignonne et tendance.",
+    "price": 1100
+  },
+  {
+    "id": "6a97dd8f08bd856d22399563",
+    "name_ar": "مقلمة مدرسية عصرية",
+    "name_en": "Modern school pencil case",
+    "name_fr": "Trousse d'école moderne",
+    "price": 1100
+  }
+]
